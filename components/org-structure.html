@@ -1,0 +1,464 @@
+<div class="card">
+  <div class="card-header">
+    <h2 class="card-title">
+      <i class="fas fa-sitemap" aria-hidden="true"></i>
+      Cấu Trúc Tổ Chức WM
+    </h2>
+    <p class="card-subtitle">
+      Hiểu cách SAP tổ chức warehouse từ cấp cao nhất đến chi tiết nhất
+    </p>
+  </div>
+
+  <div class="card-content">
+    <div class="content-grid">
+      <div class="content-section-intro">
+        <h3 class="section-heading">
+          <i class="fas fa-info-circle text-primary-600"></i>
+          I. Cấu Trúc Tổ Chức (Organizational Structure)
+        </h3>
+        <p class="lead">
+          Cấu trúc tổ chức trong SAP WM là nền tảng để định nghĩa và quản lý các
+          đơn vị kinh doanh và kho hàng.
+        </p>
+      </div>
+
+      <div class="org-hierarchy">
+        <h3 class="section-heading">
+          <i class="fas fa-chart-line text-primary-600"></i>
+          II. Sơ đồ Cấp bậc tổ chức từ cao xuống thấp
+        </h3>
+
+        <div class="hierarchy-container">
+          <div class="hierarchy-level level-1">
+            <div class="org-card client">
+              <div class="org-icon">
+                <i class="fas fa-globe"></i>
+              </div>
+              <div class="org-content">
+                <h4>Client</h4>
+                <p>Cấp tổ chức cao nhất trong SAP</p>
+                <span class="level-badge">Level 1</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hierarchy-connector"></div>
+
+          <div class="hierarchy-level level-2">
+            <div class="org-card company">
+              <div class="org-icon">
+                <i class="fas fa-building"></i>
+              </div>
+              <div class="org-content">
+                <h4>Company Code</h4>
+                <p>Đơn vị pháp lý có báo cáo tài chính riêng</p>
+                <span class="level-badge">Level 2</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hierarchy-connector"></div>
+
+          <div class="hierarchy-level level-3">
+            <div class="org-card plant">
+              <div class="org-icon">
+                <i class="fas fa-industry"></i>
+              </div>
+              <div class="org-content">
+                <h4>Plant</h4>
+                <p>Cơ sở vật lý thực tế: nhà máy, trung tâm phân phối</p>
+                <span class="level-badge">Level 3</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hierarchy-connector"></div>
+
+          <div class="hierarchy-level level-4">
+            <div class="org-card storage-location">
+              <div class="org-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="org-content">
+                <h4>Storage Location (SLoc)</h4>
+                <p>Nơi lưu trữ vật tư vật lý trong một plant</p>
+                <span class="level-badge">Level 4</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hierarchy-connector"></div>
+
+          <div class="hierarchy-level level-5">
+            <div class="org-card warehouse">
+              <div class="org-icon">
+                <i class="fas fa-warehouse"></i>
+              </div>
+              <div class="org-content">
+                <h4>Warehouse Number</h4>
+                <p>Đơn vị tổ chức trung tâm của WM</p>
+                <span class="level-badge">Level 5</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hierarchy-connector"></div>
+
+          <div class="hierarchy-level level-6">
+            <div class="org-card storage-type">
+              <div class="org-icon">
+                <i class="fas fa-th-large"></i>
+              </div>
+              <div class="org-content">
+                <h4>Storage Type</h4>
+                <p>Phân chia kho theo chức năng hoặc cách bố trí</p>
+                <span class="level-badge">Level 6</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hierarchy-connector"></div>
+
+          <div class="hierarchy-level level-7">
+            <div class="org-card storage-section">
+              <div class="org-icon">
+                <i class="fas fa-grip-vertical"></i>
+              </div>
+              <div class="org-content">
+                <h4>Storage Section</h4>
+                <p>Nhóm các bin có đặc điểm tương tự</p>
+                <span class="level-badge">Level 7</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hierarchy-connector"></div>
+
+          <div class="hierarchy-level level-8">
+            <div class="org-card storage-bin">
+              <div class="org-icon">
+                <i class="fas fa-map-pin"></i>
+              </div>
+              <div class="org-content">
+                <h4>Storage Bin</h4>
+                <p>Đơn vị nhỏ nhất, địa chỉ vật lý cụ thể</p>
+                <span class="level-badge">Level 8</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="org-levels-details">
+        <h3 class="section-heading">
+          <i class="fas fa-list-ol text-secondary-600"></i>
+          III. Chi tiết các cấp đơn vị tổ chức
+        </h3>
+
+        <div class="levels-grid">
+          <div class="level-detail-card">
+            <div class="level-detail-header">
+              <i class="fas fa-globe text-primary-600"></i>
+              <h4>1. Client</h4>
+            </div>
+            <ul class="level-detail-list">
+              <li>Là cấp tổ chức cao nhất trong SAP</li>
+              <li>
+                Một hệ thống SAP có thể có nhiều client (dev, test, production)
+              </li>
+              <li>Tất cả dữ liệu đều thuộc một client cụ thể</li>
+            </ul>
+          </div>
+
+          <div class="level-detail-card">
+            <div class="level-detail-header">
+              <i class="fas fa-building text-secondary-600"></i>
+              <h4>2. Company Code</h4>
+            </div>
+            <ul class="level-detail-list">
+              <li>
+                Là đơn vị pháp lý có báo cáo tài chính riêng (bảng cân đối kế
+                toán, P&L)
+              </li>
+              <li>
+                Ví dụ: Global Bike có hai công ty: <strong>US00</strong> (ở Mỹ),
+                <strong>DE00</strong> (ở Đức)
+              </li>
+              <li>Là cấp thấp nhất cho các hoạt động tài chính</li>
+            </ul>
+          </div>
+
+          <div class="level-detail-card">
+            <div class="level-detail-header">
+              <i class="fas fa-industry text-accent-600"></i>
+              <h4>3. Plant</h4>
+            </div>
+            <ul class="level-detail-list">
+              <li>
+                Là một cơ sở vật lý thực tế: nhà máy, trung tâm phân phối, kho
+              </li>
+              <li>Plant sản xuất (manufacturing plant)</li>
+              <li>Plant phân phối (distribution center)</li>
+              <li>Plant dịch vụ hoặc bảo trì (maintenance plant)</li>
+            </ul>
+          </div>
+
+          <div class="level-detail-card">
+            <div class="level-detail-header">
+              <i class="fas fa-map-marker-alt text-warning-600"></i>
+              <h4>4. Storage Location (SLoc)</h4>
+            </div>
+            <ul class="level-detail-list">
+              <li>Là nơi lưu trữ vật tư vật lý trong một plant</li>
+              <li>
+                Một plant có thể có nhiều storage location (VD: FG00 – Finished
+                Goods, TG00 – Trading Goods)
+              </li>
+              <li>
+                Sử dụng chủ yếu trong <strong>Inventory Management (IM)</strong>
+              </li>
+            </ul>
+          </div>
+
+          <div class="level-detail-card">
+            <div class="level-detail-header">
+              <i class="fas fa-warehouse text-success-600"></i>
+              <h4>5. Warehouse Number</h4>
+            </div>
+            <ul class="level-detail-list">
+              <li>
+                Là đơn vị tổ chức trung tâm của
+                <strong>Warehouse Management (WM)</strong>
+              </li>
+              <li>
+                Đại diện cho <strong>một cấu trúc kho tổng thể</strong>, có thể
+                bao gồm nhiều storage type
+              </li>
+              <li>
+                Một <strong>Warehouse Number</strong> có thể phục vụ nhiều
+                <strong>Plant/Storage Location</strong>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="warehouse-internal-structure">
+        <h3 class="section-heading">
+          <i class="fas fa-warehouse text-primary-600"></i>
+          IV. Các cấp đơn vị tổ chức bên trong kho
+        </h3>
+
+        <div class="internal-levels-grid">
+          <div class="internal-level-card">
+            <div class="internal-level-header">
+              <i class="fas fa-th-large text-primary-600"></i>
+              <h4>6. Storage Type</h4>
+            </div>
+            <div class="internal-level-content">
+              <p>Là cách phân chia kho dựa trên chức năng hoặc cách bố trí:</p>
+              <ul class="internal-level-list">
+                <li>Kệ tầng (shelf storage)</li>
+                <li>Pallet (pallet storage)</li>
+                <li>Khu nhập hàng (goods receipt area)</li>
+                <li>Khu chờ vận chuyển (shipping area)</li>
+              </ul>
+              <div class="level-note">
+                <i class="fas fa-info-circle"></i>
+                <p>
+                  Mỗi loại sẽ có <strong>putaway strategy</strong> và
+                  <strong>removal strategy</strong> riêng
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="internal-level-card">
+            <div class="internal-level-header">
+              <i class="fas fa-grip-vertical text-secondary-600"></i>
+              <h4>7. Storage Section</h4>
+            </div>
+            <div class="internal-level-content">
+              <p>
+                Là nhóm các bin có đặc điểm tương tự trong một storage type:
+              </p>
+              <ul class="internal-level-list">
+                <li>Là một đơn vị quản lí nhỏ hơn của storage type</li>
+                <li>
+                  VD: Storage Type = "Shelf", có section "A", "B", "C" theo khu
+                  vực hoặc loại vật tư
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="internal-level-card">
+            <div class="internal-level-header">
+              <i class="fas fa-hand-pointer text-accent-600"></i>
+              <h4>8. Picking Area</h4>
+            </div>
+            <div class="internal-level-content">
+              <p>Dùng cho mục đích chọn hàng (picking):</p>
+              <ul class="internal-level-list">
+                <li>Gộp các bin lại để tối ưu hóa việc pick theo đơn hàng</li>
+                <li>Một bin có thể thuộc nhiều picking area</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="internal-level-card">
+            <div class="internal-level-header">
+              <i class="fas fa-map-pin text-warning-600"></i>
+              <h4>9. Storage Bin</h4>
+            </div>
+            <div class="internal-level-content">
+              <p>
+                Là <strong>đơn vị nhỏ nhất</strong>, địa chỉ vật lý cụ thể trong
+                kho:
+              </p>
+              <ul class="internal-level-list">
+                <li>VD: A01-02-05</li>
+                <li>Tại đây, bạn có thể lưu trữ material</li>
+                <li>Là nơi gán vật tư thực tế trong TO, TR</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="related-components">
+        <h3 class="section-heading">
+          <i class="fas fa-link text-accent-600"></i>
+          V. Các thành phần liên kết khác
+        </h3>
+
+        <div class="components-grid">
+          <div class="component-card">
+            <div class="level-header">
+              <i class="fas fa-shipping-fast text-success-600"></i>
+              <h4>Shipping Point</h4>
+            </div>
+            <p>
+              Là điểm chịu trách nhiệm tổ chức vận chuyển: phương tiện, phương
+              thức, chuẩn bị hàng
+            </p>
+          </div>
+
+          <div class="component-card">
+            <div class="level-header">
+              <i class="fas fa-door-open text-primary-600"></i>
+              <h4>Warehouse Door</h4>
+            </div>
+            <p>
+              Là cửa kho – nơi chuyển giao giữa vận chuyển bên ngoài và nội bộ
+            </p>
+          </div>
+
+          <div class="component-card">
+            <div class="level-header">
+              <i class="fas fa-layer-group text-secondary-600"></i>
+              <h4>Allocation Zone</h4>
+            </div>
+            <p>
+              Là khu vực trung gian để gom hàng (vừa nhập về hoặc chuẩn bị giao
+              đi)
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="example-section">
+        <h3 class="section-heading">
+          <i class="fas fa-lightbulb text-warning-600"></i>
+          VI. Ví dụ về Org Structure
+        </h3>
+
+        <div class="example-box">
+          <h4 class="example-title">
+            <i class="fas fa-bicycle"></i>
+            Global Bike Inc. (US) - Sơ đồ tổ chức kho
+          </h4>
+
+          <div class="example-hierarchy">
+            <div class="example-level"><strong>Client:</strong> 800</div>
+            <div class="example-level"><strong>Company Code:</strong> US00</div>
+            <div class="example-level">
+              <strong>Plant:</strong> SD00 (San Diego)
+            </div>
+            <div class="example-level">
+              <strong>Storage Location:</strong> FG00 (Finished Goods)
+            </div>
+            <div class="example-level">
+              <strong>Warehouse Number:</strong> 001
+              <div class="example-sublevel">
+                <div class="sublevel-item">
+                  <strong>Storage Type:</strong>
+                  <ul class="sublevel-list">
+                    <li>001 – Shelf Storage</li>
+                    <li>002 – Pallet Storage</li>
+                    <li>003 – Goods Receipt Area</li>
+                  </ul>
+                </div>
+                <div class="sublevel-item">
+                  <strong>Storage Section:</strong>
+                  <ul class="sublevel-list">
+                    <li>A – Lightweight</li>
+                    <li>B – Heavy</li>
+                  </ul>
+                </div>
+                <div class="sublevel-item">
+                  <strong>Storage Bin:</strong>
+                  <ul class="sublevel-list">
+                    <li>A1-01-01, A1-01-02, B2-02-01,...</li>
+                  </ul>
+                </div>
+                <div class="sublevel-item">
+                  <strong>Picking Area:</strong> ZP01 – Picking for e-commerce
+                </div>
+                <div class="sublevel-item">
+                  <strong>Shipping Point:</strong> SDSP
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-integration">
+        <h3 class="section-heading">
+          <i class="fas fa-project-diagram text-primary-600"></i>
+          VII. Liên kết với Module khác
+        </h3>
+
+        <div class="integration-cards">
+          <div class="integration-card wm-im">
+            <div class="integration-header">
+              <i class="fas fa-exchange-alt"></i>
+              <h4>WM ↔ IM (MM)</h4>
+            </div>
+            <p>
+              Storage Bin là chi tiết trong WM, còn Storage Location là cấp tổ
+              chức trong IM
+            </p>
+          </div>
+
+          <div class="integration-card wm-sd">
+            <div class="integration-header">
+              <i class="fas fa-truck"></i>
+              <h4>WM ↔ SD</h4>
+            </div>
+            <p>Tự động tạo picking TO từ outbound delivery</p>
+          </div>
+
+          <div class="integration-card wm-pp">
+            <div class="integration-header">
+              <i class="fas fa-cogs"></i>
+              <h4>WM ↔ PP</h4>
+            </div>
+            <p>Xuất nguyên vật liệu cho sản xuất qua TO/transfer posting</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

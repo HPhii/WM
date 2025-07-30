@@ -1,0 +1,860 @@
+<div class="card">
+  <div class="card-header">
+    <h2 class="card-title">
+      <i class="fas fa-clipboard-check" aria-hidden="true"></i>
+      Kiểm Kê Kho Vật Lý (Physical Inventory)
+    </h2>
+    <p class="card-subtitle">
+      Đảm bảo số lượng hàng thực tế khớp với số liệu hệ thống. Thường dùng vào
+      cuối kỳ, kiểm tra đột xuất hoặc định kỳ.
+    </p>
+  </div>
+
+  <div class="card-content">
+    <div class="content-grid">
+      <div class="objectives-section">
+        <h3 class="section-heading">
+          <i class="fas fa-bullseye text-primary-600"></i>
+          I. Mục tiêu của Physical Inventory Process
+        </h3>
+
+        <div class="objectives-cards">
+          <div class="objective-card">
+            <div class="objective-icon">
+              <i class="fas fa-balance-scale"></i>
+            </div>
+            <h4>So sánh thực tế với hệ thống</h4>
+            <p>
+              So sánh <strong>số lượng hàng thực tế trong kho</strong> với
+              <strong>số liệu hệ thống SAP</strong>.
+            </p>
+          </div>
+
+          <div class="objective-card">
+            <div class="objective-icon">
+              <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <h4>Ghi nhận chênh lệch</h4>
+            <p>
+              Ghi nhận <strong>chênh lệch (nếu có)</strong> và điều chỉnh tồn
+              kho.
+            </p>
+          </div>
+
+          <div class="objective-card">
+            <div class="objective-icon">
+              <i class="fas fa-gavel"></i>
+            </div>
+            <h4>Tuân thủ quy định</h4>
+            <p>
+              Bắt buộc phải làm định kỳ (theo luật tài chính và kiểm toán nội
+              bộ).
+            </p>
+          </div>
+
+          <div class="objective-card">
+            <div class="objective-icon">
+              <i class="fas fa-sync-alt"></i>
+            </div>
+            <h4>Cập nhật thông tin</h4>
+            <p>
+              Mục đích của việc clear trong đây là để update lại thông tin trên
+              hệ thống (khi move hàng từ A → B ở physical thì cần update).
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="wm-process-section">
+        <h3 class="section-heading">
+          <i class="fas fa-cogs text-success-600"></i>
+          II. Quy trình kiểm kê trong WM
+        </h3>
+
+        <div class="process-intro">
+          <p class="process-description">
+            SAP WM chia quy trình kiểm kê làm 6 bước chính.
+          </p>
+        </div>
+
+        <div class="process-steps">
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-number">1</div>
+              <h4>Create Physical Inventory Document</h4>
+            </div>
+            <div class="step-content">
+              <div class="step-details">
+                <ul class="step-list">
+                  <li>
+                    Dùng t-code <strong>LI01N</strong> hoặc
+                    <strong>LX01</strong> để tạo tài liệu kiểm kê cho warehouse.
+                  </li>
+                  <li>
+                    Chọn phạm vi kiểm kê:
+                    <ul class="sub-list">
+                      <li>Một số bin</li>
+                      <li>Một storage type</li>
+                      <li>Một material nhất định</li>
+                    </ul>
+                  </li>
+                  <li>
+                    Hệ thống tạo <strong>Inventory Document Number</strong> chứa
+                    thông tin các bin/material cần kiểm.
+                  </li>
+                </ul>
+              </div>
+              <div class="real-example">
+                <div class="example-header">
+                  <i class="fas fa-lightbulb text-warning-600"></i>
+                  <strong>Ví dụ:</strong>
+                </div>
+                <p>Muốn kiểm tra 50 bin khu A1 → tạo document số 800000001.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-number">2</div>
+              <h4>Activate Physical Inventory Document</h4>
+            </div>
+            <div class="step-content">
+              <div class="step-details">
+                <ul class="step-list">
+                  <li>
+                    Dùng t-code <strong>LI02N</strong> hoặc
+                    <strong>LX02</strong> để kích hoạt.
+                  </li>
+                  <li>
+                    Trước khi activate,
+                    <strong>document chỉ là "kế hoạch".</strong>
+                  </li>
+                  <li>
+                    Sau khi activate → hệ thống bắt đầu
+                    <strong>block bin</strong> (không cho xuất hoặc nhập).
+                  </li>
+                  <li>
+                    Đây là mốc thời gian
+                    <strong
+                      >ghi nhận số liệu tồn kho hệ thống để so sánh với số đếm
+                      thực tế</strong
+                    >.
+                  </li>
+                </ul>
+              </div>
+              <div class="important-note">
+                <i class="fas fa-info-circle"></i>
+                <p>
+                  <strong>Lưu ý:</strong> Nếu không activate → không thể nhập
+                  kết quả kiểm kê.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-number">3</div>
+              <h4>Print Inventory Count Sheet (Optional)</h4>
+            </div>
+            <div class="step-content">
+              <div class="step-details">
+                <ul class="step-list">
+                  <li>
+                    Dùng <strong>LX03</strong> để in danh sách kiểm kê cho nhân
+                    viên kho.
+                  </li>
+                  <li>
+                    Danh sách có thể:
+                    <ul class="sub-list">
+                      <li>Hiển thị material (Open Count)</li>
+                      <li>
+                        Ẩn material (Blind Count – tránh nhân viên bị thiên
+                        kiến)
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    Ta cũng có thể đẩy danh sách xuống RF device nếu dùng hệ
+                    thống scanner.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-number">4</div>
+              <h4>Enter Count Result</h4>
+            </div>
+            <div class="step-content">
+              <div class="step-details">
+                <ul class="step-list">
+                  <li>Dùng t-code <strong>LI11N</strong>.</li>
+                  <li>
+                    Nhân viên sau khi đi kiểm kê → nhập lại số đếm vào từng dòng
+                    của document.
+                  </li>
+                  <li>
+                    Có thể đếm lần 1 và nhập đếm lại (recount) nếu nghi ngờ.
+                  </li>
+                </ul>
+              </div>
+              <div class="real-example">
+                <div class="example-header">
+                  <i class="fas fa-lightbulb text-warning-600"></i>
+                  <strong>Ví dụ:</strong>
+                </div>
+                <p>Bin A1-01-01, hệ thống có 100 cái. Đếm được 97 → nhập 97.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-number">5</div>
+              <h4>Analyze and Clear Differences in WM</h4>
+            </div>
+            <div class="step-content">
+              <div class="step-description">
+                <p>
+                  Về warehouse → correct lại tất cả thông tin về mặt physical
+                  (vị trí, số lượng) của hàng ở trong kho.
+                </p>
+              </div>
+              <div class="step-details">
+                <ul class="step-list">
+                  <li>Dùng t-code <strong>LI20</strong>.</li>
+                  <li>Sửa lại các số, các mã hàng ở trong từng bin.</li>
+                  <li>
+                    Hệ thống so sánh giữa số hệ thống (SAP) và số thực tế
+                    (count).
+                  </li>
+                  <li>
+                    Nếu có chênh lệch → ta xác nhận → hệ thống sẽ tạo:
+                    <ul class="sub-list">
+                      <li>
+                        <strong>Transfer Order</strong> để điều chỉnh stock
+                        trong WM.
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="real-example">
+                <div class="example-header">
+                  <i class="fas fa-lightbulb text-warning-600"></i>
+                  <strong>Ví dụ:</strong>
+                </div>
+                <p>
+                  Chênh lệch -3 cái → hệ thống tạo TO để chuyển 3 cái ra khỏi
+                  bin đó (về scrap bin hoặc adjustment bin).
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-number">6</div>
+              <h4>Clear Differences in Inventory Management (IM)</h4>
+            </div>
+            <div class="step-content">
+              <div class="step-details">
+                <ul class="step-list">
+                  <li>Dùng t-code <strong>LI21</strong>.</li>
+                  <li>
+                    Sau khi WM điều chỉnh xong → cần
+                    <strong>điều chỉnh tồn kho ở IM (MM-IM)</strong>.
+                  </li>
+                  <li>
+                    Hệ thống tạo chứng từ Material Document:
+                    <ul class="sub-list">
+                      <li>Movement type 711: điều chỉnh tăng</li>
+                      <li>Movement type 712: điều chỉnh giảm</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="real-example">
+                <div class="example-header">
+                  <i class="fas fa-lightbulb text-warning-600"></i>
+                  <strong>Ví dụ:</strong>
+                </div>
+                <p>
+                  Ta đếm thiếu 3 cái → hệ thống ghi nhận 712 -3 vào material
+                  document.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="process-flowchart-section">
+        <h3 class="section-heading">
+          <i class="fas fa-sitemap text-accent-600"></i>
+          III. Lưu đồ quy trình
+        </h3>
+
+        <div class="flowchart-container">
+          <div class="flowchart-steps">
+            <div class="flowchart-step">
+              <div class="step-content">
+                <div class="step-icon">1</div>
+                <div class="step-text">
+                  Create Physical Inventory Document
+                  <span class="step-tcode">LI01N / LX01</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flowchart-arrow">
+              <i class="fas fa-chevron-down"></i>
+            </div>
+
+            <div class="flowchart-step">
+              <div class="step-content">
+                <div class="step-icon">2</div>
+                <div class="step-text">
+                  Activate Document (Block Bins)
+                  <span class="step-tcode">LI02N / LX02</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flowchart-arrow">
+              <i class="fas fa-chevron-down"></i>
+            </div>
+
+            <div class="flowchart-step">
+              <div class="step-content">
+                <div class="step-icon">3</div>
+                <div class="step-text">
+                  Print Count Sheet / RF Count
+                  <span class="step-tcode">LX03</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flowchart-arrow">
+              <i class="fas fa-chevron-down"></i>
+            </div>
+
+            <div class="flowchart-step">
+              <div class="step-content">
+                <div class="step-icon">4</div>
+                <div class="step-text">
+                  Enter Count Result
+                  <span class="step-tcode">LI11N</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flowchart-arrow">
+              <i class="fas fa-chevron-down"></i>
+            </div>
+
+            <div class="flowchart-step">
+              <div class="step-content">
+                <div class="step-icon">5</div>
+                <div class="step-text">
+                  Compare & Adjust WM
+                  <span class="step-tcode">LI20</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flowchart-arrow">
+              <i class="fas fa-chevron-down"></i>
+            </div>
+
+            <div class="flowchart-step">
+              <div class="step-content">
+                <div class="step-icon">6</div>
+                <div class="step-text">
+                  Adjust IM (Final Update)
+                  <span class="step-tcode">LI21</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flowchart-summary">
+            <i class="fas fa-info-circle"></i>
+            Quy trình kiểm kê vật lý từ tạo tài liệu đến cập nhật cuối cùng vào
+            hệ thống IM
+          </div>
+        </div>
+      </div>
+
+      <div class="inventory-methodologies-section">
+        <h3 class="section-heading">
+          <i class="fas fa-tools text-secondary-600"></i>
+          IV. Inventory Methodology (Phương pháp kiểm kê)
+        </h3>
+
+        <div class="methodologies-table">
+          <div class="table-container">
+            <table class="methodology-table">
+              <thead>
+                <tr>
+                  <th>Phương pháp</th>
+                  <th>Đặc điểm chính</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Periodic Inventory</strong></td>
+                  <td>
+                    Kiểm kê toàn bộ warehouse vào một thời điểm đã định (thường
+                    cuối năm hoặc quý).
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Continuous Inventory</strong></td>
+                  <td>
+                    Chia nhỏ warehouse và kiểm kê từng phần, trải đều trong năm.
+                    (mỗi quý kiểm 1 cục)
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Inventory on Putaway</strong></td>
+                  <td>
+                    Kiểm kê tức thì khi putaway (chưa chính thức là kiểm kê định
+                    kỳ).
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Cycle-Counting</strong></td>
+                  <td>
+                    Kiểm kê theo tần suất cài đặt: vật tư quan trọng → kiểm tra
+                    thường xuyên hơn.
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Zero Stock Check</strong></td>
+                  <td>
+                    Tự động kiểm tra những bin dự kiến là trống. Nếu có hàng →
+                    là lỗi.
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Sample-based physical inventory</strong></td>
+                  <td>
+                    Mỗi mẫu lấy 1 cái xong check cái đó (quy tắc lấy mẫu
+                    AQL2.5).
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="additional-rules-section">
+        <h3 class="section-heading">
+          <i class="fas fa-clipboard-list text-warning-600"></i>
+          V. Quy tắc bổ sung
+        </h3>
+
+        <div class="rules-cards">
+          <div class="rule-card">
+            <div class="rule-icon">
+              <i class="fas fa-ban"></i>
+            </div>
+            <h4>Quy tắc kiểm kê</h4>
+            <p>
+              Mỗi bin chỉ được kiểm kê <strong>1 lần</strong> trong một phiên
+              kiểm kê → nếu muốn kiểm lại, phải tạo "Recount".
+            </p>
+          </div>
+
+          <div class="rule-card">
+            <div class="rule-icon">
+              <i class="fas fa-tags"></i>
+            </div>
+            <h4>Lý do chênh lệch</h4>
+            <p>Có thể gắn lý do chênh lệch (Adjustment Reason Code).</p>
+          </div>
+
+          <div class="rule-card">
+            <div class="rule-icon">
+              <i class="fas fa-barcode"></i>
+            </div>
+            <h4>Batch & Serial Number</h4>
+            <p>
+              Có thể chỉ kiểm kê
+              <strong>material quản lý bằng batch</strong> hoặc serial number.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="real-application-section">
+        <h3 class="section-heading">
+          <i class="fas fa-rocket text-blue-600"></i>
+          VI. Thực tế ứng dụng
+        </h3>
+
+        <div class="application-scenario">
+          <div class="scenario-header">
+            <i class="fas fa-calendar-check"></i>
+            <h4>Tình huống:</h4>
+            <p>
+              Cuối tháng 6, quản lý yêu cầu kiểm kê toàn bộ khu vực shelf A2.
+            </p>
+          </div>
+
+          <div class="scenario-process">
+            <h4>Quy trình em làm:</h4>
+            <div class="process-steps-list">
+              <div class="process-step-item">
+                <div class="step-indicator">1</div>
+                <p>
+                  Dùng <strong>LX01</strong>, tạo document cho Storage Type 001.
+                </p>
+              </div>
+              <div class="process-step-item">
+                <div class="step-indicator">2</div>
+                <p>
+                  Activate bằng <strong>LX02</strong> → hệ thống block bin A2.
+                </p>
+              </div>
+              <div class="process-step-item">
+                <div class="step-indicator">3</div>
+                <p>
+                  In danh sách bằng <strong>LX03</strong> → đưa cho tổ kiểm kê.
+                </p>
+              </div>
+              <div class="process-step-item">
+                <div class="step-indicator">4</div>
+                <p>Nhân viên đếm và nhập kết quả qua <strong>LI11N</strong>.</p>
+              </div>
+              <div class="process-step-item">
+                <div class="step-indicator">5</div>
+                <p>
+                  Dùng <strong>LI20</strong> để xử lý các chênh lệch trong WM.
+                </p>
+              </div>
+              <div class="process-step-item">
+                <div class="step-indicator">6</div>
+                <p>
+                  Cuối cùng dùng <strong>LI21</strong> để cập nhật tồn kho thực
+                  tế về lại trong IM.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="methodology-details-section">
+        <h3 class="section-heading">
+          <i class="fas fa-microscope text-primary-600"></i>
+          VII. Chi tiết các phương pháp kiểm kê
+        </h3>
+
+        <div class="methodology-cards">
+          <div class="methodology-card periodic">
+            <div class="methodology-header">
+              <i class="fas fa-calendar-alt"></i>
+              <h4>Periodic Inventory (Kiểm kê định kỳ)</h4>
+            </div>
+            <div class="methodology-content">
+              <div class="concept">
+                <h5>Khái niệm:</h5>
+                <ul>
+                  <li>
+                    Là phương pháp kiểm kê
+                    <strong>toàn bộ warehouse</strong> vào một thời điểm cố định
+                    (thường cuối năm tài chính hoặc cuối quý).
+                  </li>
+                  <li>
+                    Trong thời gian kiểm kê, warehouse có thể bị
+                    <strong>tạm ngưng xuất – nhập</strong>.
+                  </li>
+                </ul>
+              </div>
+              <div class="characteristics">
+                <h5>Đặc điểm:</h5>
+                <ul>
+                  <li>
+                    Áp dụng cho doanh nghiệp muốn kiểm tra toàn diện theo chu
+                    kỳ.
+                  </li>
+                  <li>
+                    Tốn công, tốn người – nhưng thường bắt buộc với kiểm toán.
+                  </li>
+                </ul>
+              </div>
+              <div class="real-example">
+                <div class="example-header">
+                  <i class="fas fa-lightbulb text-warning-600"></i>
+                  <strong>Ví dụ thực tế:</strong>
+                </div>
+                <p>
+                  Global Bike kiểm kê cuối năm vào ngày 31/12. Trong ngày đó:
+                </p>
+                <ul>
+                  <li>Ngưng xuất nhập tại tất cả warehouse.</li>
+                  <li>
+                    In toàn bộ bin list → nhân viên đi đếm thủ công hoặc dùng RF
+                    scanner.
+                  </li>
+                  <li>Sau đó nhập số đếm vào SAP → xử lý chênh lệch.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="methodology-card continuous">
+            <div class="methodology-header">
+              <i class="fas fa-sync"></i>
+              <h4>Continuous Inventory (Kiểm kê liên tục)</h4>
+            </div>
+            <div class="methodology-content">
+              <div class="concept">
+                <h5>Khái niệm:</h5>
+                <ul>
+                  <li>
+                    Kiểm kê warehouse theo <strong>từng phần nhỏ</strong>, rải
+                    đều trong năm.
+                  </li>
+                  <li>
+                    Không cần đóng toàn kho. Mỗi ngày kiểm kê một ít → nhẹ hơn,
+                    chính xác hơn.
+                  </li>
+                </ul>
+              </div>
+              <div class="characteristics">
+                <h5>Đặc điểm:</h5>
+                <ul>
+                  <li>Phù hợp với kho lớn, nhiều bin.</li>
+                  <li>Kết hợp tốt với kế hoạch Cycle-Counting.</li>
+                </ul>
+              </div>
+              <div class="real-example">
+                <div class="example-header">
+                  <i class="fas fa-lightbulb text-warning-600"></i>
+                  <strong>Ví dụ:</strong>
+                </div>
+                <p>Mỗi ngày kiểm kê 20 bin.</p>
+                <ul>
+                  <li>Ngày 01/06: kiểm khu A1</li>
+                  <li>Ngày 02/06: kiểm khu A2</li>
+                  <li>Ngày 03/06: kiểm khu B1</li>
+                  <li>→ hết 1 tháng là xong hết kho.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="methodology-card cycle-counting">
+            <div class="methodology-header">
+              <i class="fas fa-redo"></i>
+              <h4>Cycle-Counting (Kiểm kê theo chu kỳ, theo vật tư)</h4>
+            </div>
+            <div class="methodology-content">
+              <div class="concept">
+                <h5>Khái niệm:</h5>
+                <ul>
+                  <li>
+                    Mỗi material được gán
+                    <strong>mức độ ưu tiên kiểm kê</strong> (Cycle Counting
+                    Indicator).
+                  </li>
+                  <li>
+                    Hệ thống đề xuất kiểm kê theo
+                    <strong>tần suất đã định</strong> (ví dụ: vật tư loại A mỗi
+                    tháng, loại B mỗi quý).
+                  </li>
+                </ul>
+              </div>
+              <div class="characteristics">
+                <h5>Đặc điểm:</h5>
+                <ul>
+                  <li>Kiểm kê theo vật tư (không cần theo bin).</li>
+                  <li>Có thể tự động tạo danh sách kiểm kê định kỳ.</li>
+                  <li>Tăng hiệu quả, giảm gián đoạn.</li>
+                </ul>
+              </div>
+              <div class="setup-info">
+                <h5>Thiết lập:</h5>
+                <ul>
+                  <li>
+                    Gán loại Cycle Count trong Material Master → Warehouse Mgmt
+                    View.
+                  </li>
+                  <li>
+                    Chạy chương trình <strong>LX26</strong> để hệ thống đề xuất
+                    vật tư cần kiểm kê.
+                  </li>
+                </ul>
+              </div>
+              <div class="real-example">
+                <div class="example-header">
+                  <i class="fas fa-lightbulb text-warning-600"></i>
+                  <strong>Ví dụ:</strong>
+                </div>
+                <ul>
+                  <li>M-0001 (khung xe): Indicator A → kiểm kê mỗi tháng.</li>
+                  <li>M-0002 (ốc vít): Indicator C → kiểm kê mỗi quý.</li>
+                </ul>
+                <p>
+                  Ngày 01/06, chạy LX26 → hệ thống đưa ra list các vật tư nhóm A
+                  để kiểm kê trong tuần.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="methodology-card zero-check">
+            <div class="methodology-header">
+              <i class="fas fa-minus-circle"></i>
+              <h4>Zero Stock Check (Kiểm tra bin dự kiến rỗng)</h4>
+            </div>
+            <div class="methodology-content">
+              <div class="concept">
+                <h5>Khái niệm:</h5>
+                <ul>
+                  <li>
+                    Hệ thống tự động kiểm tra
+                    <strong>những bin dự kiến là rỗng</strong>.
+                  </li>
+                  <li>Nếu bin đó còn hàng → có sai sót → cần xử lý.</li>
+                </ul>
+              </div>
+              <div class="characteristics">
+                <h5>Đặc điểm:</h5>
+                <ul>
+                  <li>Kiểm kê cực nhanh, không cần in danh sách dài.</li>
+                  <li>Tăng độ chính xác vùng bin "không hoạt động".</li>
+                </ul>
+              </div>
+              <div class="real-example">
+                <div class="example-header">
+                  <i class="fas fa-lightbulb text-warning-600"></i>
+                  <strong>Ví dụ:</strong>
+                </div>
+                <p>Muốn cất hàng vào bin C3-05-01 (hệ thống báo rỗng).</p>
+                <ul>
+                  <li>Hệ thống hiện yêu cầu "Zero Stock Check".</li>
+                  <li>
+                    Nhân viên vào kiểm tra → thấy có 10 bộ xích xe sót lại.
+                  </li>
+                  <li>
+                    Nhập số đếm vào hệ thống → tạo chênh lệch → xử lý điều
+                    chỉnh.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="comparison-table-section">
+        <h3 class="section-heading">
+          <i class="fas fa-chart-bar text-accent-600"></i>
+          VIII. So sánh tổng hợp các phương pháp
+        </h3>
+
+        <div class="comparison-table-container">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Phương pháp</th>
+                <th>Kiểm kê theo</th>
+                <th>Mục tiêu chính</th>
+                <th>Lợi ích</th>
+                <th>Hạn chế</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Periodic Inventory</td>
+                <td>Toàn kho</td>
+                <td>Đối soát cuối kỳ</td>
+                <td>Chính xác, toàn diện</td>
+                <td>Mất thời gian, tốn nguồn lực</td>
+              </tr>
+              <tr>
+                <td>Continuous Inventory</td>
+                <td>Từng phần</td>
+                <td>Tránh gián đoạn</td>
+                <td>Rải đều, nhẹ nhàng</td>
+                <td>Cần kế hoạch rõ ràng</td>
+              </tr>
+              <tr>
+                <td>Inventory on Putaway</td>
+                <td>Theo bin</td>
+                <td>Xác thực lúc nhập hàng</td>
+                <td>Tức thời, giảm lỗi</td>
+                <td>Không thay thế được kiểm kê định kỳ</td>
+              </tr>
+              <tr>
+                <td>Cycle-Counting</td>
+                <td>Theo vật tư</td>
+                <td>Ưu tiên hàng quan trọng</td>
+                <td>Hiệu quả cao, tự động hóa</td>
+                <td>Cần phân loại chuẩn</td>
+              </tr>
+              <tr>
+                <td>Zero Stock Check</td>
+                <td>Theo bin</td>
+                <td>Đảm bảo bin rỗng là rỗng thật</td>
+                <td>Nhanh, hỗ trợ thực địa</td>
+                <td>Chỉ áp dụng cho bin trống</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="implementation-tips-section">
+        <h3 class="section-heading">
+          <i class="fas fa-star text-warning-600"></i>
+          IX. Gợi ý triển khai kiểm kê chuẩn
+        </h3>
+
+        <div class="tips-cards">
+          <div class="tip-card">
+            <div class="tip-icon">
+              <i class="fas fa-calendar-check"></i>
+            </div>
+            <h4>Cycle-Counting Class</h4>
+            <p>
+              Tạo kế hoạch kiểm kê <strong>Cycle-Counting Class</strong> trong
+              customizing (VD: vật tư loại A kiểm kê mỗi tháng, loại B mỗi quý).
+            </p>
+          </div>
+
+          <div class="tip-card">
+            <div class="tip-icon">
+              <i class="fas fa-tag"></i>
+            </div>
+            <h4>Cycle-Counting Indicator</h4>
+            <p>
+              Gắn <strong>Cycle-Counting Indicator</strong> cho từng material
+              master → hệ thống tự gợi ý material cần kiểm kê theo kỳ.
+            </p>
+          </div>
+
+          <div class="tip-card">
+            <div class="tip-icon">
+              <i class="fas fa-robot"></i>
+            </div>
+            <h4>Background Job</h4>
+            <p>
+              Thiết lập lịch tự động đề xuất kiểm kê hàng tuần bằng background
+              job (t-code: <strong>LX26</strong>).
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

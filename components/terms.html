@@ -1,0 +1,1708 @@
+<div class="card">
+  <div class="card-header">
+    <h2 class="card-title">
+      <i class="fas fa-book" aria-hidden="true"></i>
+      Các Thuật Ngữ Chính trong WM
+    </h2>
+    <p class="card-subtitle">
+      Hiểu rõ các thuật ngữ này là chìa khóa để nắm bắt các quy trình và chức năng trong SAP WM
+    </p>
+  </div>
+
+  <div class="card-content">
+    <div class="content-grid">
+      <div class="quant-vs-bin-section">
+        <h3 class="section-heading">
+          <i class="fas fa-balance-scale text-primary-600"></i> I. Quant vs Bin
+        </h3>
+        <div class="comparison-intro">
+          <p class="description">
+            <strong>Quant</strong> là đơn vị nhỏ nhất để đo lường hàng hóa, nhưng nó không đại diện cho không gian. Nó có thể là 1 cặp, 1 chiếc, 1 pack.
+          </p>
+          <p class="description">
+            <strong>Bin</strong> cũng là đại lượng nhỏ nhất, nhưng dùng để đại diện cho không gian lưu trữ.
+          </p>
+        </div>
+
+        <div class="comparison-cards">
+          <div class="comparison-card quant-card">
+            <div class="comparison-header">
+              <i class="fas fa-cube"></i>
+              <h4>Quant</h4>
+            </div>
+            <div class="comparison-content">
+              <div class="definition">
+                <h5>Định nghĩa:</h5>
+                <p>Đơn vị quản lý stock - Đại diện cho một lượng hàng cụ thể tại một vị trí cụ thể.</p>
+              </div>
+              <div class="characteristics">
+                <h5>Đặc điểm:</h5>
+                <ul>
+                  <li>Đo lường số lượng hàng hóa</li>
+                  <li>Có thể là: 1 cặp, 1 chiếc, 1 pack</li>
+                  <li>Chứa thông tin: Material, Quantity, Batch, Stock Type</li>
+                  <li>Mỗi bin có thể chứa nhiều quant khác nhau</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="comparison-card bin-card">
+            <div class="comparison-header">
+              <i class="fas fa-map-marker-alt"></i>
+              <h4>Bin</h4>
+            </div>
+            <div class="comparison-content">
+              <div class="definition">
+                <h5>Định nghĩa:</h5>
+                <p>Vị trí lưu trữ - Địa chỉ cụ thể nhất để lưu trữ hàng hóa trong kho.</p>
+              </div>
+              <div class="characteristics">
+                <h5>Đặc điểm:</h5>
+                <ul>
+                  <li>Đại diện cho không gian lưu trữ</li>
+                  <li>Cấu trúc: A1-01-01 (Dãy-Tầng-Vị trí)</li>
+                  <li>Thuộc tính: Capacity, Weight limit, Bin type</li>
+                  <li>Có thể chứa nhiều quant của cùng hoặc khác material</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="transfer-comparison-section">
+        <h3 class="section-heading">
+          <i class="fas fa-exchange-alt text-secondary-600"></i> II. Stock Transfer vs Transfer Posting
+        </h3>
+        <div class="transfer-intro">
+          <p class="intro-text">
+            Là hai loại nghiệp vụ <strong>hoàn toàn khác nhau</strong>, khác cả về <strong>mục đích, cách hạch toán</strong>, và <strong>cách xử lý trong kho</strong>.
+          </p>
+        </div>
+
+        <div class="transfer-details">
+          <div class="transfer-type">
+            <h4 class="transfer-title">
+              <i class="fas fa-edit text-warning-600"></i> 1. Transfer Posting là gì?
+            </h4>
+            <p class="transfer-description">
+              Là nghiệp vụ <strong>chuyển đổi loại stock</strong> hoặc thuộc tính hàng hóa <strong>mà không nhất thiết có sự di chuyển vật lý</strong> của vật tư.
+            </p>
+            
+            <div class="transfer-subtypes">
+              <h5>Các loại Transfer Posting phổ biến:</h5>
+              <div class="subtype-cards">
+                <div class="subtype-card">
+                  <h6>Stock Type to Stock Type</h6>
+                  <ul>
+                    <li>Chuyển từ Unrestricted → Blocked / Quality Inspection</li>
+                    <li><strong>Ví dụ:</strong> hàng lỗi → chuyển sang Blocked Stock</li>
+                  </ul>
+                </div>
+                <div class="subtype-card">
+                  <h6>Material to Material Posting</h6>
+                  <ul>
+                    <li>Cùng số lượng nhưng thay đổi mã vật tư (ít dùng, chỉ trong trường hợp đặc biệt)</li>
+                  </ul>
+                </div>
+                <div class="subtype-card">
+                  <h6>Batch to Batch</h6>
+                  <ul>
+                    <li>Đổi batch nếu phát hiện batch sai, nhưng vật tư giống nhau</li>
+                  </ul>
+                </div>
+                <div class="subtype-card">
+                  <h6>Valuation Type to Valuation Type</h6>
+                  <ul>
+                    <li>Chuyển giữa hai loại giá trị (nếu dùng split valuation)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="transfer-characteristics">
+              <h5>Đặc điểm:</h5>
+              <ul>
+                <li>Không yêu cầu physical movement</li>
+                <li>Dùng movement type như 309, 321, 343,...</li>
+                <li>Hệ thống chỉ update bảng tồn kho và tài khoản kế toán nếu cần</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="transfer-type">
+            <h4 class="transfer-title">
+              <i class="fas fa-truck text-success-600"></i> 2. Stock Transfer là gì?
+            </h4>
+            <p class="transfer-description">
+              Là nghiệp vụ <strong>di chuyển vật tư từ địa điểm này sang địa điểm khác</strong> → <strong>có sự di chuyển vật lý thực sự</strong> trong kho.
+            </p>
+            
+            <div class="transfer-levels">
+              <h5>Các cấp độ Stock Transfer:</h5>
+              <div class="level-cards">
+                <div class="level-card">
+                  <h6>Within Same Plant</h6>
+                  <ul>
+                    <li>Giữa các <strong>Storage Location</strong> cùng một Plant</li>
+                    <li><strong>Ví dụ:</strong> chuyển hàng từ FG00 (Finished Goods) sang TG00 (Trading Goods) trong SD00</li>
+                  </ul>
+                </div>
+                <div class="level-card">
+                  <h6>Between Different Plants (Same Company Code)</h6>
+                  <ul>
+                    <li>Chuyển từ Plant A sang Plant B trong cùng công ty</li>
+                    <li><strong>Ví dụ:</strong> SD00 → DL00, cùng US00</li>
+                  </ul>
+                </div>
+                <div class="level-card">
+                  <h6>Between Company Codes</h6>
+                  <ul>
+                    <li>Chuyển hàng giữa các công ty khác nhau (liên công ty)</li>
+                    <li>Phải có hạch toán giá trị (Invoice + PO)</li>
+                    <li>Dùng Stock Transport Order (STO)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="transfer-characteristics">
+              <h5>Đặc điểm:</h5>
+              <ul>
+                <li>Có thể có 1 hoặc 2 bước (One-step hoặc Two-step)</li>
+                <li>Tạo material document rõ ràng</li>
+                <li>Có thể kết hợp với WM (Transfer Order) nếu warehouse có quản lý chi tiết</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="comparison-table-section">
+          <h4 class="comparison-title">
+            <i class="fas fa-table"></i> 3. So sánh trực tiếp
+          </h4>
+          <div class="table-container">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>Tiêu chí</th>
+                  <th>Transfer Posting</th>
+                  <th>Stock Transfer</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Có di chuyển vật lý không?</td>
+                  <td>Không bắt buộc</td>
+                  <td>Có</td>
+                </tr>
+                <tr>
+                  <td>Mục đích</td>
+                  <td>Đổi loại stock, batch, valuation</td>
+                  <td>Di chuyển hàng</td>
+                </tr>
+                <tr>
+                  <td>Movement Type</td>
+                  <td>309, 321, 343,...</td>
+                  <td>301, 311, 641, 351,...</td>
+                </tr>
+                <tr>
+                  <td>Có thể kết hợp với STO không?</td>
+                  <td>Không</td>
+                  <td>Có</td>
+                </tr>
+                <tr>
+                  <td>Ghi nhận Stock in Transit không?</td>
+                  <td>Không</td>
+                  <td>Có (nếu plant khác nhau)</td>
+                </tr>
+                <tr>
+                  <td>Có tạo chứng từ giao nhận không?</td>
+                  <td>Không</td>
+                  <td>Có (Delivery, TO, etc.)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="practical-examples">
+          <h4 class="examples-title">
+            <i class="fas fa-lightbulb text-accent-600"></i> 4. Ví dụ thực tế
+          </h4>
+          <div class="example-cards">
+            <div class="example-card transfer-posting">
+              <h5><strong>Transfer Posting:</strong></h5>
+              <p>Em phát hiện 100 khung xe bị lỗi sơn.</p>
+              <p>Từ stock hiện tại (Unrestricted) → chuyển sang Blocked bằng movement type <strong>343</strong>.</p>
+              <p>Không di chuyển hàng, chỉ đổi trạng thái trong hệ thống.</p>
+            </div>
+            <div class="example-card stock-transfer">
+              <h5><strong>Stock Transfer:</strong></h5>
+              <p>Em cần chuyển 500 khung xe từ <strong>SD00</strong> về <strong>DL00</strong>.</p>
+              <p>Em tạo <strong>STO</strong>, phát hành Outbound Delivery, làm Goods Issue tại SD00, hàng chuyển đi thực tế.</p>
+              <p>Sau đó, DL00 nhận hàng bằng Goods Receipt.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sto-section">
+        <h3 class="section-heading">
+          <i class="fas fa-shipping-fast text-accent-600"></i> III. Stock Transport Order (STO)
+        </h3>
+        <div class="sto-intro">
+          <p class="sto-description">
+            Đây là một dạng đặc biệt của <strong>Purchase Order</strong> nhưng dùng để <strong>di chuyển hàng giữa các plant trong cùng một công ty</strong> (hoặc khác công ty nếu liên công ty). Đây là chức năng cực kỳ phổ biến trong các hệ thống phân phối lớn.
+          </p>
+        </div>
+
+        <div class="sto-objectives">
+          <h4 class="sto-subtitle">
+            <i class="fas fa-bullseye"></i> Mục tiêu của Stock Transport Order
+          </h4>
+          <ul class="objectives-list">
+            <li>Di chuyển vật tư từ <strong>Plant A</strong> sang <strong>Plant B</strong> một cách <strong>có kiểm soát</strong>, <strong>có theo dõi</strong>, <strong>có chứng từ</strong></li>
+            <li>Cho phép hạch toán chi phí vận chuyển, theo dõi tồn kho giữa các địa điểm</li>
+            <li>Có thể tích hợp với quy trình vận chuyển (shipping), kiểm tra chất lượng (QM), hoặc xuất kho kho vận (WM)</li>
+          </ul>
+        </div>
+
+        <div class="sto-vs-transfer">
+          <h4 class="sto-subtitle">
+            <i class="fas fa-not-equal"></i> Điểm khác biệt giữa STO và Transfer Posting thường
+          </h4>
+          <div class="sto-comparison-table">
+            <table class="sto-table">
+              <thead>
+                <tr>
+                  <th>Đặc điểm</th>
+                  <th>Transfer Posting</th>
+                  <th>Stock Transport Order</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Có PO không</td>
+                  <td>Không</td>
+                  <td>Có (loại đặc biệt)</td>
+                </tr>
+                <tr>
+                  <td>Có quy trình giao hàng (Delivery)</td>
+                  <td>Không</td>
+                  <td>Có thể có</td>
+                </tr>
+                <tr>
+                  <td>Có theo dõi hàng trong transit không</td>
+                  <td>Không</td>
+                  <td>Có (stock in transit)</td>
+                </tr>
+                <tr>
+                  <td>Có ghi nhận chi phí vận chuyển</td>
+                  <td>Không</td>
+                  <td>Có thể cấu hình để ghi nhận</td>
+                </tr>
+                <tr>
+                  <td>Quản lý như đơn hàng mua không</td>
+                  <td>Không</td>
+                  <td>Có</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="sto-types">
+          <h4 class="sto-subtitle">
+            <i class="fas fa-list-ol"></i> Các loại STO phổ biến
+          </h4>
+          <div class="sto-type-cards">
+            <div class="sto-type-card">
+              <h5>Plant-to-Plant (Intra Company)</h5>
+              <ul>
+                <li>Hai plant cùng công ty (cùng Company Code)</li>
+                <li>Hàng di chuyển nhưng không tạo invoice</li>
+                <li><strong>Ví dụ:</strong> từ <strong>SD00 → DL00</strong> cùng Company Code US00</li>
+              </ul>
+            </div>
+            <div class="sto-type-card">
+              <h5>Plant-to-Plant (Cross Company)</h5>
+              <ul>
+                <li>Khác Company Code</li>
+                <li>Cần invoice, giống như bán hàng nội bộ</li>
+                <li><strong>Ví dụ:</strong> từ US00 → DE00</li>
+              </ul>
+            </div>
+            <div class="sto-type-card">
+              <h5>Storage Location to Storage Location</h5>
+              <ul>
+                <li>Trong cùng một plant</li>
+                <li>Thường không dùng STO, mà dùng transfer posting</li>
+                <li>Nếu muốn dùng STO → phải tùy chỉnh thêm</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="sto-process">
+          <h4 class="sto-subtitle">
+            <i class="fas fa-cogs"></i> Quy trình chuẩn của một STO
+          </h4>
+          <div class="sto-scenario">
+            <p class="scenario-intro">
+              <strong>Giả sử Global Bike muốn chuyển 200 khung xe từ kho San Diego (SD00) đến Dallas (DL00):</strong>
+            </p>
+            <div class="sto-steps">
+              <div class="sto-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <h6>Tạo Stock Transport Order (ME21N – Loại PO: UB)</h6>
+                  <ul>
+                    <li>Supplying Plant: SD00</li>
+                    <li>Receiving Plant: DL00</li>
+                    <li>Material: M-0001</li>
+                    <li>Qty: 200</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="sto-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <h6>Tạo Outbound Delivery từ STO (VL10B hoặc VL10D)</h6>
+                  <ul>
+                    <li>Đây là bước tạo chứng từ giao hàng từ kho SD00</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="sto-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h6>Xuất kho hàng (Goods Issue) tại SD00 (VL02N)</h6>
+                  <ul>
+                    <li>Số lượng sẽ được chuyển thành <strong>Stock in Transit</strong> tại DL00</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="sto-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                  <h6>Hàng đến nơi → Nhập kho (Goods Receipt) tại DL00 (MIGO)</h6>
+                  <ul>
+                    <li>Lúc này tồn kho tại DL00 được tăng</li>
+                    <li>Nếu có kích hoạt kiểm tra chất lượng → hàng có thể nằm trong stock type "Quality Inspection"</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sto-in-wm">
+          <h4 class="sto-subtitle">
+            <i class="fas fa-warehouse"></i> Trong WM, STO hoạt động ra sao?
+          </h4>
+          <div class="wm-operations">
+            <div class="wm-operation">
+              <h6>Tại kho có WM, bước <strong>Goods Issue</strong> sẽ kích hoạt:</h6>
+              <ul>
+                <li><strong>Transfer Requirement</strong> để lấy hàng từ Storage Bin</li>
+                <li>Tạo <strong>Transfer Order</strong> để hướng dẫn nhân viên lấy hàng</li>
+                <li>Pick xong, xác nhận TO → xuất kho xong</li>
+              </ul>
+            </div>
+            <div class="wm-operation">
+              <h6>Tại kho nhận:</h6>
+              <ul>
+                <li><strong>Goods Receipt</strong> có thể tạo thêm TO để putaway vào Storage Bin</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="sto-real-application">
+          <h4 class="sto-subtitle">
+            <i class="fas fa-rocket"></i> Thực tế ứng dụng
+          </h4>
+          <div class="real-example">
+            <p class="example-intro"><strong>Công ty Global Bike có 3 kho:</strong></p>
+            <ul class="warehouse-list">
+              <li>Kho A: San Diego (SD00)</li>
+              <li>Kho B: Dallas (DL00)</li>
+              <li>Kho C: Miami (MI00)</li>
+            </ul>
+            <p class="example-scenario">
+              Cuối tháng, Dallas thiếu 300 khung xe → nhân viên kho tạo STO từ DL00 đến SD00 → SD00 xuất kho → hàng chuyển đi → DL00 nhận hàng → tất cả có chứng từ, theo dõi được, không phải làm tay.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hazardous-material-section">
+        <h3 class="section-heading">
+          <i class="fas fa-exclamation-triangle text-warning-600"></i> IV. Hazardous Material Master
+        </h3>
+        <div class="hazardous-intro">
+          <p class="hazardous-description">
+            Dành cho các vật tư nguy hiểm (nguy cơ cháy nổ, độc hại, phóng xạ,...). Phần này thường gặp trong kho hóa chất, dược phẩm, thiết bị công nghiệp. SAP WM cho phép quản lý <strong>an toàn lưu trữ</strong> thông qua dữ liệu này.
+          </p>
+        </div>
+
+        <div class="hazardous-objectives">
+          <h4 class="hazardous-subtitle">
+            <i class="fas fa-bullseye"></i> Mục tiêu của Hazardous Material Master
+          </h4>
+          <ul class="hazardous-objectives-list">
+            <li>Đảm bảo việc <strong>lưu trữ, xử lý, vận chuyển</strong> các vật tư nguy hiểm theo đúng quy định an toàn</li>
+            <li>Tránh lưu trữ sai khu vực → gây rủi ro cháy nổ, nhiễm độc chéo,...</li>
+            <li>Cảnh báo cho nhân viên kho biết khi xử lý các vật tư cần cẩn trọng</li>
+          </ul>
+        </div>
+
+        <div class="hazardous-categories">
+          <h4 class="hazardous-subtitle">
+            <i class="fas fa-tags"></i> Đối tượng áp dụng
+          </h4>
+          <p class="categories-intro">Là các vật tư thuộc nhóm sau:</p>
+          <div class="category-cards">
+            <div class="category-card flammable">
+              <i class="fas fa-fire"></i>
+              <h5>Flammable liquids</h5>
+              <p>Dung môi, xăng dầu, cồn công nghiệp</p>
+            </div>
+            <div class="category-card toxic">
+              <i class="fas fa-skull-crossbones"></i>
+              <h5>Toxic materials</h5>
+              <p>Hóa chất diệt côn trùng, thuốc bảo vệ thực vật</p>
+            </div>
+            <div class="category-card radioactive">
+              <i class="fas fa-radiation"></i>
+              <h5>Radioactive materials</h5>
+              <p>Thiết bị y tế có phóng xạ, đồng vị phóng xạ</p>
+            </div>
+            <div class="category-card corrosive">
+              <i class="fas fa-tint"></i>
+              <h5>Corrosive substances</h5>
+              <p>Axit, kiềm mạnh</p>
+            </div>
+            <div class="category-card compressed">
+              <i class="fas fa-compress-arrows-alt"></i>
+              <h5>Compressed gases</h5>
+              <p>Khí gas công nghiệp</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hazardous-data-structure">
+          <h4 class="hazardous-subtitle">
+            <i class="fas fa-database"></i> Cấu trúc dữ liệu trong Hazardous Material Master
+          </h4>
+          <p class="data-intro">
+            Khi em tạo hoặc maintain một hazardous material (qua Material Master View), hệ thống yêu cầu điền thêm một số thông tin.
+          </p>
+          
+          <div class="data-fields">
+            <div class="data-field">
+              <h5><i class="fas fa-layer-group"></i> Storage Class</h5>
+              <ul>
+                <li>Phân loại lưu trữ: quyết định vật tư đó được phép để ở đâu</li>
+                <li><strong>Ví dụ:</strong>
+                  <ul>
+                    <li>Class 1: Không để gần nguồn nhiệt</li>
+                    <li>Class 2: Phải để riêng theo nhóm nguy hiểm</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            
+            <div class="data-field">
+              <h5><i class="fas fa-tint"></i> Water Pollution Class</h5>
+              <ul>
+                <li>Mức độ ô nhiễm nếu vật tư tiếp xúc với nước:
+                  <ul>
+                    <li>1: Không gây hại</li>
+                    <li>2: Gây ô nhiễm nhẹ</li>
+                    <li>3: Gây ô nhiễm nghiêm trọng (phải cách ly hoàn toàn)</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            
+            <div class="data-field">
+              <h5><i class="fas fa-thermometer-half"></i> Flash Point</h5>
+              <p>Điểm chú ý khiến cho vật chất thay đổi trạng thái.</p>
+              <ul>
+                <li>Nhiệt độ thấp nhất khiến chất lỏng bốc cháy</li>
+                <li><strong>Ví dụ:</strong>
+                  <ul>
+                    <li>Xăng: ~ -40°C</li>
+                    <li>Cồn: ~ 12°C</li>
+                  </ul>
+                </li>
+                <li>Flash point càng thấp thì càng nguy hiểm</li>
+              </ul>
+            </div>
+            
+            <div class="data-field">
+              <h5><i class="fas fa-cube"></i> Aggregate State</h5>
+              <ul>
+                <li>Trạng thái vật lý: rắn, lỏng, khí</li>
+                <li>Quan trọng vì mỗi trạng thái có yêu cầu lưu trữ khác nhau (bình chứa, nhiệt độ,…)</li>
+              </ul>
+            </div>
+            
+            <div class="data-field">
+              <h5><i class="fas fa-exclamation-triangle"></i> Hazardous Material Warning</h5>
+              <ul>
+                <li>Mã cảnh báo hoặc ký hiệu theo chuẩn GHS (ví dụ: dễ cháy, độc hại, ăn mòn…)</li>
+                <li>Có thể liên kết với nhãn in dán trên thùng hàng</li>
+              </ul>
+            </div>
+            
+            <div class="data-field">
+              <h5><i class="fas fa-barcode"></i> Hazardous Substance Number</h5>
+              <ul>
+                <li>Số định danh của vật tư nguy hiểm theo tiêu chuẩn quốc tế (UN/ADR, GHS, hoặc nội bộ)</li>
+                <li><strong>Ví dụ:</strong>
+                  <ul>
+                    <li>UN 1203: Gasoline</li>
+                    <li>UN 1993: Flammable liquids, n.o.s.</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="hazardous-practical">
+          <h4 class="hazardous-subtitle">
+            <i class="fas fa-rocket"></i> Thực tế ứng dụng
+          </h4>
+          <div class="hazardous-example">
+            <p class="example-title"><strong>Ví dụ trong kho phụ tùng xe máy:</strong></p>
+            <div class="material-example">
+              <h6>Material A001 – "Dung dịch vệ sinh động cơ"</h6>
+              <ul>
+                <li>Flammable</li>
+                <li>Storage Class: 2</li>
+                <li>Flash point: 15°C</li>
+                <li>Hazardous Substance No: UN1993</li>
+              </ul>
+            </div>
+            <p class="example-result">
+              Em khai báo các thông tin này → khi nhập hàng, hệ thống chỉ cho cất trong khu <strong>Storage Type 005 – Flammable Zone</strong> đã được gán Storage Class = 2.
+            </p>
+            <p class="example-prevention">
+              Nếu ai cố tình nhập vào bin A1-01-01 thuộc khu thường → hệ thống báo lỗi, không tạo được TO.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bin-status-section">
+        <h3 class="section-heading">
+          <i class="fas fa-lock text-danger-600"></i> V. Storage Bin Status
+        </h3>
+        <div class="bin-status-intro">
+          <p class="bin-status-description">
+            Đây là phần rất quan trọng để kiểm soát hoạt động trong kho. Em hiểu đúng phần này thì mới biết vì sao hệ thống không cho nhập hàng hay xuất hàng vào một bin cụ thể.
+          </p>
+        </div>
+
+        <div class="bin-status-objectives">
+          <h4 class="bin-status-subtitle">
+            <i class="fas fa-bullseye"></i> Mục tiêu của "Storage Bin Status"
+          </h4>
+          <ul class="bin-status-objectives-list">
+            <li><strong>Ngăn không cho nhập hàng (putaway)</strong> vào bin bị lỗi, đang sửa chữa, hay đang kiểm kê</li>
+            <li><strong>Ngăn không cho xuất hàng (removal)</strong> từ bin đang bị kiểm kê, bị khóa bảo trì, hoặc lỗi kiểm soát chất lượng</li>
+            <li>Tránh để nhân viên warehouse nhập hoặc pick hàng sai vị trí</li>
+          </ul>
+        </div>
+
+        <div class="bin-status-types">
+          <h4 class="bin-status-subtitle">
+            <i class="fas fa-list"></i> Các loại Status quan trọng
+          </h4>
+          <p class="status-intro">
+            Trong SAP WM, mỗi <strong>Storage Bin</strong> có thể có một số trạng thái (<strong>status</strong>) được gán trực tiếp:
+          </p>
+          
+          <div class="status-cards">
+            <div class="status-card putaway-block">
+              <div class="status-header">
+                <i class="fas fa-ban"></i>
+                <h5>Putaway Block</h5>
+              </div>
+              <div class="status-content">
+                <p class="status-definition">Không cho phép hệ thống đưa hàng mới vào bin này.</p>
+                <div class="status-usage">
+                  <h6>Thường dùng khi:</h6>
+                  <ul>
+                    <li>Bin đang bị kiểm tra hoặc sửa chữa</li>
+                    <li>Bin đã đầy nhưng hệ thống chưa cập nhật</li>
+                    <li>Có lỗi vật lý tại vị trí đó (bị rách, gãy pallet,…)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <div class="status-card removal-block">
+              <div class="status-header">
+                <i class="fas fa-times-circle"></i>
+                <h5>Stock Removal Block</h5>
+              </div>
+              <div class="status-content">
+                <p class="status-definition">Không cho phép lấy hàng ra từ bin này.</p>
+                <div class="status-usage">
+                  <h6>Thường dùng khi:</h6>
+                  <ul>
+                    <li>Hàng trong bin đang chờ kiểm tra chất lượng</li>
+                    <li>Bin đang nằm trong quy trình kiểm kê</li>
+                    <li>Tránh pick nhầm hàng lỗi, hàng chưa chuẩn bị</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <div class="status-card block-reason">
+              <div class="status-header">
+                <i class="fas fa-question-circle"></i>
+                <h5>Block Indicator (Reason)</h5>
+              </div>
+              <div class="status-content">
+                <p class="status-definition">Là lý do tại sao bin bị chặn.</p>
+                <div class="status-examples">
+                  <h6>Ví dụ:</h6>
+                  <ul>
+                    <li>Q1: Đang kiểm tra chất lượng</li>
+                    <li>M1: Bảo trì thiết bị nâng ở khu vực đó</li>
+                    <li>I1: Bin thuộc vùng inventory count</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="status-note">
+            <p><strong>Lưu ý:</strong> các status này không xóa tồn kho, chỉ làm hệ thống tạm dừng xử lý nghiệp vụ với bin.</p>
+          </div>
+        </div>
+
+        <div class="bin-status-management">
+          <h4 class="bin-status-subtitle">
+            <i class="fas fa-cogs"></i> Cách kiểm tra và quản lý Bin Status trong SAP
+          </h4>
+          
+          <div class="management-operations">
+            <div class="management-operation check">
+              <h5><i class="fas fa-search"></i> Kiểm tra Bin Status</h5>
+              <p>Em dùng transaction <strong>LS03N</strong> để xem chi tiết một Storage Bin.</p>
+              <ul>
+                <li>Vào LS03N → nhập Warehouse Number và Storage Bin → Enter</li>
+                <li>Tab "Status" sẽ hiện:
+                  <ul>
+                    <li><strong>Putaway blocked</strong> = X (có nghĩa là bin này không nhận hàng mới)</li>
+                    <li><strong>Stock removal blocked</strong> = X (không được pick hàng từ đây)</li>
+                    <li>Block Reason: hiển thị lý do (nếu có maintain)</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            
+            <div class="management-operation set-block">
+              <h5><i class="fas fa-lock"></i> Đặt block cho bin</h5>
+              <p>Dùng transaction <strong>LS02N</strong> (change bin)</p>
+              <ul>
+                <li>Vào LS02N → nhập Warehouse Number và Storage Bin</li>
+                <li>Chuyển sang tab "Status"</li>
+                <li>Tick vào:
+                  <ul>
+                    <li>Putaway blocked</li>
+                    <li>Stock removal blocked</li>
+                  </ul>
+                </li>
+                <li>Ghi chú lý do nếu cần (Block Reason)</li>
+                <li>Save</li>
+              </ul>
+            </div>
+            
+            <div class="management-operation remove-block">
+              <h5><i class="fas fa-unlock"></i> Gỡ block</h5>
+              <p>Cũng vào <strong>LS02N</strong>, bỏ dấu tick → Save.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bin-status-impact">
+          <h4 class="bin-status-subtitle">
+            <i class="fas fa-exclamation-circle"></i> Ảnh hưởng khi Bin bị Block
+          </h4>
+          <ul class="impact-list">
+            <li>Khi putaway strategy chạy → hệ thống bỏ qua bin bị block</li>
+            <li>Khi tạo TO để pick hàng → hệ thống không cho pick từ bin đó</li>
+            <li>Nếu không còn bin thay thế phù hợp → TO sẽ không được tạo</li>
+          </ul>
+        </div>
+
+        <div class="bin-status-real-example">
+          <h4 class="bin-status-subtitle">
+            <i class="fas fa-rocket"></i> Thực tế ứng dụng
+          </h4>
+          <div class="bin-status-example">
+            <p class="example-title"><strong>Ví dụ trong kho Global Bike:</strong></p>
+            <div class="example-scenarios">
+              <div class="scenario">
+                <h6>Kệ A1-02-04 bị lún, không an toàn.</h6>
+                <ul>
+                  <li>Em vào LS02N, đặt <strong>Putaway Block</strong> → hệ thống sẽ không tạo TO nhập hàng vào đó</li>
+                </ul>
+              </div>
+              <div class="scenario">
+                <h6>Bin B2-01-05 đang kiểm kê tháng 6.</h6>
+                <ul>
+                  <li>Em đặt <strong>Stock Removal Block</strong> → nhân viên không được pick hàng trong thời gian kiểm kê</li>
+                </ul>
+              </div>
+              <div class="scenario">
+                <h6>Khi kiểm kê xong hoặc sửa chữa xong → em gỡ block → mọi quy trình trở lại bình thường.</h6>
+              </div>
+            </div>
+            <p class="example-note">
+              <strong>Thầy nhắc luôn:</strong> bin có thể bị block thủ công (qua LS02N) hoặc tự động do quy trình (ví dụ kiểm kê – Physical Inventory sẽ tự đặt block).
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="terms-grid" id="terms-grid">
+          <!-- Basic Terms -->
+          <div class="term-card basic" data-term="warehouse">
+            <div class="term-header">
+              <h3 class="term-name">Warehouse</h3>
+              <span class="term-category basic">Cơ bản</span>
+            </div>
+            <div class="term-content">
+              <p class="term-definition">
+                Kho hàng - Cơ sở vật chất để lưu trữ, bảo quản và quản lý hàng
+                hóa.
+              </p>
+              <div class="term-details">
+                <p>
+                  <strong>Trong SAP:</strong> Được định nghĩa bằng Warehouse
+                  Number và có thể chứa nhiều Storage Type khác nhau.
+                </p>
+                <p><strong>Ví dụ:</strong> Warehouse 001, 002, 100</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="term-card basic" data-term="storage-type">
+            <div class="term-header">
+              <h3 class="term-name">Storage Type</h3>
+              <span class="term-category basic">Cơ bản</span>
+            </div>
+            <div class="term-content">
+              <p class="term-definition">
+                Loại khu vực lưu trữ - Phân loại các khu vực trong kho theo đặc
+                điểm và mục đích sử dụng.
+              </p>
+              <div class="term-details">
+                <p>
+                  <strong>Các loại phổ biến:</strong> PALLET, SHELF, FLOOR,
+                  BULK, PICK
+                </p>
+                <p>
+                  <strong>Ví dụ:</strong> Storage Type PALLET cho hàng pallet,
+                  SHELF cho hàng kệ
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="term-card basic" data-term="storage-bin">
+            <div class="term-header">
+              <h3 class="term-name">Storage Bin</h3>
+              <span class="term-category basic">Cơ bản</span>
+            </div>
+            <div class="term-content">
+              <p class="term-definition">
+                Vị trí lưu trữ - Địa chỉ cụ thể nhất để lưu trữ hàng hóa trong
+                kho.
+              </p>
+              <div class="term-details">
+                <p>
+                  <strong>Cấu trúc:</strong> Thường có format như A1-01-01
+                  (Dãy-Tầng-Vị trí)
+                </p>
+                <p>
+                  <strong>Thuộc tính:</strong> Capacity, Weight limit, Bin type
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="term-card basic" data-term="quant">
+            <div class="term-header">
+              <h3 class="term-name">Quant</h3>
+              <span class="term-category basic">Cơ bản</span>
+            </div>
+            <div class="term-content">
+              <p class="term-definition">
+                Đơn vị quản lý stock - Đại diện cho một lượng hàng cụ thể tại
+                một vị trí cụ thể.
+              </p>
+              <div class="term-details">
+                <p>
+                  <strong>Thông tin:</strong> Material, Quantity, Batch, Stock
+                  Type
+                </p>
+                <p>
+                  <strong>Đặc điểm:</strong> Mỗi bin có thể chứa nhiều quant
+                  khác nhau
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Process Terms -->
+          <div class="term-card process" data-term="put-away">
+            <div class="term-header">
+              <h3 class="term-name">Put-away</h3>
+              <span class="term-category process">Quy trình</span>
+            </div>
+            <div class="term-content">
+              <p class="term-definition">
+                Quy trình sắp xếp hàng - Chuyển hàng từ khu tiếp nhận vào vị trí
+                lưu trữ.
+              </p>
+              <div class="term-details">
+                <p>
+                  <strong>Các bước:</strong> Goods Receipt → Transfer Order →
+                  Put-away
+                </p>
+                <p>
+                  <strong>Chiến lược:</strong> Fixed bin, Dynamic, Addition to
+                  existing stock
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="term-card process" data-term="picking">
+            <div class="term-header">
+              <h3 class="term-name">Picking</h3>
+              <span class="term-category process">Quy trình</span>
+            </div>
+            <div class="term-content">
+              <p class="term-definition">
+                Quy trình lấy hàng - Lấy hàng từ vị trí lưu trữ để chuẩn bị xuất
+                kho.
+              </p>
+              <div class="term-details">
+                <p>
+                  <strong>Loại picking:</strong> Single picking, Batch picking,
+                  Wave picking
+                </p>
+                <p>
+                  <strong>Chiến lược:</strong> FIFO, LIFO, Empty storage bin
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="term-card process" data-term="transfer-order">
+            <div class="term-header">
+              <h3 class="term-name">Transfer Order (TO)</h3>
+              <span class="term-category process">Quy trình</span>
+            </div>
+            <div class="term-content">
+              <p class="term-definition">
+                Lệnh chuyển hàng - Chỉ thị di chuyển hàng từ vị trí này sang vị
+                trí khác.
+              </p>
+              <div class="term-details">
+                <p>
+                  <strong>Loại TO:</strong> Put-away TO, Pick TO, Stock Transfer
+                  TO
+                </p>
+                <p><strong>Trạng thái:</strong> Open, In process, Confirmed</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="term-card process" data-term="transfer-requirement">
+            <div class="term-header">
+              <h3 class="term-name">Transfer Requirement (TR)</h3>
+              <span class="term-category process">Quy trình</span>
+            </div>
+            <div class="term-content">
+              <p class="term-definition">
+                Yêu cầu chuyển hàng - Yêu cầu di chuyển hàng, được tạo tự động
+                hoặc thủ công.
+              </p>
+              <div class="term-details">
+                <p>
+                  <strong>Nguồn tạo:</strong> Goods Receipt, Delivery, Manual
+                </p>
+                <p><strong>Xử lý:</strong> TR → TO → Confirmation</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Technical Terms -->
+          <div class="term-card technical" data-term="storage-unit">
+            <div class="term-header">
+              <h3 class="term-name">Storage Unit (SU)</h3>
+              <span class="term-category technical">Kỹ thuật</span>
+            </div>
+            <div class="term-content">
+              <p class="term-definition">
+                Đơn vị lưu trữ - Container logic để nhóm các material lại với
+                nhau.
+              </p>
+              <div class="term-details">
+                <p>
+                  <strong>Đặc điểm:</strong> Có thể chứa nhiều material, di
+                  chuyển như một khối
+                </p>
+                <p>
+                  <strong>Ứng dụng:</strong> Pallet management, Container
+                  tracking
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="term-card technical" data-term="warehouse-task">
+            <div class="term-header">
+              <h3 class="term-name">Warehouse Task</h3>
+              <span class="term-category technical">Kỹ thuật</span>
+            </div>
+            <div class="term-content">
+              <p class="term-definition">
+                Nhiệm vụ kho - Đơn vị công việc cơ bản nhất trong WM, tương ứng
+                với một TO item.
+              </p>
+              <div class="term-details">
+                <p>
+                  <strong>Thông tin:</strong> Source bin, Destination bin,
+                  Material, Quantity
+                </p>
+                <p><strong>Trạng thái:</strong> Open, Confirmed, Cancelled</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="term-card technical" data-term="interim-storage">
+            <div class="term-header">
+              <h3 class="term-name">Interim Storage</h3>
+              <span class="term-category technical">Kỹ thuật</span>
+            </div>
+            <div class="term-content">
+              <p class="term-definition">
+                Kho tạm - Khu vực tạm thời để xử lý hàng trước khi chuyển đến vị
+                trí cuối cùng.
+              </p>
+              <div class="term-details">
+                <p>
+                  <strong>Mục đích:</strong> Quality check, Repackaging, Staging
+                </p>
+                <p>
+                  <strong>Đặc điểm:</strong> Thời gian lưu trữ ngắn, luồng xử lý
+                  nhanh
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="term-card technical" data-term="stock-removal">
+            <div class="term-header">
+              <h3 class="term-name">Stock Removal Strategy</h3>
+              <span class="term-category technical">Kỹ thuật</span>
+            </div>
+            <div class="term-content">
+              <p class="term-definition">
+                Chiến lược lấy hàng - Quy tắc xác định thứ tự lấy hàng khi có
+                nhiều lựa chọn.
+              </p>
+              <div class="term-details">
+                <p><strong>Các loại:</strong> FIFO, LIFO, FEFO, LEFO</p>
+                <p>
+                  <strong>Cấu hình:</strong> Theo Material, Storage Type, hoặc
+                  Warehouse
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="term-card process" data-term="replenishment">
+            <div class="term-header">
+              <h3 class="term-name">Replenishment</h3>
+              <span class="term-category process">Quy trình</span>
+            </div>
+            <div class="term-content">
+              <p class="term-definition">
+                Bổ sung hàng - Quy trình tự động bổ sung hàng từ khu bulk xuống
+                khu picking.
+              </p>
+              <div class="term-details">
+                <p>
+                  <strong>Trigger:</strong> Min/Max quantity, Empty bin,
+                  Time-based
+                </p>
+                <p><strong>Loại:</strong> Automatic, Manual, Planned</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="term-card technical" data-term="batch-management">
+            <div class="term-header">
+              <h3 class="term-name">Batch Management</h3>
+              <span class="term-category technical">Kỹ thuật</span>
+            </div>
+            <div class="term-content">
+              <p class="term-definition">
+                Quản lý theo lô - Theo dõi hàng hóa theo từng lô sản xuất hoặc
+                nhập kho.
+              </p>
+              <div class="term-details">
+                <p>
+                  <strong>Thông tin batch:</strong> Production date, Expiry
+                  date, Vendor batch
+                </p>
+                <p>
+                  <strong>Ứng dụng:</strong> Traceability, Quality management,
+                  FEFO
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="term-card technical" data-term="physical-inventory">
+            <div class="term-header">
+              <h3 class="term-name">Physical Inventory</h3>
+              <span class="term-category technical">Kỹ thuật</span>
+            </div>
+            <div class="term-content">
+              <p class="term-definition">
+                Kiểm kê thực tế - Quy trình đếm và xác minh số lượng hàng thực
+                tế trong kho.
+              </p>
+              <div class="term-details">
+                <p><strong>Loại:</strong> Annual, Cycle counting, Continuous</p>
+                <p>
+                  <strong>Quy trình:</strong> Create document → Count → Post
+                  differences
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="term-card process" data-term="cross-docking">
+            <div class="term-header">
+              <h3 class="term-name">Cross-docking</h3>
+              <span class="term-category process">Quy trình</span>
+            </div>
+            <div class="term-content">
+              <p class="term-definition">
+                Chuyển hàng trực tiếp - Hàng được chuyển từ nhận về giao mà
+                không lưu trữ.
+              </p>
+              <div class="term-details">
+                <p>
+                  <strong>Lợi ích:</strong> Giảm handling cost, Tăng tốc độ,
+                  Giảm inventory
+                </p>
+                <p>
+                  <strong>Áp dụng:</strong> Fast-moving items, Just-in-time
+                  delivery
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Terms-specific styles */
+  .content-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8, 2rem);
+  }
+
+  .section-heading {
+    font-size: var(--text-2xl, 1.5rem);
+    font-weight: 600;
+    color: var(--neutral-800, #1f2937);
+    margin-bottom: var(--space-6, 1.5rem);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2, 0.5rem);
+  }
+
+  .description, .intro-text {
+    font-size: var(--text-lg, 1.125rem);
+    line-height: 1.7;
+    color: var(--neutral-600, #4b5563);
+    margin-bottom: var(--space-4, 1rem);
+  }
+
+  /* Quant vs Bin Comparison */
+  .comparison-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--space-6, 1.5rem);
+    margin-top: var(--space-6, 1.5rem);
+  }
+
+  .comparison-card {
+    background: white;
+    border: 2px solid var(--neutral-200, #e5e7eb);
+    border-radius: var(--radius-lg, 0.5rem);
+    padding: var(--space-6, 1.5rem);
+    transition: all 0.3s ease;
+  }
+
+  .comparison-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-300, #93c5fd);
+  }
+
+  .comparison-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3, 0.75rem);
+    margin-bottom: var(--space-4, 1rem);
+    padding-bottom: var(--space-3, 0.75rem);
+    border-bottom: 2px solid var(--neutral-100, #f3f4f6);
+  }
+
+  .comparison-header i {
+    font-size: var(--text-xl, 1.25rem);
+    color: var(--primary-600, #2563eb);
+  }
+
+  .comparison-header h4 {
+    font-size: var(--text-xl, 1.25rem);
+    font-weight: 600;
+    color: var(--neutral-800, #1f2937);
+    margin: 0;
+  }
+
+  .definition h5, .characteristics h5 {
+    font-size: var(--text-lg, 1.125rem);
+    font-weight: 600;
+    color: var(--neutral-700, #374151);
+    margin-bottom: var(--space-2, 0.5rem);
+  }
+
+  .characteristics ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .characteristics li {
+    position: relative;
+    padding-left: var(--space-5, 1.25rem);
+    margin-bottom: var(--space-2, 0.5rem);
+    color: var(--neutral-600, #4b5563);
+  }
+
+  .characteristics li:before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--primary-500, #3b82f6);
+    font-weight: bold;
+  }
+
+  /* Transfer Details */
+  .transfer-details {
+    margin-top: var(--space-6, 1.5rem);
+  }
+
+  .transfer-type {
+    margin-bottom: var(--space-8, 2rem);
+    padding: var(--space-6, 1.5rem);
+    background: var(--neutral-50, #f9fafb);
+    border-radius: var(--radius-lg, 0.5rem);
+    border-left: 4px solid var(--primary-500, #3b82f6);
+  }
+
+  .transfer-title {
+    font-size: var(--text-xl, 1.25rem);
+    font-weight: 600;
+    color: var(--neutral-800, #1f2937);
+    margin-bottom: var(--space-4, 1rem);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2, 0.5rem);
+  }
+
+  .transfer-description {
+    font-size: var(--text-lg, 1.125rem);
+    line-height: 1.7;
+    color: var(--neutral-600, #4b5563);
+    margin-bottom: var(--space-6, 1.5rem);
+  }
+
+  .transfer-subtypes, .transfer-levels {
+    margin-top: var(--space-4, 1rem);
+  }
+
+  .subtype-cards, .level-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-4, 1rem);
+    margin-top: var(--space-4, 1rem);
+  }
+
+  .subtype-card, .level-card {
+    background: white;
+    border: 1px solid var(--neutral-200, #e5e7eb);
+    border-radius: var(--radius-md, 0.375rem);
+    padding: var(--space-4, 1rem);
+  }
+
+  .subtype-card h6, .level-card h6 {
+    font-size: var(--text-base, 1rem);
+    font-weight: 600;
+    color: var(--neutral-700, #374151);
+    margin-bottom: var(--space-2, 0.5rem);
+  }
+
+  .transfer-characteristics ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .transfer-characteristics li {
+    position: relative;
+    padding-left: var(--space-5, 1.25rem);
+    margin-bottom: var(--space-2, 0.5rem);
+    color: var(--neutral-600, #4b5563);
+  }
+
+  .transfer-characteristics li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--success-500, #10b981);
+    font-weight: bold;
+  }
+
+  /* Tables */
+  .table-container {
+    overflow-x: auto;
+    margin: var(--space-4, 1rem) 0;
+  }
+
+  .comparison-table, .sto-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: var(--radius-lg, 0.5rem);
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .comparison-table th, .sto-table th {
+    background: var(--primary-600, #2563eb);
+    color: white;
+    padding: var(--space-4, 1rem);
+    text-align: left;
+    font-weight: 600;
+  }
+
+  .comparison-table td, .sto-table td {
+    padding: var(--space-4, 1rem);
+    border-bottom: 1px solid var(--neutral-200, #e5e7eb);
+    color: var(--neutral-700, #374151);
+  }
+
+  .comparison-table tr:hover, .sto-table tr:hover {
+    background: var(--neutral-50, #f9fafb);
+  }
+
+  /* Examples */
+  .practical-examples {
+    margin-top: var(--space-6, 1.5rem);
+  }
+
+  .examples-title {
+    font-size: var(--text-xl, 1.25rem);
+    font-weight: 600;
+    color: var(--neutral-800, #1f2937);
+    margin-bottom: var(--space-4, 1rem);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2, 0.5rem);
+  }
+
+  .example-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--space-6, 1.5rem);
+    margin-top: var(--space-4, 1rem);
+  }
+
+  .example-card {
+    background: var(--warning-50, #fefce8);
+    border: 2px solid var(--warning-200, #fde047);
+    border-radius: var(--radius-lg, 0.5rem);
+    padding: var(--space-5, 1.25rem);
+  }
+
+  .example-card.transfer-posting {
+    border-color: var(--warning-300, #facc15);
+  }
+
+  .example-card.stock-transfer {
+    border-color: var(--success-300, #86efac);
+    background: var(--success-50, #f0fdf4);
+  }
+
+  /* STO Section */
+  .sto-subtitle, .hazardous-subtitle, .bin-status-subtitle {
+    font-size: var(--text-lg, 1.125rem);
+    font-weight: 600;
+    color: var(--neutral-800, #1f2937);
+    margin-bottom: var(--space-4, 1rem);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2, 0.5rem);
+  }
+
+  .objectives-list, .hazardous-objectives-list, .bin-status-objectives-list {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .objectives-list li, .hazardous-objectives-list li, .bin-status-objectives-list li {
+    position: relative;
+    padding-left: var(--space-6, 1.5rem);
+    margin-bottom: var(--space-3, 0.75rem);
+    color: var(--neutral-600, #4b5563);
+    line-height: 1.6;
+  }
+
+  .objectives-list li:before, .hazardous-objectives-list li:before, .bin-status-objectives-list li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent-500, #8b5cf6);
+    font-weight: bold;
+    font-size: var(--text-lg, 1.125rem);
+  }
+
+  .sto-type-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-4, 1rem);
+    margin-top: var(--space-4, 1rem);
+  }
+
+  .sto-type-card {
+    background: white;
+    border: 2px solid var(--accent-200, #c4b5fd);
+    border-radius: var(--radius-lg, 0.5rem);
+    padding: var(--space-5, 1.25rem);
+  }
+
+  .sto-type-card h5 {
+    color: var(--accent-700, #7c3aed);
+    font-weight: 600;
+    margin-bottom: var(--space-3, 0.75rem);
+  }
+
+  /* STO Steps */
+  .sto-steps {
+    margin-top: var(--space-4, 1rem);
+  }
+
+  .sto-step {
+    display: flex;
+    gap: var(--space-4, 1rem);
+    margin-bottom: var(--space-6, 1.5rem);
+    padding: var(--space-4, 1rem);
+    background: white;
+    border-radius: var(--radius-lg, 0.5rem);
+    border-left: 4px solid var(--accent-500, #8b5cf6);
+  }
+
+  .step-number {
+    background: var(--accent-500, #8b5cf6);
+    color: white;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+
+  .step-content h6 {
+    color: var(--neutral-800, #1f2937);
+    font-weight: 600;
+    margin-bottom: var(--space-2, 0.5rem);
+  }
+
+  /* Hazardous Materials */
+  .category-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-4, 1rem);
+    margin-top: var(--space-4, 1rem);
+  }
+
+  .category-card {
+    background: white;
+    border: 2px solid var(--warning-200, #fde047);
+    border-radius: var(--radius-lg, 0.5rem);
+    padding: var(--space-4, 1rem);
+    text-align: center;
+  }
+
+  .category-card i {
+    font-size: var(--text-2xl, 1.5rem);
+    color: var(--warning-600, #d97706);
+    margin-bottom: var(--space-2, 0.5rem);
+  }
+
+  .category-card h5 {
+    color: var(--neutral-800, #1f2937);
+    font-weight: 600;
+    margin-bottom: var(--space-2, 0.5rem);
+  }
+
+  .data-fields {
+    margin-top: var(--space-4, 1rem);
+  }
+
+  .data-field {
+    margin-bottom: var(--space-6, 1.5rem);
+    padding: var(--space-4, 1rem);
+    background: var(--neutral-50, #f9fafb);
+    border-radius: var(--radius-md, 0.375rem);
+  }
+
+  .data-field h5 {
+    color: var(--neutral-800, #1f2937);
+    font-weight: 600;
+    margin-bottom: var(--space-3, 0.75rem);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2, 0.5rem);
+  }
+
+  /* Storage Bin Status */
+  .status-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-6, 1.5rem);
+    margin-top: var(--space-4, 1rem);
+  }
+
+  .status-card {
+    background: white;
+    border: 2px solid var(--danger-200, #fecaca);
+    border-radius: var(--radius-lg, 0.5rem);
+    padding: var(--space-5, 1.25rem);
+  }
+
+  .status-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3, 0.75rem);
+    margin-bottom: var(--space-4, 1rem);
+    padding-bottom: var(--space-3, 0.75rem);
+    border-bottom: 2px solid var(--neutral-100, #f3f4f6);
+  }
+
+  .status-header i {
+    font-size: var(--text-xl, 1.25rem);
+    color: var(--danger-600, #dc2626);
+  }
+
+  .status-header h5 {
+    color: var(--neutral-800, #1f2937);
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .status-definition {
+    color: var(--neutral-600, #4b5563);
+    margin-bottom: var(--space-4, 1rem);
+    line-height: 1.6;
+  }
+
+  .status-usage h6, .status-examples h6 {
+    color: var(--neutral-700, #374151);
+    font-weight: 600;
+    margin-bottom: var(--space-2, 0.5rem);
+  }
+
+  .management-operations {
+    margin-top: var(--space-4, 1rem);
+  }
+
+  .management-operation {
+    margin-bottom: var(--space-6, 1.5rem);
+    padding: var(--space-4, 1rem);
+    background: white;
+    border-radius: var(--radius-md, 0.375rem);
+    border-left: 4px solid var(--primary-500, #3b82f6);
+  }
+
+  .management-operation h5 {
+    color: var(--neutral-800, #1f2937);
+    font-weight: 600;
+    margin-bottom: var(--space-3, 0.75rem);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2, 0.5rem);
+  }
+
+  .impact-list {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .impact-list li {
+    position: relative;
+    padding-left: var(--space-5, 1.25rem);
+    margin-bottom: var(--space-2, 0.5rem);
+    color: var(--neutral-600, #4b5563);
+  }
+
+  .impact-list li:before {
+    content: "⚠";
+    position: absolute;
+    left: 0;
+    color: var(--warning-500, #f59e0b);
+  }
+
+  .example-scenarios {
+    margin-top: var(--space-4, 1rem);
+  }
+
+  .scenario {
+    margin-bottom: var(--space-4, 1rem);
+    padding: var(--space-4, 1rem);
+    background: var(--neutral-50, #f9fafb);
+    border-radius: var(--radius-md, 0.375rem);
+  }
+
+  .scenario h6 {
+    color: var(--neutral-800, #1f2937);
+    font-weight: 600;
+    margin-bottom: var(--space-2, 0.5rem);
+  }
+
+  .status-note {
+    margin-top: var(--space-4, 1rem);
+    padding: var(--space-4, 1rem);
+    background: var(--blue-50, #eff6ff);
+    border: 1px solid var(--blue-200, #bfdbfe);
+    border-radius: var(--radius-md, 0.375rem);
+  }
+
+  .status-note p {
+    color: var(--blue-800, #1e40af);
+    margin: 0;
+  }
+
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .comparison-cards,
+    .example-cards,
+    .subtype-cards,
+    .level-cards,
+    .sto-type-cards,
+    .category-cards,
+    .status-cards {
+      grid-template-columns: 1fr;
+    }
+    
+    .sto-step {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>
+
+<script>
+  // Terms filtering and search functionality
+  document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.getElementById("terms-search-input");
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const termCards = document.querySelectorAll(".term-card");
+
+    // Search functionality
+    if (searchInput) {
+      searchInput.addEventListener("input", function (e) {
+        const searchTerm = e.target.value.toLowerCase();
+
+        termCards.forEach((card) => {
+          const termName = card
+            .querySelector(".term-name")
+            .textContent.toLowerCase();
+          const termDefinition = card
+            .querySelector(".term-definition")
+            .textContent.toLowerCase();
+          const termDetails = card
+            .querySelector(".term-details")
+            .textContent.toLowerCase();
+
+          const matches =
+            termName.includes(searchTerm) ||
+            termDefinition.includes(searchTerm) ||
+            termDetails.includes(searchTerm);
+
+          if (matches) {
+            card.classList.remove("hidden");
+          } else {
+            card.classList.add("hidden");
+          }
+        });
+      });
+    }
+
+    // Category filtering
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", function () {
+        const category = this.getAttribute("data-category");
+
+        // Update active button
+        filterButtons.forEach((btn) => btn.classList.remove("active"));
+        this.classList.add("active");
+
+        // Filter cards
+        termCards.forEach((card) => {
+          if (category === "all" || card.classList.contains(category)) {
+            card.classList.remove("hidden");
+          } else {
+            card.classList.add("hidden");
+          }
+        });
+
+        // Clear search if filtering by category
+        if (searchInput) {
+          searchInput.value = "";
+        }
+      });
+    });
+  });
+</script>

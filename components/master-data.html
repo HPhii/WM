@@ -1,0 +1,410 @@
+<div class="card">
+  <div class="card-header">
+    <h2 class="card-title">
+      <i class="fas fa-database" aria-hidden="true"></i>
+      Master Data trong WM
+    </h2>
+    <p class="card-subtitle">
+      Dữ liệu nền tảng là xương sống của mọi hoạt động warehouse management
+    </p>
+  </div>
+
+    <div class="card-content">
+      <div class="content-grid">
+        <div class="content-section-intro">
+          <h3 class="section-heading">
+            <i class="fas fa-info-circle text-primary-600"></i>
+            I. Warehouse Management Master Data
+          </h3>
+          <p class="lead">
+            Phần này cực kỳ quan trọng vì mọi quy trình nhập – xuất – kiểm kê
+            đều dựa vào nó. Đây là "các dữ liệu nền" để vận hành kho, giống như
+            bản đồ và thông tin từng món hàng trong kho.
+          </p>
+        </div>
+
+        <div class="master-data-types">
+          <h3 class="section-heading">
+            <i class="fas fa-list-ul text-secondary-600"></i>
+            II. Các loại Master Data chính trong SAP WM
+          </h3>
+
+          <div class="data-type-grid">
+            <div class="data-type-card primary">
+              <i class="fas fa-map-marker-alt"></i>
+              <h4>Storage Bin Master Data</h4>
+              <p>Địa chỉ vật lý để chứa hàng trong kho</p>
+            </div>
+
+            <div class="data-type-card secondary">
+              <i class="fas fa-cube"></i>
+              <h4>Material Master</h4>
+              <p>Thông tin chi tiết về vật liệu</p>
+            </div>
+
+            <div class="data-type-card accent">
+              <i class="fas fa-exclamation-triangle"></i>
+              <h4>Hazardous Material Master</h4>
+              <p>Dữ liệu về vật liệu nguy hiểm</p>
+            </div>
+
+            <div class="data-type-card warning">
+              <i class="fas fa-barcode"></i>
+              <h4>Batch Master</h4>
+              <p>Quản lý theo lô sản xuất</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="storage-bin-details">
+          <h3 class="section-heading">
+            <i class="fas fa-warehouse text-primary-600"></i>
+            III. Storage Bin Master Data
+          </h3>
+
+          <div class="info-card">
+            <p class="description">
+              Là dữ liệu về
+              <strong>địa chỉ vật lý để chứa hàng trong kho</strong>.
+            </p>
+
+            <h4 class="subsection-title">
+              <i class="fas fa-layer-group"></i>
+              Cấu trúc gồm 3 cấp:
+            </h4>
+
+            <div class="structure-levels">
+              <div class="level-card warehouse">
+                <div class="level-header">
+                  <i class="fas fa-building"></i>
+                  <h5>Warehouse Level</h5>
+                </div>
+                <p>
+                  Các thông số áp dụng cho toàn kho (ví dụ: đơn vị đo, loại bin
+                  chuẩn).
+                </p>
+              </div>
+
+              <div class="level-card storage-type">
+                <div class="level-header">
+                  <i class="fas fa-th-large"></i>
+                  <h5>Storage Type Level</h5>
+                </div>
+                <p>
+                  Áp dụng cho từng loại khu (ví dụ: chỉ storage type pallet mới
+                  có max weight = 500kg).
+                </p>
+              </div>
+
+              <div class="level-card storage-bin">
+                <div class="level-header">
+                  <i class="fas fa-map-pin"></i>
+                  <h5>Storage Bin</h5>
+                </div>
+                <p>Từng vị trí cụ thể như A1-01-01.</p>
+              </div>
+            </div>
+
+            <p class="description mt-4">
+              General data, storage bin data, status là 3 thông số cần quan tâm
+              của storage bin.
+            </p>
+
+            <h4 class="subsection-title">
+              <i class="fas fa-info-circle"></i>
+              Chi tiết thông tin một bin gồm:
+            </h4>
+
+            <div class="bin-info-sections">
+              <div class="info-section">
+                <h5 class="info-section-title">
+                  <i class="fas fa-file-alt"></i>
+                  General data
+                </h5>
+                <ul class="info-list">
+                  <li>Warehouse number: ví dụ "001"</li>
+                  <li>Storage type: ví dụ "002"</li>
+                  <li>Bin number: A2-03-07</li>
+                </ul>
+              </div>
+
+              <div class="info-section">
+                <h5 class="info-section-title">
+                  <i class="fas fa-database"></i>
+                  Storage bin data
+                </h5>
+                <ul class="info-list">
+                  <li>Storage section: nhóm bin</li>
+                  <li>Picking area: dùng để gom nhóm bin phục vụ picking</li>
+                  <li>
+                    Bin type: loại bin (đựng pallet, thùng carton, hộp nhỏ,...)
+                  </li>
+                  <li>Max weight: trọng lượng tối đa chứa được</li>
+                  <li>
+                    Fire-containment section: Một khu vực hoặc phòng kín được
+                    ngăn cách với các khu vực khác bằng cửa ra vào hoặc tường để
+                    bảo vệ hàng hóa trong kho khỏi hư hại do hỏa hoạn. (chủ yếu
+                    bảo vệ mấy cái đồ dễ cháy)
+                  </li>
+                </ul>
+              </div>
+
+              <div class="info-section">
+                <h5 class="info-section-title">
+                  <i class="fas fa-shield-alt"></i>
+                  Storage Bin Status
+                </h5>
+                <p>
+                  Có bị chặn nhập/xuất không (block for putaway, removal block)
+                </p>
+              </div>
+            </div>
+
+            <div class="important-note">
+              <i class="fas fa-exclamation-circle"></i>
+              <p>
+                <strong>Lưu ý:</strong> mỗi <strong>Storage Bin</strong> có thể
+                chứa nhiều vật tư → mỗi tổ hợp vật tư trong một bin gọi là
+                <strong>Quant</strong>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="quant-details">
+          <h3 class="section-heading">
+            <i class="fas fa-cubes text-accent-600"></i>
+            IV. Quant
+          </h3>
+
+          <div class="info-card">
+            <p class="description">
+              <strong>Quant</strong> là đơn vị đo lường nhỏ nhất trong WM – đại
+              diện cho 1 loại vật tư cụ thể trong 1 bin.
+            </p>
+            <p class="description">Một bin có thể chứa nhiều quant, ví dụ:</p>
+
+            <div class="example-box">
+              <h5 class="example-title">
+                <i class="fas fa-lightbulb"></i>
+                Ví dụ: Bin A1-01-01
+              </h5>
+              <ul class="example-list">
+                <li>50 cái yên xe (Material A, batch 0001)</li>
+                <li>30 cái tay lái (Material B, batch 0002)</li>
+              </ul>
+            </div>
+
+            <h4 class="subsection-title">
+              <i class="fas fa-list"></i>
+              Thông tin trong quant:
+            </h4>
+            <ul class="info-list">
+              <li>Material</li>
+              <li>Plant / Storage Location</li>
+              <li>Batch</li>
+              <li>Storage type, bin</li>
+              <li>Total stock, Available stock</li>
+              <li>Block indicator (có bị chặn xuất/nhập không)</li>
+            </ul>
+
+            <div class="important-note">
+              <i class="fas fa-info-circle"></i>
+              <p>
+                Hệ thống theo dõi từng quant, không phải chỉ tổng số vật tư
+                trong kho.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="material-master-details">
+          <h3 class="section-heading">
+            <i class="fas fa-cube text-secondary-600"></i>
+            V. Material Master
+          </h3>
+
+          <div class="info-card">
+            <p class="description">
+              Đây là <strong>hồ sơ đầy đủ của từng loại vật tư</strong> trong
+              toàn bộ hệ thống SAP – không chỉ dùng trong WM, mà còn trong SD,
+              MM, PP, FI,…
+            </p>
+            <p class="description">
+              Nó lưu mọi thông tin cần thiết để mua, bán, lưu trữ, sản xuất,
+              kiểm tra chất lượng,…
+            </p>
+
+            <h4 class="subsection-title">
+              <i class="fas fa-eye"></i>
+              Cấu trúc theo từng View, ví dụ:
+            </h4>
+            <ul class="info-list">
+              <li>Basic Data: tên vật tư, đơn vị tính, mã ngành</li>
+              <li>Sales Data: thông tin bán hàng</li>
+              <li>Warehouse Mgmt. View: thông tin phục vụ lưu trữ</li>
+              <li>Accounting View: giá trị vật tư</li>
+              <li>Forecasting, Planning View: dữ liệu lập kế hoạch</li>
+            </ul>
+
+            <div class="example-box">
+              <h5 class="example-title">
+                <i class="fas fa-lightbulb"></i>
+                Ví dụ: Material M-0001 – "Khung xe đạp"
+              </h5>
+              <ul class="example-list">
+                <li>Đơn vị tính: EA</li>
+                <li>Max weight: 10 kg</li>
+                <li>Putaway strategy: Next Empty Bin</li>
+                <li>Removal strategy: FIFO</li>
+              </ul>
+            </div>
+
+            <div class="important-note">
+              <i class="fas fa-exclamation-triangle"></i>
+              <p>
+                <strong>Lưu ý:</strong> để WM hoạt động tốt,
+                <strong>Warehouse View</strong> trong Material Master phải được
+                maintain.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hazardous-material-details">
+          <h3 class="section-heading">
+            <i class="fas fa-exclamation-triangle text-warning-600"></i>
+            VI. Hazardous Material Master
+          </h3>
+
+          <div class="info-card">
+            <p class="description">
+              Dành cho <strong>vật tư nguy hiểm</strong> – cần xử lý đặc biệt.
+            </p>
+
+            <h4 class="subsection-title">
+              <i class="fas fa-list"></i>
+              Thông tin bao gồm:
+            </h4>
+            <ul class="info-list">
+              <li>Loại nguy hiểm (cháy nổ, độc hại,…)</li>
+              <li>Storage class: phân loại lưu kho</li>
+              <li>Flash point: điểm cháy</li>
+              <li>Aggregate state: thể rắn, lỏng, khí</li>
+              <li>Water pollution class: nguy cơ với nước</li>
+            </ul>
+
+            <div class="important-note">
+              <i class="fas fa-shield-alt"></i>
+              <p>
+                Nếu kho có lưu trữ vật tư loại này, hệ thống sẽ kiểm tra và yêu
+                cầu tuân thủ chuẩn lưu trữ.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="batch-master-details">
+          <h3 class="section-heading">
+            <i class="fas fa-barcode text-accent-600"></i>
+            VII. Batch Master
+          </h3>
+
+          <div class="info-card">
+            <p class="description">
+              Là thông tin dùng để quản lý
+              <strong>vật tư theo lô (batch)</strong> – áp dụng cho hàng dễ hư,
+              cần truy xuất nguồn gốc, hoặc yêu cầu kiểm tra chất lượng riêng.
+            </p>
+            <p class="description">
+              Một batch là một lô sản xuất cùng thời điểm.
+            </p>
+
+            <h4 class="subsection-title">
+              <i class="fas fa-list"></i>
+              Thông tin trong batch:
+            </h4>
+            <ul class="info-list">
+              <li>Expiry date: ngày hết hạn</li>
+              <li>Inspection data: thông tin kiểm tra chất lượng</li>
+              <li>Admin data: ai tạo, khi nào</li>
+              <li>
+                Batch classification: thuộc nhóm nào (ví dụ: hàng cao cấp, hàng
+                khuyến mãi,…)
+              </li>
+            </ul>
+
+            <div class="example-box">
+              <h5 class="example-title">
+                <i class="fas fa-lightbulb"></i>
+                Ví dụ: Material "Xích xe đạp" có 2 batch
+              </h5>
+              <ul class="example-list">
+                <li>BATCH0001: sản xuất tháng 1, hết hạn tháng 6</li>
+                <li>BATCH0002: sản xuất tháng 2, hết hạn tháng 7</li>
+              </ul>
+            </div>
+
+            <div class="important-note">
+              <h5 class="example-title">
+                <i class="fas fa-info-circle"></i>
+              </h5>
+              <p>
+                Trong kho, mỗi batch sẽ có <strong>Quant riêng</strong>, quản lý
+                tồn kho riêng biệt.
+              </p>
+            </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="master-data-relationships">
+          <h3 class="section-heading">
+            <i class="fas fa-project-diagram text-primary-600"></i>
+            VIII. Quan hệ giữa Master Data
+          </h3>
+
+          <div class="info-card">
+            <div class="relationships-grid">
+              <div class="relationship-item">
+                <div class="level-header">
+                    <i class="fas fa-map-pin"></i>
+                    <h5>Storage Bin</h5>
+                </div>
+                <p>Là nơi chứa hàng</p>
+              </div>
+              <div class="relationship-item">
+                <div class="level-header">
+                    <i class="fas fa-cubes"></i>
+                    <h5>Quant</h5>
+                </div>
+                <p>Là vật tư cụ thể trong từng bin</p>
+              </div>
+              <div class="relationship-item">
+                <div class="level-header">
+                    <i class="fas fa-cube"></i>
+                    <h5>Material Master</h5>
+                </div>
+                <p>Là hồ sơ đầy đủ về vật tư</p>
+              </div>
+              <div class="relationship-item">
+                <div class="level-header">
+                    <i class="fas fa-barcode"></i>
+                    <h5>Batch Master</h5>
+                </div>
+                <p>Là để quản lý theo từng lô hàng</p>
+              </div>
+              <div class="relationship-item">
+                <div class="level-header">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h5>Hazard Master</h5>
+                </div>
+                <p>Là để đảm bảo hàng nguy hiểm được xử lý an toàn</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

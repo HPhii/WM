@@ -1,0 +1,127 @@
+<!-- Header Component -->
+<header class="site-header">
+  <div class="container">
+    <h1 class="site-title">
+      <i class="fas fa-warehouse" aria-hidden="true"></i>
+      Kiến Thức Quản Lý Kho (WM)
+    </h1>
+
+    <nav class="main-nav" role="navigation" aria-label="Điều hướng chính">
+      <ul>
+        <li>
+          <a
+            href="#home"
+            data-section="home"
+            aria-current="page"
+            title="Trang chủ - Tổng quan về WM"
+          >
+            <i class="fas fa-home" aria-hidden="true"></i>
+            Trang Chủ
+          </a>
+        </li>
+        <li>
+          <a
+            href="#master-data"
+            data-section="master-data"
+            title="Master Data - Dữ liệu nền tảng"
+          >
+            <i class="fas fa-database" aria-hidden="true"></i>
+            Master Data
+          </a>
+        </li>
+        <li>
+          <a
+            href="#org-structure"
+            data-section="org-structure"
+            title="Cấu trúc tổ chức kho"
+          >
+            <i class="fas fa-sitemap" aria-hidden="true"></i>
+            Cấu Trúc Tổ Chức
+          </a>
+        </li>
+        <li>
+          <a
+            href="#processes"
+            data-section="processes"
+            title="Quy trình nghiệp vụ chính"
+          >
+            <i class="fas fa-cogs" aria-hidden="true"></i>
+            Quy Trình Chính
+          </a>
+        </li>
+        <li>
+          <a
+            href="#strategies"
+            data-section="strategies"
+            title="Chiến lược nhập xuất kho"
+          >
+            <i class="fas fa-chess" aria-hidden="true"></i>
+            Chiến Lược
+          </a>
+        </li>
+        <li>
+          <a
+            href="#inventory"
+            data-section="inventory"
+            title="Kiểm kê và quản lý tồn kho"
+          >
+            <i class="fas fa-clipboard-list" aria-hidden="true"></i>
+            Kiểm Kê Kho
+          </a>
+        </li>
+        <li>
+          <a
+            href="#terms"
+            data-section="terms"
+            title="Thuật ngữ và từ viết tắt"
+          >
+            <i class="fas fa-book" aria-hidden="true"></i>
+            Thuật Ngữ
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Search functionality (optional) -->
+    <div class="header-actions">
+      <div class="search-container">
+        <input
+          type="search"
+          data-search
+          placeholder="Tìm kiếm kiến thức... (Ctrl+K)"
+          aria-label="Tìm kiếm nội dung"
+          class="search-input"
+        />
+        <i class="fas fa-search search-icon" aria-hidden="true"></i>
+      </div>
+
+      <!-- Theme toggle (optional) -->
+      <button
+        type="button"
+        data-theme-toggle
+        aria-label="Chuyển đổi chế độ sáng/tối"
+        class="theme-toggle"
+        title="Chuyển đổi chế độ hiển thị"
+      >
+        <i class="fas fa-moon" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Breadcrumb navigation (optional) -->
+<nav class="breadcrumb-nav" aria-label="Breadcrumb">
+  <div class="container">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="#home" data-section="home">
+          <i class="fas fa-home" aria-hidden="true"></i>
+          Trang chủ
+        </a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">
+        <span id="current-section-title">Trang Chủ</span>
+      </li>
+    </ol>
+  </div>
+</nav>

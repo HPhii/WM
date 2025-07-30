@@ -1,0 +1,432 @@
+<div class="card">
+  <div class="card-header">
+    <h2 class="card-title">
+      <i class="fas fa-cogs" aria-hidden="true"></i>
+      Các Quy Trình Chính trong WM
+    </h2>
+    <p class="card-subtitle">
+      Các quy trình này là xương sống của mọi hoạt động trong kho, đảm bảo hàng
+      hóa được luân chuyển một cách hiệu quả và chính xác
+    </p>
+  </div>
+
+  <div class="card-content">
+    <div class="content-grid">
+      <div class="content-section-intro">
+        <h3 class="section-heading">
+          <i class="fas fa-info-circle text-primary-600"></i>
+          I. Các Quy Trình Chính trong WM
+        </h3>
+        <p class="lead">
+          Các quy trình này là xương sống của mọi hoạt động trong kho, đảm bảo
+          hàng hóa được luân chuyển một cách hiệu quả và chính xác.
+        </p>
+      </div>
+
+      <div class="process-detail-section">
+        <h3 class="section-heading">
+          <i class="fas fa-truck-loading text-success-600"></i>
+          II. Goods Receipt (Nhập hàng)
+        </h3>
+
+        <div class="process-content">
+          <div class="process-description">
+            <p class="process-intro">
+              <strong>Ứng dụng thực tế:</strong> Khi công ty nhận hàng từ
+              supplier hoặc từ một kho khác, quy trình nhập hàng đảm bảo hàng
+              được ghi nhận vào hệ thống và đưa vào đúng vị trí lưu trữ.
+            </p>
+          </div>
+
+          <div class="process-steps">
+            <h4 class="steps-title">
+              <i class="fas fa-list-ol text-success-600"></i>
+              Các bước chính:
+            </h4>
+            <div class="steps-grid">
+              <div class="step-card">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <h5>Goods receipt posting</h5>
+                  <p>Ghi nhận hàng đã đến (ví dụ: PO đã được giao).</p>
+                </div>
+              </div>
+
+              <div class="step-card">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <h5>Transfer requirement (TR)</h5>
+                  <p>
+                    Tạo yêu cầu chuyển hàng từ khu vực nhận hàng đến vị trí lưu
+                    trữ. (chưa có sự thay đổi vật lý, chưa movement)
+                  </p>
+                </div>
+              </div>
+
+              <div class="step-card">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h5>Putaway with Transfer Order (TO)</h5>
+                  <p>
+                    Tạo TO để xác định cụ thể hàng sẽ được cất ở đâu (ví dụ: Bin
+                    A1-02-03). (RF Scanner)
+                  </p>
+                </div>
+              </div>
+
+              <div class="step-card">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                  <h5>Confirm transfer order</h5>
+                  <p>Xác nhận hàng đã được đưa vào đúng bin trong hệ thống.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="real-example">
+            <div class="example-card">
+              <div class="example-header">
+                <i class="fas fa-lightbulb text-warning-600"></i>
+                <h5>Trong thực tế:</h5>
+              </div>
+              <p class="example-content">
+                Ví dụ: Xe tải giao 200 chiếc yên xe → bạn làm GR để nhập hệ
+                thống → tạo TO → nhân viên dùng RF scanner đẩy hàng vào đúng vị
+                trí → xác nhận hoàn tất.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="process-detail-section">
+        <h3 class="section-heading">
+          <i class="fas fa-shipping-fast text-primary-600"></i>
+          III. Goods Issue (Xuất hàng)
+        </h3>
+
+        <div class="process-content">
+          <div class="process-description">
+            <p class="process-intro">
+              <strong>Ứng dụng thực tế:</strong> Dùng khi xuất hàng cho khách
+              hàng, hoặc chuyển hàng nội bộ giữa các plant.
+            </p>
+          </div>
+
+          <div class="process-steps">
+            <h4 class="steps-title">
+              <i class="fas fa-list-ol text-primary-600"></i>
+              Các bước chính:
+            </h4>
+            <div class="steps-grid">
+              <div class="step-card">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <h5>Goods issue posting</h5>
+                  <p>Xác nhận hàng sẽ được xuất đi.</p>
+                </div>
+              </div>
+
+              <div class="step-card">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <h5>Transfer requirement</h5>
+                  <p>Yêu cầu nhân viên kho chuyển hàng ra khu vực xuất.</p>
+                </div>
+              </div>
+
+              <div class="step-card">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h5>Picking with Transfer Order</h5>
+                  <p>
+                    Dùng TO để hướng dẫn người kho lấy đúng hàng từ đúng vị trí.
+                    (RF Scanner)
+                  </p>
+                </div>
+              </div>
+
+              <div class="step-card">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                  <h5>Confirm transfer order</h5>
+                  <p>Xác nhận đã pick đúng hàng, đúng số lượng.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="real-example">
+            <div class="example-card">
+              <div class="example-header">
+                <i class="fas fa-lightbulb text-warning-600"></i>
+                <h5>Trong thực tế:</h5>
+              </div>
+              <p class="example-content">
+                Ví dụ: Có đơn hàng xuất 50 khung xe → hệ thống tạo TO → nhân
+                viên quét cái RF scanner và số lượng đúng thì cho qua, sai giữ
+                lại→ xác nhận → hàng chuyển ra shipping area → giao đi.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="process-detail-section">
+        <h3 class="section-heading">
+          <i class="fas fa-hand-pointer text-accent-600"></i>
+          IV. Picking (Chọn hàng)
+        </h3>
+
+        <div class="process-content">
+          <div class="process-description">
+            <p class="process-intro">
+              <strong>Ứng dụng thực tế:</strong> Dùng trong quá trình chuẩn bị
+              hàng xuất. Đảm bảo đúng vật tư, đúng vị trí, đúng số lượng.
+            </p>
+          </div>
+
+          <div class="picking-roles">
+            <h4 class="steps-title">
+              <i class="fas fa-star text-accent-600"></i>
+              Vai trò trong WM:
+            </h4>
+            <div class="role-cards">
+              <div class="role-card">
+                <i class="fas fa-crosshairs"></i>
+                <p>Dựa trên Transfer Order để tìm chính xác bin lưu vật tư.</p>
+              </div>
+              <div class="role-card">
+                <i class="fas fa-tachometer-alt"></i>
+                <p>
+                  Giúp tăng tốc độ và độ chính xác khi xuất hàng (thường tích
+                  hợp với máy quét mã vạch/RF device).
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="real-example">
+            <div class="example-card">
+              <div class="example-header">
+                <i class="fas fa-lightbulb text-warning-600"></i>
+                <h5>Thực tế:</h5>
+              </div>
+              <p class="example-content">
+                Warehouse có 1000 bin, nếu không có WM bạn không biết hàng nằm ở
+                đâu. Với WM, bạn biết thùng xích xe ở A2-01-05, số lượng còn 250
+                chiếc → dễ dàng pick đúng. (nói chung chỗ này là tạo delivery
+                note)
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="process-detail-section">
+        <h3 class="section-heading">
+          <i class="fas fa-box text-secondary-600"></i>
+          V. Packing (Đóng gói)
+        </h3>
+
+        <div class="process-content">
+          <div class="process-description">
+            <p class="process-intro">
+              <strong>Ứng dụng thực tế:</strong> Chuẩn bị hàng sau khi đã pick
+              xong, đóng vào thùng, pallet,... để sẵn sàng giao đi.
+            </p>
+          </div>
+
+          <div class="packing-features">
+            <h4 class="steps-title">
+              <i class="fas fa-cogs text-secondary-600"></i>
+              Trong WM (kết hợp với module SD/LE):
+            </h4>
+            <div class="feature-cards">
+              <div class="feature-card">
+                <i class="fas fa-calculator"></i>
+                <h5>Xác định số lượng thùng</h5>
+                <p>Xác định số lượng thùng cần thiết.</p>
+              </div>
+              <div class="feature-card">
+                <i class="fas fa-tags"></i>
+                <h5>Gán vật tư</h5>
+                <p>Gán vật tư vào từng packing unit.</p>
+              </div>
+              <div class="feature-card">
+                <i class="fas fa-weight"></i>
+                <h5>Ghi nhận thông tin</h5>
+                <p>
+                  Ghi nhận số hiệu, trọng lượng, thể tích của từng kiện hàng.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="real-example">
+            <div class="example-card">
+              <div class="example-header">
+                <i class="fas fa-lightbulb text-warning-600"></i>
+                <h5>Thực tế:</h5>
+              </div>
+              <p class="example-content">
+                Ví dụ: 200 cái yên xe → chia vào 4 thùng → mỗi thùng được gán
+                vào system và in nhãn mã vạch → hệ thống biết từng thùng chứa gì
+                và có thể trace được.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="process-detail-section">
+        <h3 class="section-heading">
+          <i class="fas fa-truck text-blue-600"></i>
+          VI. Shipping (Vận chuyển)
+        </h3>
+
+        <div class="process-content">
+          <div class="process-description">
+            <p class="process-intro">
+              <strong>Ứng dụng thực tế:</strong> Là phần liên kết cuối với khách
+              hàng. Mọi dữ liệu vận chuyển đều được quản lý để đảm bảo hàng ra
+              đúng cách.
+            </p>
+          </div>
+
+          <div class="shipping-components">
+            <h4 class="steps-title">
+              <i class="fas fa-link text-blue-600"></i>
+              Liên quan đến:
+            </h4>
+            <div class="component-cards">
+              <div class="component-card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h5>Shipping Point</h5>
+                <p>Nơi quản lý vận chuyển (có thể theo nhà kho, loại hàng…).</p>
+              </div>
+              <div class="component-card">
+                <i class="fas fa-file-alt"></i>
+                <h5>Delivery Document</h5>
+                <p>Làm rõ hàng nào đang được ship.</p>
+              </div>
+              <div class="component-card">
+                <i class="fas fa-route"></i>
+                <h5>Transportation Planning</h5>
+                <p>Xác định lịch xe, phương tiện, tuyến đường...</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="real-example">
+            <div class="example-card">
+              <div class="example-header">
+                <i class="fas fa-lightbulb text-warning-600"></i>
+                <h5>Thực tế:</h5>
+              </div>
+              <p class="example-content">
+                Bạn giao hàng từ kho San Diego về cho đại lý ở Texas → dùng
+                shipping point SD01, hệ thống tính toán thời gian giao, in nhãn
+                pallet, tạo delivery document và lập kế hoạch xe tải.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="process-detail-section">
+        <h3 class="section-heading">
+          <i class="fas fa-clipboard-check text-warning-600"></i>
+          VII. Physical Inventory (Kiểm kê kho vật lý)
+        </h3>
+
+        <div class="process-content">
+          <div class="process-description">
+            <p class="process-intro">
+              <strong>Ứng dụng thực tế:</strong> Đảm bảo số lượng hàng thực tế
+              khớp với số liệu hệ thống. Thường dùng vào cuối kỳ, kiểm tra đột
+              xuất hoặc định kỳ.
+            </p>
+          </div>
+
+          <div class="inventory-methods">
+            <h4 class="steps-title">
+              <i class="fas fa-tools text-warning-600"></i>
+              Các phương pháp kiểm kê:
+            </h4>
+            <div class="method-cards">
+              <div class="method-card">
+                <i class="fas fa-calendar-alt"></i>
+                <h5>Periodic Inventory</h5>
+                <p>Kiểm kê toàn bộ kho vào thời điểm cố định (cuối năm).</p>
+              </div>
+              <div class="method-card">
+                <i class="fas fa-sync"></i>
+                <h5>Continuous Inventory</h5>
+                <p>Kiểm kê từng phần theo kế hoạch rải đều.</p>
+              </div>
+              <div class="method-card">
+                <i class="fas fa-plus-circle"></i>
+                <h5>Inventory on Putaway</h5>
+                <p>Kiểm kê luôn khi nhập kho.</p>
+              </div>
+              <div class="method-card">
+                <i class="fas fa-redo"></i>
+                <h5>Cycle-Counting</h5>
+                <p>
+                  Kiểm kê thường xuyên theo tần suất tùy mức độ quan trọng của
+                  vật tư.
+                </p>
+              </div>
+              <div class="method-card">
+                <i class="fas fa-minus-circle"></i>
+                <h5>Zero stock check</h5>
+                <p>Kiểm tra những bin dự kiến rỗng.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="inventory-steps">
+            <h4 class="steps-title">
+              <i class="fas fa-list-ol text-warning-600"></i>
+              Các bước chuẩn:
+            </h4>
+            <div class="steps-list">
+              <div class="step-item">
+                <div class="step-indicator">1</div>
+                <div class="step-text">
+                  <strong>Create Physical Inventory Document</strong>
+                </div>
+              </div>
+              <div class="step-item">
+                <div class="step-indicator">2</div>
+                <div class="step-text">
+                  <strong>Activate</strong> để cho phép nhập liệu.
+                </div>
+              </div>
+              <div class="step-item">
+                <div class="step-indicator">3</div>
+                <div class="step-text">
+                  <strong>Print list</strong> để kiểm kê.
+                </div>
+              </div>
+              <div class="step-item">
+                <div class="step-indicator">4</div>
+                <div class="step-text">
+                  <strong>Enter count result</strong>.
+                </div>
+              </div>
+              <div class="step-item">
+                <div class="step-indicator">5</div>
+                <div class="step-text">
+                  <strong>Clear differences</strong> trong WM & IM.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

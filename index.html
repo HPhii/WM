@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tổng Hợp Kiến Thức WM</title>
+
+    <!-- External CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/typography.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/content-components.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body
+    class="bg-gradient-to-br from-neutral-50 to-primary-50 font-inter text-neutral-800 min-h-screen"
+  >
+    <div class="min-h-screen flex flex-col">
+      <!-- Enhanced Header -->
+      <header class="site-header">
+        <div class="container">
+          <h1 class="site-title">
+            <i class="fas fa-warehouse" aria-hidden="true"></i>
+            Kiến Thức Quản Lý Kho (WM)
+          </h1>
+
+          <nav class="main-nav" role="navigation" aria-label="Điều hướng chính">
+            <ul>
+              <li>
+                <a
+                  href="#home"
+                  onclick="showSection('home')"
+                  class="active"
+                  aria-current="page"
+                  title="Trang chủ - Tổng quan về WM"
+                >
+                  <i class="fas fa-home" aria-hidden="true"></i>
+                  Trang Chủ
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#master-data"
+                  onclick="showSection('master-data')"
+                  title="Master Data - Dữ liệu nền tảng"
+                >
+                  <i class="fas fa-database" aria-hidden="true"></i>
+                  Master Data
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#org-structure"
+                  onclick="showSection('org-structure')"
+                  title="Cấu trúc tổ chức kho"
+                >
+                  <i class="fas fa-sitemap" aria-hidden="true"></i>
+                  Organizational Structure
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#processes"
+                  onclick="showSection('processes')"
+                  title="Quy trình nghiệp vụ chính"
+                >
+                  <i class="fas fa-cogs" aria-hidden="true"></i>
+                  Main Processes
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#strategies"
+                  onclick="showSection('strategies')"
+                  title="Chiến lược WM"
+                >
+                  <i class="fas fa-chess" aria-hidden="true"></i>
+                  Strategies
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#inventory"
+                  onclick="showSection('inventory')"
+                  title="Kiểm kê kho"
+                >
+                  <i class="fas fa-clipboard-check" aria-hidden="true"></i>
+                  Inventory Management
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#terms"
+                  onclick="showSection('terms')"
+                  title="Thuật ngữ WM"
+                >
+                  <i class="fas fa-book" aria-hidden="true"></i>
+                  Terms & Glossary
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <!-- Main Content Area -->
+      <main class="container mx-auto p-6 flex-grow">
+        <!-- Home Section -->
+        <section id="home" class="content-section active">
+          <div class="card">
+            <div class="card-header text-center">
+              <h2 class="card-title">
+                <i
+                  class="fas fa-warehouse text-primary-600"
+                  aria-hidden="true"
+                ></i>
+                Tài liệu Module WM
+              </h2>
+              <p class="card-subtitle intro">
+                Đây là nơi tổng hợp toàn bộ kiến thức về Quản lý Kho (Warehouse
+                Management) trong SAP
+              </p>
+            </div>
+
+            <div class="home-content">
+              <p class="lead text-center mb-8">
+                Bạn sẽ tìm thấy các khái niệm, quy trình, chiến lược và ví dụ
+                thực tế giúp bạn nắm vững module này. Sử dụng thanh điều hướng
+                phía trên để khám phá các chủ đề khác nhau.
+              </p>
+
+              <!-- Quick access feature cards -->
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div class="feature-card primary">
+                  <i class="fas fa-database" aria-hidden="true"></i>
+                  <h3>Master Data</h3>
+                  <p>
+                    Nền tảng của mọi hoạt động kho - Storage Bin, Material
+                    Master, Batch Management
+                  </p>
+                  <a
+                    href="#master-data"
+                    onclick="showSection('master-data')"
+                    class="btn btn-primary mt-4"
+                  >
+                    Khám phá ngay
+                    <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                  </a>
+                </div>
+
+                <div class="feature-card secondary">
+                  <i class="fas fa-sitemap" aria-hidden="true"></i>
+                  <h3>Organizational Structure</h3>
+                  <p>
+                    Hiểu cách kho được tổ chức trong SAP - từ Client đến Storage
+                    Bin
+                  </p>
+                  <a
+                    href="#org-structure"
+                    onclick="showSection('org-structure')"
+                    class="btn btn-secondary mt-4"
+                  >
+                    Tìm hiểu thêm
+                    <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                  </a>
+                </div>
+
+                <div class="feature-card accent">
+                  <i class="fas fa-cogs" aria-hidden="true"></i>
+                  <h3>Processes & Strategies</h3>
+                  <p>
+                    Nắm vững các nghiệp vụ nhập, xuất, kiểm kê và các chiến lược
+                    tối ưu
+                  </p>
+                  <a
+                    href="#processes"
+                    onclick="showSection('processes')"
+                    class="btn btn-primary mt-4"
+                  >
+                    Học ngay
+                    <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Master Data Section -->
+        <section id="master-data" class="content-section hidden">
+          <!-- Content will be loaded dynamically from components/master-data.html -->
+        </section>
+
+        <!-- Organization Structure Section -->
+        <section id="org-structure" class="content-section hidden">
+          <!-- Content will be loaded dynamically from components/org-structure.html -->
+        </section>
+
+        <!-- Processes Section -->
+        <section id="processes" class="content-section hidden">
+          <!-- Content will be loaded dynamically from components/processes.html -->
+        </section>
+
+        <!-- Strategies Section -->
+        <section id="strategies" class="content-section hidden">
+          <!-- Content will be loaded dynamically from components/strategies.html -->
+        </section>
+
+        <!-- Inventory Section -->
+        <section id="inventory" class="content-section hidden">
+          <!-- Content will be loaded dynamically from components/inventory.html -->
+        </section>
+
+        <!-- Terms Section -->
+        <section id="terms" class="content-section hidden">
+          <!-- Content will be loaded dynamically from components/terms.html -->
+        </section>
+      </main>
+
+      <!-- Enhanced Footer -->
+      <footer class="site-footer">
+        <div class="container mx-auto px-6">
+          <div class="footer-content">
+            <div class="footer-section">
+              <h3 class="footer-title">
+                <i class="fas fa-warehouse"></i>
+                WM
+              </h3>
+              <p class="footer-description">Warehouse Management Module</p>
+            </div>
+
+            <div class="footer-section">
+              <h4 class="footer-subtitle">Nội dung chính</h4>
+              <ul class="footer-links">
+                <li>
+                  <a href="#master-data" onclick="showSection('master-data')"
+                    >Master Data</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#org-structure"
+                    onclick="showSection('org-structure')"
+                    >Cấu Trúc Tổ Chức</a
+                  >
+                </li>
+                <li>
+                  <a href="#processes" onclick="showSection('processes')"
+                    >Quy Trình Chính</a
+                  >
+                </li>
+                <li>
+                  <a href="#strategies" onclick="showSection('strategies')"
+                    >Chiến Lược</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div class="footer-section">
+              <h4 class="footer-subtitle">Liên hệ & Hỗ trợ</h4>
+              <div class="footer-contact">
+                <p>
+                  <i class="fas fa-envelope"></i>
+                  Email: phitrinh367@gmail.com
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/utils.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/app.js"></script>
+
+    <!-- Simple navigation function -->
+    <script>
+      // Component loader cache
+      const componentCache = {};
+      let loadedComponents = {};
+
+      // Load component content from file
+      async function loadComponent(componentName) {
+        if (loadedComponents[componentName]) {
+          return loadedComponents[componentName];
+        }
+
+        try {
+          console.log(`Loading component: ${componentName}`);
+          const response = await fetch(`components/${componentName}.html`);
+          if (!response.ok) {
+            throw new Error(`Failed to load component: ${response.status}`);
+          }
+          const html = await response.text();
+
+          // Extract content inside the section tag (remove outer section wrapper if exists)
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html, "text/html");
+          const section = doc.querySelector("section");
+
+          if (section) {
+            // Get innerHTML of the section (without the section tag itself)
+            loadedComponents[componentName] = section.innerHTML;
+          } else {
+            // If no section tag, use the entire content
+            loadedComponents[componentName] = html;
+          }
+
+          console.log(`Component ${componentName} loaded successfully`);
+          return loadedComponents[componentName];
+        } catch (error) {
+          console.error(`Error loading component ${componentName}:`, error);
+          return `<div class="error-message">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p>Không thể tải nội dung. Vui lòng thử lại sau.</p>
+          </div>`;
+        }
+      }
+
+      async function showSection(sectionId) {
+        // Hide all sections
+        document.querySelectorAll(".content-section").forEach((section) => {
+          section.classList.remove("active");
+          section.classList.add("hidden");
+        });
+
+        // Show target section
+        const targetSection = document.getElementById(sectionId);
+        if (targetSection) {
+          // Check if this section needs component loading (all sections except home)
+          if (
+            sectionId !== "home" &&
+            targetSection.innerHTML
+              .trim()
+              .includes("<!-- Content will be loaded dynamically")
+          ) {
+            // Show loading state
+            targetSection.innerHTML = `
+              <div class="loading-state">
+                <div class="loading-spinner">
+                  <i class="fas fa-spinner fa-spin"></i>
+                </div>
+                <p>Đang tải nội dung...</p>
+              </div>
+            `;
+            targetSection.classList.remove("hidden");
+            targetSection.classList.add("active");
+
+            // Load component content
+            const componentContent = await loadComponent(sectionId);
+            targetSection.innerHTML = componentContent;
+          } else {
+            targetSection.classList.remove("hidden");
+            targetSection.classList.add("active");
+          }
+        }
+
+        // Update navigation
+        document.querySelectorAll(".main-nav a").forEach((link) => {
+          link.classList.remove("active");
+          link.removeAttribute("aria-current");
+        });
+
+        const activeLink = document.querySelector(`a[href="#${sectionId}"]`);
+        if (activeLink) {
+          activeLink.classList.add("active");
+          activeLink.setAttribute("aria-current", "page");
+        }
+
+        // Update URL
+        history.pushState({ section: sectionId }, "", `#${sectionId}`);
+
+        // Update page title
+        const titles = {
+          home: "Trang Chủ - WM Knowledge Hub",
+          "master-data": "Master Data - WM Knowledge Hub",
+          "org-structure": "Cấu Trúc Tổ Chức - WM Knowledge Hub",
+          processes: "Quy Trình Chính - WM Knowledge Hub",
+          strategies: "Chiến Lược WM - WM Knowledge Hub",
+          inventory: "Kiểm Kê Kho - WM Knowledge Hub",
+          terms: "Thuật Ngữ WM - WM Knowledge Hub",
+        };
+        document.title = titles[sectionId] || "WM Knowledge Hub";
+      }
+
+      // Handle browser back/forward
+      window.addEventListener("popstate", function (event) {
+        const sectionId =
+          event.state?.section || window.location.hash.substring(1) || "home";
+        showSection(sectionId);
+      });
+
+      // Initialize on page load
+      document.addEventListener("DOMContentLoaded", function () {
+        const initialSection = window.location.hash.substring(1) || "home";
+        showSection(initialSection);
+      });
+    </script>
+  </body>
+</html>
