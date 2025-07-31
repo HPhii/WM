@@ -4,12 +4,6 @@
       <i class="fas fa-chess" aria-hidden="true"></i>
       Putaway Strategy và Picking Strategy
     </h2>
-    <p class="card-subtitle">
-      Trong vận hành kho SAP WM: Putaway Strategy (chiến lược nhập hàng vào kho)
-      và Picking Strategy (chiến lược xuất hàng ra khỏi kho). Hai cái này giúp
-      hệ thống tự động xác định nên cất hàng vào đâu và nên lấy hàng từ đâu,
-      thay vì phải chỉ tay từng bin thủ công.
-    </p>
   </div>
 
   <div class="card-content">
@@ -20,11 +14,13 @@
           I. Putaway Strategy và Picking Strategy
         </h3>
         <p class="lead">
-          Trong vận hành kho SAP WM: <strong>Putaway Strategy</strong> (chiến
-          lược nhập hàng vào kho) và <strong>Picking Strategy</strong> (chiến
-          lược xuất hàng ra khỏi kho). Hai cái này giúp hệ thống tự động xác
-          định <strong>nên cất hàng vào đâu</strong> và
-          <strong>nên lấy hàng từ đâu</strong>, thay vì phải chỉ tay từng bin
+          Trong vận hành kho <span class="key-term">SAP WM</span>:
+          <span class="key-term">Putaway Strategy</span> (chiến lược nhập hàng
+          vào kho) và <span class="key-term">Picking Strategy</span> (chiến lược
+          xuất hàng ra khỏi kho). Hai cái này giúp hệ thống tự động xác định
+          <mark class="highlight-critical">nên cất hàng vào đâu</mark> và
+          <mark class="highlight-critical">nên lấy hàng từ đâu</mark>, thay vì
+          phải chỉ tay từng <span class="key-term">bin</span>
           thủ công.
         </p>
       </div>
@@ -43,8 +39,10 @@
               </div>
               <h4>Mục tiêu:</h4>
               <p>
-                Tự động xác định <strong>Storage Bin thích hợp</strong> để chứa
-                vật tư khi hàng vừa nhập kho (Goods Receipt).
+                Tự động xác định <span class="key-term">Storage Bin</span> thích
+                hợp để chứa vật tư khi hàng vừa nhập kho (<span class="key-term"
+                  >Goods Receipt</span
+                >).
               </p>
             </div>
 
@@ -54,8 +52,10 @@
               </div>
               <h4>Định nghĩa ở đâu?</h4>
               <p>
-                Cấu hình tại <strong>Storage Type</strong> trong customizing
-                (SPRO). Mỗi Storage Type có thể gán một Putaway Strategy.
+                Cấu hình tại <span class="key-term">Storage Type</span> trong
+                customizing (<span class="highlight-technical">SPRO</span>). Mỗi
+                <span class="key-term">Storage Type</span> có thể gán một
+                <span class="key-term">Putaway Strategy</span>.
               </p>
             </div>
           </div>
@@ -64,20 +64,25 @@
         <div class="putaway-strategies">
           <h4 class="strategies-title">
             <i class="fas fa-list-ol text-success-600"></i>
-            Một số chiến lược phổ biến:
+            Một số chiến lược phổ biến của
+            <mark class="highlight-feature">Putaway Strategy</mark>:
           </h4>
 
           <div class="strategy-cards">
             <div class="strategy-card">
               <div class="strategy-header">
                 <div class="strategy-number">1</div>
-                <h5>Next Empty Bin (Strategy "P")</h5>
+                <h5>
+                  <span class="key-term">Next Empty Bin</span> (Strategy
+                  <span class="highlight-technical">"P"</span>)
+                </h5>
               </div>
               <div class="strategy-content">
                 <ul class="strategy-features">
                   <li>
-                    Hệ thống sẽ tìm <strong>bin trống kế tiếp</strong> để cất
-                    hàng.
+                    Hệ thống sẽ tìm
+                    <mark class="highlight-critical">bin trống kế tiếp</mark> để
+                    cất hàng.
                   </li>
                   <li>Đơn giản, hiệu quả, không phân biệt vật tư.</li>
                   <li>
@@ -91,8 +96,10 @@
                     <strong>Thực tế:</strong>
                   </div>
                   <p>
-                    Nhận 100 tay lái → hệ thống tìm bin trống gần nhất trong
-                    Storage Type 001 → cất vào đó.
+                    Nhận <span class="highlight-example">100 tay lái</span> → hệ
+                    thống tìm <span class="key-term">bin</span> trống gần nhất
+                    trong <span class="key-term">Storage Type 001</span> → cất
+                    vào đó.
                   </p>
                 </div>
               </div>
@@ -101,16 +108,21 @@
             <div class="strategy-card">
               <div class="strategy-header">
                 <div class="strategy-number">2</div>
-                <h5>Fixed Bin (Strategy "F")</h5>
+                <h5>
+                  <span class="key-term">Fixed Bin</span> (Strategy
+                  <span class="highlight-technical">"F"</span>)
+                </h5>
               </div>
               <div class="strategy-content">
                 <ul class="strategy-features">
                   <li>
-                    Mỗi material được gán <strong>một bin cố định</strong>.
+                    Mỗi <span class="key-term">material</span> được gán
+                    <mark class="highlight-critical">một bin cố định</mark>.
                   </li>
                   <li>
-                    Khi putaway, hàng phải đưa đúng vào bin đã chỉ định trong
-                    Material Master.
+                    Khi putaway, hàng phải đưa đúng vào
+                    <span class="key-term">bin</span> đã chỉ định trong
+                    <span class="key-term">Material Master</span>.
                   </li>
                 </ul>
                 <div class="real-example">
@@ -119,8 +131,11 @@
                     <strong>Thực tế:</strong>
                   </div>
                   <p>
-                    Material M-0001 luôn được để ở bin A1-01-01. Nếu bin này
-                    đầy, em phải điều chỉnh thủ công hoặc xử lý ngoại lệ.
+                    <span class="highlight-technical">Material M-0001</span>
+                    luôn được để ở
+                    <span class="highlight-technical">bin A1-01-01</span>. Nếu
+                    bin này đầy, ta cần phải điều chỉnh thủ công hoặc xử lý
+                    ngoại lệ.
                   </p>
                 </div>
               </div>
@@ -129,15 +144,23 @@
             <div class="strategy-card">
               <div class="strategy-header">
                 <div class="strategy-number">3</div>
-                <h5>Addition to Existing Stock (Strategy "A")</h5>
+                <h5>
+                  <span class="key-term">Addition to Existing Stock</span>
+                  (Strategy <span class="highlight-technical">"A"</span>)
+                </h5>
               </div>
               <div class="strategy-content">
                 <ul class="strategy-features">
                   <li>
-                    Nếu vật tư đã có trong một bin nào đó → hệ thống sẽ ưu tiên
-                    cất thêm vào bin đó (thay vì mở bin mới).
+                    Nếu vật tư đã có trong một
+                    <span class="key-term">bin</span> nào đó → hệ thống sẽ ưu
+                    tiên cất thêm vào <span class="key-term">bin</span> đó (thay
+                    vì mở <span class="key-term">bin</span> mới).
                   </li>
-                  <li>Kết hợp tốt với FIFO hoặc LIFO.</li>
+                  <li>
+                    Kết hợp tốt với <span class="key-term">FIFO</span> hoặc
+                    <span class="key-term">LIFO</span>.
+                  </li>
                 </ul>
                 <div class="real-example">
                   <div class="example-header">
@@ -145,9 +168,13 @@
                     <strong>Thực tế:</strong>
                   </div>
                   <p>
-                    Trong bin B2-03-04 đã có 20 bộ xích xe. Khi nhập thêm 80 bộ
-                    → hệ thống gợi ý đưa vào cùng bin nếu chưa vượt max
-                    capacity.
+                    Trong
+                    <span class="highlight-technical">bin B2-03-04</span> đã có
+                    <span class="highlight-example">20 bộ xích xe</span>. Khi
+                    nhập thêm <span class="highlight-example">80 bộ</span> → hệ
+                    thống gợi ý đưa vào cùng
+                    <span class="key-term">bin</span> nếu chưa vượt
+                    <span class="highlight-feature">max capacity</span>.
                   </p>
                 </div>
               </div>
@@ -156,16 +183,26 @@
             <div class="strategy-card">
               <div class="strategy-header">
                 <div class="strategy-number">4</div>
-                <h5>Open Storage (Strategy "O")</h5>
+                <h5>
+                  <span class="key-term">Open Storage</span> (Strategy
+                  <span class="highlight-technical">"O"</span>)
+                </h5>
               </div>
               <div class="strategy-content">
                 <ul class="strategy-features">
-                  <li>Dùng cho khu lưu trữ tự do, không chia bin cố định.</li>
                   <li>
-                    Người vận hành chỉ cần biết Storage Type, không cần chi tiết
-                    từng bin.
+                    Dùng cho khu lưu trữ tự do, không chia
+                    <span class="key-term">bin</span> cố định.
                   </li>
-                  <li>Ít dùng trong kho lớn có quản lý bin chi tiết.</li>
+                  <li>
+                    Người vận hành chỉ cần biết
+                    <span class="key-term">Storage Type</span>, không cần chi
+                    tiết từng <span class="key-term">bin</span>.
+                  </li>
+                  <li>
+                    Ít dùng trong kho lớn có quản lý
+                    <span class="key-term">bin</span> chi tiết.
+                  </li>
                 </ul>
               </div>
             </div>
@@ -173,13 +210,17 @@
             <div class="strategy-card">
               <div class="strategy-header">
                 <div class="strategy-number">5</div>
-                <h5>Manual Entry (Strategy "M")</h5>
+                <h5>
+                  <span class="key-term">Manual Entry</span> (Strategy
+                  <span class="highlight-technical">"M"</span>)
+                </h5>
               </div>
               <div class="strategy-content">
                 <ul class="strategy-features">
                   <li>
-                    Không gán logic tự động. Nhân viên phải tự chọn bin khi tạo
-                    TO.
+                    Không gán logic tự động. Nhân viên phải tự chọn
+                    <span class="key-term">bin</span> khi tạo
+                    <span class="key-term">TO</span>.
                   </li>
                   <li>Dùng trong kho nhỏ hoặc kho lưu hàng đặc biệt.</li>
                 </ul>
@@ -203,8 +244,9 @@
               </div>
               <h4>Mục tiêu:</h4>
               <p>
-                Khi có yêu cầu xuất kho (Delivery, Production), hệ thống xác
-                định <strong>lấy hàng từ bin nào</strong>.
+                Khi có yêu cầu xuất kho (<span class="key-term">Delivery</span>,
+                <span class="key-term">Production</span>), hệ thống xác định
+                <mark class="highlight-critical">lấy hàng từ bin nào</mark>.
               </p>
             </div>
 
@@ -214,9 +256,9 @@
               </div>
               <h4>Định nghĩa ở đâu?</h4>
               <p>
-                Cấu hình tại <strong>Storage Type</strong> và
-                <strong>Storage Bin Sorting Rule</strong>, có thể dựa trên nhiều
-                yếu tố.
+                Cấu hình tại <span class="key-term">Storage Type</span> và
+                <span class="key-term">Storage Bin Sorting Rule</span>, có thể
+                dựa trên nhiều yếu tố.
               </p>
             </div>
           </div>
@@ -225,21 +267,28 @@
         <div class="picking-strategies">
           <h4 class="strategies-title">
             <i class="fas fa-list-ol text-primary-600"></i>
-            Một số chiến lược phổ biến:
+            Một số chiến lược phổ biến của
+            <mark class="highlight-feature">Picking Strategy</mark>:
           </h4>
 
           <div class="strategy-cards">
             <div class="strategy-card">
               <div class="strategy-header">
                 <div class="strategy-number">1</div>
-                <h5>FIFO (First In – First Out)</h5>
+                <h5>
+                  <span class="key-term">FIFO</span> (<span
+                    class="highlight-feature"
+                    >First In – First Out</span
+                  >)
+                </h5>
               </div>
               <div class="strategy-content">
                 <ul class="strategy-features">
                   <li>Ưu tiên lấy hàng đã nhập kho trước.</li>
                   <li>
-                    Hệ thống sắp xếp quant theo <strong>GR date</strong> → chọn
-                    quant cũ nhất.
+                    Hệ thống sắp xếp <span class="key-term">quant</span> theo
+                    <span class="highlight-technical">GR date</span> → chọn
+                    <span class="key-term">quant</span> cũ nhất.
                   </li>
                 </ul>
                 <div class="real-example">
@@ -247,13 +296,29 @@
                     <i class="fas fa-lightbulb text-warning-600"></i>
                     <strong>Thực tế:</strong>
                   </div>
-                  <p>Material có 3 quant trong 3 bin:</p>
+                  <p>
+                    <span class="key-term">Material</span> có 3
+                    <span class="key-term">quant</span> trong 3
+                    <span class="key-term">bin</span>:
+                  </p>
                   <ul class="example-list">
-                    <li>Bin A1-01-01 – GR 01/06</li>
-                    <li>Bin A1-01-02 – GR 05/06</li>
-                    <li>Bin A1-01-03 – GR 10/06</li>
+                    <li>
+                      <span class="highlight-technical">Bin A1-01-01</span> –
+                      <span class="highlight-example">GR 01/06</span>
+                    </li>
+                    <li>
+                      <span class="highlight-technical">Bin A1-01-02</span> –
+                      <span class="highlight-example">GR 05/06</span>
+                    </li>
+                    <li>
+                      <span class="highlight-technical">Bin A1-01-03</span> –
+                      <span class="highlight-example">GR 10/06</span>
+                    </li>
                   </ul>
-                  <p>→ hệ thống sẽ chọn A1-01-01 trước.</p>
+                  <p>
+                    → hệ thống sẽ chọn
+                    <span class="highlight-technical">A1-01-01</span> trước.
+                  </p>
                 </div>
               </div>
             </div>
@@ -261,14 +326,23 @@
             <div class="strategy-card">
               <div class="strategy-header">
                 <div class="strategy-number">2</div>
-                <h5>LIFO (Last In – First Out)</h5>
+                <h5>
+                  <span class="key-term">LIFO</span> (<span
+                    class="highlight-feature"
+                    >Last In – First Out</span
+                  >)
+                </h5>
               </div>
               <div class="strategy-content">
                 <ul class="strategy-features">
-                  <li>Ngược lại FIFO, chọn hàng mới nhập gần nhất.</li>
+                  <li>
+                    Ngược lại <span class="key-term">FIFO</span>, chọn hàng mới
+                    nhập gần nhất.
+                  </li>
                   <li>
                     Ít dùng trong kho vật lý thật, nhưng có thể dùng trong kho
-                    logic (VD: staging area).
+                    logic (VD:
+                    <span class="highlight-feature">staging area</span>).
                   </li>
                 </ul>
               </div>
@@ -277,25 +351,49 @@
             <div class="strategy-card">
               <div class="strategy-header">
                 <div class="strategy-number">3</div>
-                <h5>Shelf Life Expiration Date (SLED)</h5>
+                <h5>
+                  <span class="key-term"
+                    >Shelf Life Expiration Date (SLED)</span
+                  >
+                </h5>
               </div>
               <div class="strategy-content">
                 <ul class="strategy-features">
-                  <li>Dùng cho vật tư có hạn sử dụng.</li>
-                  <li>Ưu tiên lấy hàng sắp hết hạn.</li>
+                  <li>
+                    Dùng cho vật tư có
+                    <span class="highlight-feature">hạn sử dụng</span>.
+                  </li>
+                  <li>
+                    Ưu tiên lấy hàng
+                    <mark class="highlight-critical">sắp hết hạn</mark>.
+                  </li>
                 </ul>
                 <div class="real-example">
                   <div class="example-header">
                     <i class="fas fa-lightbulb text-warning-600"></i>
                     <strong>Thực tế:</strong>
                   </div>
-                  <p>Mày có 3 lô keo dán:</p>
+                  <p>
+                    Mày có 3 lô <span class="highlight-example">keo dán</span>:
+                  </p>
                   <ul class="example-list">
-                    <li>Batch 001 – hết hạn 31/07</li>
-                    <li>Batch 002 – hết hạn 30/06</li>
-                    <li>Batch 003 – hết hạn 15/06</li>
+                    <li>
+                      <span class="highlight-technical">Batch 001</span> – hết
+                      hạn <span class="highlight-example">31/07</span>
+                    </li>
+                    <li>
+                      <span class="highlight-technical">Batch 002</span> – hết
+                      hạn <span class="highlight-example">30/06</span>
+                    </li>
+                    <li>
+                      <span class="highlight-technical">Batch 003</span> – hết
+                      hạn <span class="highlight-example">15/06</span>
+                    </li>
                   </ul>
-                  <p>→ hệ thống chọn Batch 003 trước.</p>
+                  <p>
+                    → hệ thống chọn
+                    <span class="highlight-technical">Batch 003</span> trước.
+                  </p>
                 </div>
               </div>
             </div>
@@ -303,13 +401,18 @@
             <div class="strategy-card">
               <div class="strategy-header">
                 <div class="strategy-number">4</div>
-                <h5>Fixed Bin Picking</h5>
+                <h5><span class="key-term">Fixed Bin Picking</span></h5>
               </div>
               <div class="strategy-content">
                 <ul class="strategy-features">
-                  <li>Nếu vật tư được gán bin cố định → luôn lấy từ đó.</li>
                   <li>
-                    Giống như picking tại siêu thị: luôn lấy mì gói từ kệ A1.
+                    Nếu vật tư được gán <span class="key-term">bin</span> cố
+                    định → luôn lấy từ đó.
+                  </li>
+                  <li>
+                    Giống như picking tại siêu thị: luôn lấy
+                    <span class="highlight-example">mì gói</span> từ
+                    <span class="highlight-technical">kệ A1</span>.
                   </li>
                 </ul>
               </div>
@@ -318,16 +421,73 @@
             <div class="strategy-card">
               <div class="strategy-header">
                 <div class="strategy-number">5</div>
-                <h5>Sort by Bin Coordinate / Storage Section Priority</h5>
+                <h5>
+                  <span class="key-term"
+                    >Sort by Bin Coordinate / Storage Section Priority</span
+                  >
+                </h5>
               </div>
               <div class="strategy-content">
                 <ul class="strategy-features">
                   <li>
-                    Dựa trên vị trí vật lý (xếp theo dãy, tầng, vị trí gần
-                    cửa,...).
+                    Sắp xếp <span class="key-term">bin</span> theo tọa độ (dãy,
+                    tầng, vị trí gần cửa...) để tối ưu hóa đường đi và hiệu suất
+                    <span class="key-term">picking/putaway</span>.
                   </li>
-                  <li>Giúp tối ưu hóa đường đi của nhân viên.</li>
+                  <li>
+                    Định nghĩa thứ tự sắp xếp trong
+                    <span class="highlight-technical">master data</span> của
+                    <span class="key-term">bin</span>, gán cho
+                    <span class="key-term">activity area</span> và
+                    <span class="key-term">activity</span> (putaway, picking).
+                  </li>
+                  <li>
+                    Có thể thiết lập thứ tự
+                    <span class="highlight-feature">tăng/giảm</span>, hoặc để hệ
+                    thống mặc định theo tên <span class="key-term">bin</span>.
+                  </li>
+                  <li>
+                    Khi tạo <span class="key-term">warehouse task</span>, hệ
+                    thống dùng thứ tự này để hướng dẫn nhân viên lấy/xếp hàng
+                    theo <span class="highlight-feature">lộ trình tối ưu</span>.
+                  </li>
                 </ul>
+                <div class="real-example">
+                  <div class="example-header">
+                    <i class="fas fa-lightbulb text-warning-600"></i>
+                    <strong>Tóm tắt quy trình:</strong>
+                  </div>
+                  <ol class="example-list">
+                    <li>
+                      Định nghĩa tọa độ <span class="key-term">bin</span> (dãy,
+                      tầng, vị trí...)
+                    </li>
+                    <li>
+                      Thiết lập thứ tự sắp xếp trong
+                      <span class="highlight-technical">bin master data</span>
+                    </li>
+                    <li>
+                      Gán thứ tự cho
+                      <span class="key-term">activity area</span> và
+                      <span class="key-term">activity</span> (<span
+                        class="key-term"
+                        >putaway/picking</span
+                      >)
+                    </li>
+                    <li>
+                      Khi tạo <span class="key-term">task</span>, hệ thống sẽ
+                      sắp xếp <span class="key-term">bin</span> theo thứ tự đã
+                      định
+                    </li>
+                  </ol>
+                  <p>
+                    <strong>Lợi ích:</strong>
+                    <span class="highlight-feature"
+                      >Giảm thời gian di chuyển, tăng hiệu quả vận hành
+                      kho.</span
+                    >
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -343,17 +503,25 @@
         <div class="combination-content">
           <div class="combination-description">
             <p class="combination-intro">
-              Thường một Storage Type sẽ có cả 2 chiến lược:
+              Thường một <span class="key-term">Storage Type</span> sẽ có cả 2
+              chiến lược:
             </p>
             <div class="combination-example">
               <div class="combination-item">
                 <i class="fas fa-warehouse"></i>
-                <span><strong>Putaway:</strong> "P" (Next Empty Bin)</span>
+                <span
+                  ><strong>Putaway:</strong>
+                  <span class="highlight-technical">"P"</span> (<span
+                    class="key-term"
+                    >Next Empty Bin</span
+                  >)</span
+                >
               </div>
               <div class="combination-item">
                 <i class="fas fa-hand-pointer"></i>
                 <span
-                  ><strong>Picking:</strong> FIFO (đảm bảo lấy đúng hàng theo
+                  ><strong>Picking:</strong>
+                  <span class="key-term">FIFO</span> (đảm bảo lấy đúng hàng theo
                   tuổi)</span
                 >
               </div>
@@ -363,20 +531,28 @@
           <div class="material-master-config">
             <h4 class="config-title">
               <i class="fas fa-cog text-accent-600"></i>
-              Trong Material Master – Warehouse Mgmt View có thể gán:
+              Trong
+              <span class="key-term"
+                >Material Master – Warehouse Mgmt View</span
+              >
+              có thể gán:
             </h4>
             <div class="config-items">
               <div class="config-item">
                 <i class="fas fa-map-pin"></i>
-                <span>Fixed Bin</span>
+                <span><span class="key-term">Fixed Bin</span></span>
               </div>
               <div class="config-item">
                 <i class="fas fa-calendar-times"></i>
-                <span>SLED Requirement</span>
+                <span><span class="key-term">SLED Requirement</span></span>
               </div>
               <div class="config-item">
                 <i class="fas fa-sign-out-alt"></i>
-                <span>Removal Strategy Indicator</span>
+                <span
+                  ><span class="key-term"
+                    >Removal Strategy Indicator</span
+                  ></span
+                >
               </div>
             </div>
           </div>
@@ -392,25 +568,34 @@
         <div class="application-example">
           <h4 class="example-title">
             <i class="fas fa-bicycle"></i>
-            Công ty mày quản lý kho thành phẩm xe đạp:
+            Công ty mày quản lý kho thành phẩm
+            <span class="highlight-example">xe đạp</span>:
           </h4>
 
           <div class="storage-types">
             <div class="storage-type-card">
               <div class="storage-type-header">
                 <i class="fas fa-th-large"></i>
-                <h5>Storage Type 001 – Shelf Storage</h5>
+                <h5>
+                  <span class="key-term">Storage Type 001</span> –
+                  <span class="highlight-feature">Shelf Storage</span>
+                </h5>
               </div>
               <div class="storage-type-strategies">
                 <div class="strategy-config">
                   <span class="strategy-label">Putaway Strategy:</span>
                   <span class="strategy-value"
-                    >"A" (Addition to Existing Stock)</span
+                    ><span class="highlight-technical">"A"</span> (<span
+                      class="key-term"
+                      >Addition to Existing Stock</span
+                    >)</span
                   >
                 </div>
                 <div class="strategy-config">
                   <span class="strategy-label">Picking Strategy:</span>
-                  <span class="strategy-value">FIFO</span>
+                  <span class="strategy-value"
+                    ><span class="key-term">FIFO</span></span
+                  >
                 </div>
               </div>
             </div>
@@ -418,17 +603,24 @@
             <div class="storage-type-card">
               <div class="storage-type-header">
                 <i class="fas fa-fire"></i>
-                <h5>Storage Type 002 – Flammable Area (chứa dung môi)</h5>
+                <h5>
+                  <span class="key-term">Storage Type 002</span> –
+                  <span class="highlight-feature">Flammable Area</span> (chứa
+                  <span class="highlight-example">dung môi</span>)
+                </h5>
               </div>
               <div class="storage-type-strategies">
                 <div class="strategy-config">
                   <span class="strategy-label">Putaway:</span>
-                  <span class="strategy-value">Fixed Bin</span>
+                  <span class="strategy-value"
+                    ><span class="key-term">Fixed Bin</span></span
+                  >
                 </div>
                 <div class="strategy-config">
                   <span class="strategy-label">Picking:</span>
                   <span class="strategy-value"
-                    >SLED (hết hạn trước lấy trước)</span
+                    ><span class="key-term">SLED</span> (hết hạn trước lấy
+                    trước)</span
                   >
                 </div>
               </div>
@@ -442,8 +634,10 @@
               </div>
               <p>
                 <strong
-                  >Warehouse nhân viên chỉ cần scan → hệ thống chỉ bin → tránh
-                  nhầm hàng, giảm đường đi.</strong
+                  >Warehouse nhân viên chỉ cần
+                  <span class="highlight-feature">scan</span> → hệ thống chỉ
+                  <span class="key-term">bin</span> → tránh nhầm hàng,
+                  <span class="highlight-feature">giảm đường đi</span>.</strong
                 >
               </p>
             </div>

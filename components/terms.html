@@ -17,10 +17,10 @@
         </h3>
         <div class="comparison-intro">
           <p class="description">
-            <strong>Quant</strong> là đơn vị nhỏ nhất để đo lường hàng hóa, nhưng nó không đại diện cho không gian. Nó có thể là 1 cặp, 1 chiếc, 1 pack.
+            <span class="key-term">Quant</span> là đơn vị nhỏ nhất để đo lường hàng hóa, nhưng nó <mark class="highlight-critical"><strong>không đại diện cho không gian</strong></mark>. Nó có thể là <span class="highlight-example">1 cặp, 1 chiếc, 1 pack</span>.
           </p>
           <p class="description">
-            <strong>Bin</strong> cũng là đại lượng nhỏ nhất, nhưng dùng để đại diện cho không gian lưu trữ.
+            <span class="key-term">Bin</span> cũng là đại lượng nhỏ nhất, nhưng dùng để <mark class="highlight-critical"><strong>đại diện cho không gian lưu trữ</strong></mark>.
           </p>
         </div>
 
@@ -33,15 +33,15 @@
             <div class="comparison-content">
               <div class="definition">
                 <h5>Định nghĩa:</h5>
-                <p>Đơn vị quản lý stock - Đại diện cho một lượng hàng cụ thể tại một vị trí cụ thể.</p>
+                <p><span class="key-term">Đơn vị quản lý stock</span> - Đại diện cho một lượng hàng cụ thể tại một vị trí cụ thể.</p>
               </div>
               <div class="characteristics">
                 <h5>Đặc điểm:</h5>
                 <ul>
-                  <li>Đo lường số lượng hàng hóa</li>
-                  <li>Có thể là: 1 cặp, 1 chiếc, 1 pack</li>
-                  <li>Chứa thông tin: Material, Quantity, Batch, Stock Type</li>
-                  <li>Mỗi bin có thể chứa nhiều quant khác nhau</li>
+                  <li>Đo lường <span class="highlight-feature">số lượng hàng hóa</span></li>
+                  <li>Có thể là: <span class="highlight-example">1 cặp, 1 chiếc, 1 pack</span></li>
+                  <li>Chứa thông tin: <span class="highlight-technical">Material, Quantity, Batch, Stock Type</span></li>
+                  <li>Mỗi <span class="key-term">bin</span> có thể chứa nhiều <span class="key-term">quant</span> khác nhau</li>
                 </ul>
               </div>
             </div>
@@ -55,15 +55,15 @@
             <div class="comparison-content">
               <div class="definition">
                 <h5>Định nghĩa:</h5>
-                <p>Vị trí lưu trữ - Địa chỉ cụ thể nhất để lưu trữ hàng hóa trong kho.</p>
+                <p><span class="key-term">Vị trí lưu trữ</span> - Địa chỉ cụ thể nhất để lưu trữ hàng hóa trong kho.</p>
               </div>
               <div class="characteristics">
                 <h5>Đặc điểm:</h5>
                 <ul>
-                  <li>Đại diện cho không gian lưu trữ</li>
-                  <li>Cấu trúc: A1-01-01 (Dãy-Tầng-Vị trí)</li>
-                  <li>Thuộc tính: Capacity, Weight limit, Bin type</li>
-                  <li>Có thể chứa nhiều quant của cùng hoặc khác material</li>
+                  <li>Đại diện cho <span class="highlight-feature">không gian lưu trữ</span></li>
+                  <li>Cấu trúc: <span class="highlight-technical">A1-01-01 (Dãy-Tầng-Vị trí)</span></li>
+                  <li>Thuộc tính: <span class="highlight-technical">Capacity, Weight limit, Bin type</span></li>
+                  <li>Có thể chứa nhiều <span class="key-term">quant</span> của cùng hoặc khác <span class="key-term">material</span></li>
                 </ul>
               </div>
             </div>
@@ -77,45 +77,45 @@
         </h3>
         <div class="transfer-intro">
           <p class="intro-text">
-            Là hai loại nghiệp vụ <strong>hoàn toàn khác nhau</strong>, khác cả về <strong>mục đích, cách hạch toán</strong>, và <strong>cách xử lý trong kho</strong>.
+            Là hai loại nghiệp vụ <mark class="highlight-critical">hoàn toàn khác nhau</mark>, khác cả về <mark class="highlight-feature">mục đích, cách hạch toán</mark>, và <mark class="highlight-feature">cách xử lý trong kho</mark>.
           </p>
         </div>
 
         <div class="transfer-details">
           <div class="transfer-type">
             <h4 class="transfer-title">
-              <i class="fas fa-edit text-warning-600"></i> 1. Transfer Posting là gì?
+              <i class="fas fa-edit text-warning-600"></i> 1. <span class="key-term">Transfer Posting</span> là gì?
             </h4>
             <p class="transfer-description">
-              Là nghiệp vụ <strong>chuyển đổi loại stock</strong> hoặc thuộc tính hàng hóa <strong>mà không nhất thiết có sự di chuyển vật lý</strong> của vật tư.
+              Là nghiệp vụ <mark class="highlight-critical">chuyển đổi loại stock</mark> hoặc thuộc tính hàng hóa <mark class="highlight-critical">mà không nhất thiết có sự di chuyển vật lý</mark> của vật tư.
             </p>
             
             <div class="transfer-subtypes">
               <h5>Các loại Transfer Posting phổ biến:</h5>
               <div class="subtype-cards">
                 <div class="subtype-card">
-                  <h6>Stock Type to Stock Type</h6>
+                  <h6><span class="key-term">Stock Type to Stock Type</span></h6>
                   <ul>
-                    <li>Chuyển từ Unrestricted → Blocked / Quality Inspection</li>
-                    <li><strong>Ví dụ:</strong> hàng lỗi → chuyển sang Blocked Stock</li>
+                    <li>Chuyển từ <span class="highlight-technical">Unrestricted → Blocked / Quality Inspection</span></li>
+                    <li><strong>Ví dụ:</strong> <span class="highlight-example">hàng lỗi → chuyển sang Blocked Stock</span></li>
                   </ul>
                 </div>
                 <div class="subtype-card">
-                  <h6>Material to Material Posting</h6>
+                  <h6><span class="key-term">Material to Material Posting</span></h6>
                   <ul>
                     <li>Cùng số lượng nhưng thay đổi mã vật tư (ít dùng, chỉ trong trường hợp đặc biệt)</li>
                   </ul>
                 </div>
                 <div class="subtype-card">
-                  <h6>Batch to Batch</h6>
+                  <h6><span class="key-term">Batch to Batch</span></h6>
                   <ul>
-                    <li>Đổi batch nếu phát hiện batch sai, nhưng vật tư giống nhau</li>
+                    <li>Đổi <span class="highlight-technical">batch</span> nếu phát hiện batch sai, nhưng vật tư giống nhau</li>
                   </ul>
                 </div>
                 <div class="subtype-card">
-                  <h6>Valuation Type to Valuation Type</h6>
+                  <h6><span class="key-term">Valuation Type to Valuation Type</span></h6>
                   <ul>
-                    <li>Chuyển giữa hai loại giá trị (nếu dùng split valuation)</li>
+                    <li>Chuyển giữa hai loại giá trị (nếu dùng <span class="highlight-technical">split valuation</span>)</li>
                   </ul>
                 </div>
               </div>
@@ -124,44 +124,44 @@
             <div class="transfer-characteristics">
               <h5>Đặc điểm:</h5>
               <ul>
-                <li>Không yêu cầu physical movement</li>
-                <li>Dùng movement type như 309, 321, 343,...</li>
-                <li>Hệ thống chỉ update bảng tồn kho và tài khoản kế toán nếu cần</li>
+                <li>Không yêu cầu <span class="highlight-feature">physical movement</span></li>
+                <li>Dùng <span class="key-term">movement type</span> như <span class="highlight-technical">309, 321, 343,...</span></li>
+                <li>Hệ thống chỉ update <span class="highlight-technical">bảng tồn kho</span> và <span class="highlight-technical">tài khoản kế toán</span> nếu cần</li>
               </ul>
             </div>
           </div>
 
           <div class="transfer-type">
             <h4 class="transfer-title">
-              <i class="fas fa-truck text-success-600"></i> 2. Stock Transfer là gì?
+              <i class="fas fa-truck text-success-600"></i> 2. <span class="key-term">Stock Transfer</span> là gì?
             </h4>
             <p class="transfer-description">
-              Là nghiệp vụ <strong>di chuyển vật tư từ địa điểm này sang địa điểm khác</strong> → <strong>có sự di chuyển vật lý thực sự</strong> trong kho.
+              Là nghiệp vụ <mark class="highlight-critical">di chuyển vật tư từ địa điểm này sang địa điểm khác</mark> → <mark class="highlight-critical">có sự di chuyển vật lý thực sự</mark> trong kho.
             </p>
             
             <div class="transfer-levels">
               <h5>Các cấp độ Stock Transfer:</h5>
               <div class="level-cards">
                 <div class="level-card">
-                  <h6>Within Same Plant</h6>
+                  <h6><span class="key-term">Within Same Plant</span></h6>
                   <ul>
-                    <li>Giữa các <strong>Storage Location</strong> cùng một Plant</li>
-                    <li><strong>Ví dụ:</strong> chuyển hàng từ FG00 (Finished Goods) sang TG00 (Trading Goods) trong SD00</li>
+                    <li>Giữa các <span class="highlight-technical">Storage Location</span> cùng một <span class="key-term">Plant</span></li>
+                    <li><strong>Ví dụ:</strong> <span class="highlight-example">chuyển hàng từ FG00 (Finished Goods) sang TG00 (Trading Goods) trong SD00</span></li>
                   </ul>
                 </div>
                 <div class="level-card">
-                  <h6>Between Different Plants (Same Company Code)</h6>
+                  <h6><span class="key-term">Between Different Plants (Same Company Code)</span></h6>
                   <ul>
-                    <li>Chuyển từ Plant A sang Plant B trong cùng công ty</li>
-                    <li><strong>Ví dụ:</strong> SD00 → DL00, cùng US00</li>
+                    <li>Chuyển từ <span class="highlight-technical">Plant A</span> sang <span class="highlight-technical">Plant B</span> trong cùng công ty</li>
+                    <li><strong>Ví dụ:</strong> <span class="highlight-example">SD00 → DL00, cùng US00</span></li>
                   </ul>
                 </div>
                 <div class="level-card">
-                  <h6>Between Company Codes</h6>
+                  <h6><span class="key-term">Between Company Codes</span></h6>
                   <ul>
                     <li>Chuyển hàng giữa các công ty khác nhau (liên công ty)</li>
-                    <li>Phải có hạch toán giá trị (Invoice + PO)</li>
-                    <li>Dùng Stock Transport Order (STO)</li>
+                    <li>Phải có hạch toán giá trị (<span class="highlight-technical">Invoice + PO</span>)</li>
+                    <li>Dùng <span class="key-term">Stock Transport Order (STO)</span></li>
                   </ul>
                 </div>
               </div>
@@ -170,9 +170,9 @@
             <div class="transfer-characteristics">
               <h5>Đặc điểm:</h5>
               <ul>
-                <li>Có thể có 1 hoặc 2 bước (One-step hoặc Two-step)</li>
-                <li>Tạo material document rõ ràng</li>
-                <li>Có thể kết hợp với WM (Transfer Order) nếu warehouse có quản lý chi tiết</li>
+                <li>Có thể có <span class="highlight-technical">1 hoặc 2 bước (One-step hoặc Two-step)</span></li>
+                <li>Tạo <span class="key-term">material document</span> rõ ràng</li>
+                <li>Có thể kết hợp với <span class="key-term">WM (Transfer Order)</span> nếu warehouse có quản lý chi tiết</li>
               </ul>
             </div>
           </div>
@@ -203,24 +203,24 @@
                   <td>Di chuyển hàng</td>
                 </tr>
                 <tr>
-                  <td>Movement Type</td>
-                  <td>309, 321, 343,...</td>
-                  <td>301, 311, 641, 351,...</td>
+                  <td><span class="highlight-feature">Movement Type</span></td>
+                  <td><span class="highlight-technical">309, 321, 343,...</span></td>
+                  <td><span class="highlight-technical">301, 311, 641, 351,...</span></td>
                 </tr>
                 <tr>
-                  <td>Có thể kết hợp với STO không?</td>
+                  <td>Có thể kết hợp với <span class="key-term">STO</span> không?</td>
                   <td>Không</td>
                   <td>Có</td>
                 </tr>
                 <tr>
-                  <td>Ghi nhận Stock in Transit không?</td>
+                  <td>Ghi nhận <span class="key-term">Stock in Transit</span> không?</td>
                   <td>Không</td>
                   <td>Có (nếu plant khác nhau)</td>
                 </tr>
                 <tr>
                   <td>Có tạo chứng từ giao nhận không?</td>
                   <td>Không</td>
-                  <td>Có (Delivery, TO, etc.)</td>
+                  <td>Có (<span class="highlight-technical">Delivery, TO, etc.</span>)</td>
                 </tr>
               </tbody>
             </table>
@@ -233,16 +233,16 @@
           </h4>
           <div class="example-cards">
             <div class="example-card transfer-posting">
-              <h5><strong>Transfer Posting:</strong></h5>
-              <p>Em phát hiện 100 khung xe bị lỗi sơn.</p>
-              <p>Từ stock hiện tại (Unrestricted) → chuyển sang Blocked bằng movement type <strong>343</strong>.</p>
-              <p>Không di chuyển hàng, chỉ đổi trạng thái trong hệ thống.</p>
+              <h5><strong><span class="key-term">Transfer Posting</span>:</strong></h5>
+              <p>Em phát hiện <span class="highlight-example">100 khung xe bị lỗi sơn</span>.</p>
+              <p>Từ stock hiện tại (<span class="highlight-technical">Unrestricted</span>) → chuyển sang <span class="highlight-technical">Blocked</span> bằng movement type <span class="highlight-technical">343</span>.</p>
+              <p><mark class="highlight-critical">Không di chuyển hàng</mark>, chỉ đổi trạng thái trong hệ thống.</p>
             </div>
             <div class="example-card stock-transfer">
-              <h5><strong>Stock Transfer:</strong></h5>
-              <p>Em cần chuyển 500 khung xe từ <strong>SD00</strong> về <strong>DL00</strong>.</p>
-              <p>Em tạo <strong>STO</strong>, phát hành Outbound Delivery, làm Goods Issue tại SD00, hàng chuyển đi thực tế.</p>
-              <p>Sau đó, DL00 nhận hàng bằng Goods Receipt.</p>
+              <h5><strong><span class="key-term">Stock Transfer</span>:</strong></h5>
+              <p>Em cần chuyển <span class="highlight-example">500 khung xe</span> từ <span class="highlight-technical">SD00</span> về <span class="highlight-technical">DL00</span>.</p>
+              <p>Em tạo <span class="key-term">STO</span>, phát hành <span class="key-term">Outbound Delivery</span>, làm <span class="key-term">Goods Issue</span> tại SD00, <mark class="highlight-critical">hàng chuyển đi thực tế</mark>.</p>
+              <p>Sau đó, DL00 nhận hàng bằng <span class="key-term">Goods Receipt</span>.</p>
             </div>
           </div>
         </div>
@@ -254,7 +254,7 @@
         </h3>
         <div class="sto-intro">
           <p class="sto-description">
-            Đây là một dạng đặc biệt của <strong>Purchase Order</strong> nhưng dùng để <strong>di chuyển hàng giữa các plant trong cùng một công ty</strong> (hoặc khác công ty nếu liên công ty). Đây là chức năng cực kỳ phổ biến trong các hệ thống phân phối lớn.
+            Đây là một dạng đặc biệt của <span class="key-term">Purchase Order</span> nhưng dùng để <mark class="highlight-critical">di chuyển hàng giữa các plant trong cùng một công ty</mark> (hoặc khác công ty nếu liên công ty). Đây là chức năng cực kỳ phổ biến trong các hệ thống phân phối lớn.
           </p>
         </div>
 
@@ -263,9 +263,9 @@
             <i class="fas fa-bullseye"></i> Mục tiêu của Stock Transport Order
           </h4>
           <ul class="objectives-list">
-            <li>Di chuyển vật tư từ <strong>Plant A</strong> sang <strong>Plant B</strong> một cách <strong>có kiểm soát</strong>, <strong>có theo dõi</strong>, <strong>có chứng từ</strong></li>
-            <li>Cho phép hạch toán chi phí vận chuyển, theo dõi tồn kho giữa các địa điểm</li>
-            <li>Có thể tích hợp với quy trình vận chuyển (shipping), kiểm tra chất lượng (QM), hoặc xuất kho kho vận (WM)</li>
+            <li>Di chuyển vật tư từ <span class="highlight-technical">Plant A</span> sang <span class="highlight-technical">Plant B</span> một cách <mark class="highlight-feature">có kiểm soát</mark>, <mark class="highlight-feature">có theo dõi</mark>, <mark class="highlight-feature">có chứng từ</mark></li>
+            <li>Cho phép hạch toán <span class="highlight-technical">chi phí vận chuyển</span>, theo dõi tồn kho giữa các địa điểm</li>
+            <li>Có thể tích hợp với quy trình vận chuyển (<span class="key-term">shipping</span>), kiểm tra chất lượng (<span class="key-term">QM</span>), hoặc xuất kho kho vận (<span class="key-term">WM</span>)</li>
           </ul>
         </div>
 
@@ -319,26 +319,26 @@
           </h4>
           <div class="sto-type-cards">
             <div class="sto-type-card">
-              <h5>Plant-to-Plant (Intra Company)</h5>
+              <h5><span class="key-term">Plant-to-Plant (Intra Company)</span></h5>
               <ul>
-                <li>Hai plant cùng công ty (cùng Company Code)</li>
-                <li>Hàng di chuyển nhưng không tạo invoice</li>
-                <li><strong>Ví dụ:</strong> từ <strong>SD00 → DL00</strong> cùng Company Code US00</li>
+                <li>Hai plant cùng công ty (cùng <span class="highlight-technical">Company Code</span>)</li>
+                <li>Hàng di chuyển nhưng không tạo <span class="key-term">invoice</span></li>
+                <li><strong>Ví dụ:</strong> <span class="highlight-example">từ SD00 → DL00 cùng Company Code US00</span></li>
               </ul>
             </div>
             <div class="sto-type-card">
-              <h5>Plant-to-Plant (Cross Company)</h5>
+              <h5><span class="key-term">Plant-to-Plant (Cross Company)</span></h5>
               <ul>
-                <li>Khác Company Code</li>
-                <li>Cần invoice, giống như bán hàng nội bộ</li>
-                <li><strong>Ví dụ:</strong> từ US00 → DE00</li>
+                <li>Khác <span class="highlight-technical">Company Code</span></li>
+                <li>Cần <span class="highlight-feature">invoice</span>, giống như bán hàng nội bộ</li>
+                <li><strong>Ví dụ:</strong> <span class="highlight-example">từ US00 → DE00</span></li>
               </ul>
             </div>
             <div class="sto-type-card">
-              <h5>Storage Location to Storage Location</h5>
+              <h5><span class="key-term">Storage Location to Storage Location</span></h5>
               <ul>
                 <li>Trong cùng một plant</li>
-                <li>Thường không dùng STO, mà dùng transfer posting</li>
+                <li>Thường không dùng <span class="key-term">STO</span>, mà dùng <span class="key-term">transfer posting</span></li>
                 <li>Nếu muốn dùng STO → phải tùy chỉnh thêm</li>
               </ul>
             </div>
@@ -357,40 +357,40 @@
               <div class="sto-step">
                 <div class="step-number">1</div>
                 <div class="step-content">
-                  <h6>Tạo Stock Transport Order (ME21N – Loại PO: UB)</h6>
+                  <h6>Tạo <span class="key-term">Stock Transport Order</span> (<span class="highlight-technical">ME21N – Loại PO: UB</span>)</h6>
                   <ul>
-                    <li>Supplying Plant: SD00</li>
-                    <li>Receiving Plant: DL00</li>
-                    <li>Material: M-0001</li>
-                    <li>Qty: 200</li>
+                    <li><span class="highlight-technical">Supplying Plant: SD00</span></li>
+                    <li><span class="highlight-technical">Receiving Plant: DL00</span></li>
+                    <li><span class="highlight-technical">Material: M-0001</span></li>
+                    <li><span class="highlight-technical">Qty: 200</span></li>
                   </ul>
                 </div>
               </div>
               <div class="sto-step">
                 <div class="step-number">2</div>
                 <div class="step-content">
-                  <h6>Tạo Outbound Delivery từ STO (VL10B hoặc VL10D)</h6>
+                  <h6>Tạo <span class="key-term">Outbound Delivery</span> từ STO (<span class="highlight-technical">VL10B hoặc VL10D</span>)</h6>
                   <ul>
-                    <li>Đây là bước tạo chứng từ giao hàng từ kho SD00</li>
+                    <li>Đây là bước tạo chứng từ giao hàng từ kho <span class="highlight-example">SD00</span></li>
                   </ul>
                 </div>
               </div>
               <div class="sto-step">
                 <div class="step-number">3</div>
                 <div class="step-content">
-                  <h6>Xuất kho hàng (Goods Issue) tại SD00 (VL02N)</h6>
+                  <h6>Xuất kho hàng (<span class="key-term">Goods Issue</span>) tại SD00 (<span class="highlight-technical">VL02N</span>)</h6>
                   <ul>
-                    <li>Số lượng sẽ được chuyển thành <strong>Stock in Transit</strong> tại DL00</li>
+                    <li>Số lượng sẽ được chuyển thành <mark class="highlight-critical">Stock in Transit</mark> tại DL00</li>
                   </ul>
                 </div>
               </div>
               <div class="sto-step">
                 <div class="step-number">4</div>
                 <div class="step-content">
-                  <h6>Hàng đến nơi → Nhập kho (Goods Receipt) tại DL00 (MIGO)</h6>
+                  <h6>Hàng đến nơi → Nhập kho (<span class="key-term">Goods Receipt</span>) tại DL00 (<span class="highlight-technical">MIGO</span>)</h6>
                   <ul>
-                    <li>Lúc này tồn kho tại DL00 được tăng</li>
-                    <li>Nếu có kích hoạt kiểm tra chất lượng → hàng có thể nằm trong stock type "Quality Inspection"</li>
+                    <li>Lúc này tồn kho tại <span class="highlight-example">DL00</span> được tăng</li>
+                    <li>Nếu có kích hoạt kiểm tra chất lượng → hàng có thể nằm trong stock type <span class="highlight-technical">"Quality Inspection"</span></li>
                   </ul>
                 </div>
               </div>
@@ -444,7 +444,7 @@
         </h3>
         <div class="hazardous-intro">
           <p class="hazardous-description">
-            Dành cho các vật tư nguy hiểm (nguy cơ cháy nổ, độc hại, phóng xạ,...). Phần này thường gặp trong kho hóa chất, dược phẩm, thiết bị công nghiệp. SAP WM cho phép quản lý <strong>an toàn lưu trữ</strong> thông qua dữ liệu này.
+            Dành cho các <span class="key-term">vật tư nguy hiểm</span> (nguy cơ cháy nổ, độc hại, phóng xạ,...). Phần này thường gặp trong kho hóa chất, dược phẩm, thiết bị công nghiệp. <span class="key-term">SAP WM</span> cho phép quản lý <mark class="highlight-feature">an toàn lưu trữ</mark> thông qua dữ liệu này.
           </p>
         </div>
 
@@ -503,70 +503,70 @@
           
           <div class="data-fields">
             <div class="data-field">
-              <h5><i class="fas fa-layer-group"></i> Storage Class</h5>
+              <h5><i class="fas fa-layer-group"></i> <span class="key-term">Storage Class</span></h5>
               <ul>
                 <li>Phân loại lưu trữ: quyết định vật tư đó được phép để ở đâu</li>
                 <li><strong>Ví dụ:</strong>
                   <ul>
-                    <li>Class 1: Không để gần nguồn nhiệt</li>
-                    <li>Class 2: Phải để riêng theo nhóm nguy hiểm</li>
+                    <li><span class="highlight-technical">Class 1</span>: Không để gần nguồn nhiệt</li>
+                    <li><span class="highlight-technical">Class 2</span>: Phải để riêng theo nhóm nguy hiểm</li>
                   </ul>
                 </li>
               </ul>
             </div>
             
             <div class="data-field">
-              <h5><i class="fas fa-tint"></i> Water Pollution Class</h5>
+              <h5><i class="fas fa-tint"></i> <span class="key-term">Water Pollution Class</span></h5>
               <ul>
                 <li>Mức độ ô nhiễm nếu vật tư tiếp xúc với nước:
                   <ul>
-                    <li>1: Không gây hại</li>
-                    <li>2: Gây ô nhiễm nhẹ</li>
-                    <li>3: Gây ô nhiễm nghiêm trọng (phải cách ly hoàn toàn)</li>
+                    <li><span class="highlight-technical">1</span>: Không gây hại</li>
+                    <li><span class="highlight-technical">2</span>: Gây ô nhiễm nhẹ</li>
+                    <li><span class="highlight-technical">3</span>: <mark class="highlight-critical">Gây ô nhiễm nghiêm trọng (phải cách ly hoàn toàn)</mark></li>
                   </ul>
                 </li>
               </ul>
             </div>
             
             <div class="data-field">
-              <h5><i class="fas fa-thermometer-half"></i> Flash Point</h5>
+              <h5><i class="fas fa-thermometer-half"></i> <span class="key-term">Flash Point</span></h5>
               <p>Điểm chú ý khiến cho vật chất thay đổi trạng thái.</p>
               <ul>
                 <li>Nhiệt độ thấp nhất khiến chất lỏng bốc cháy</li>
                 <li><strong>Ví dụ:</strong>
                   <ul>
-                    <li>Xăng: ~ -40°C</li>
-                    <li>Cồn: ~ 12°C</li>
+                    <li><span class="highlight-example">Xăng: ~ -40°C</span></li>
+                    <li><span class="highlight-example">Cồn: ~ 12°C</span></li>
                   </ul>
                 </li>
-                <li>Flash point càng thấp thì càng nguy hiểm</li>
+                <li><mark class="highlight-critical">Flash point càng thấp thì càng nguy hiểm</mark></li>
               </ul>
             </div>
             
             <div class="data-field">
-              <h5><i class="fas fa-cube"></i> Aggregate State</h5>
+              <h5><i class="fas fa-cube"></i> <span class="key-term">Aggregate State</span></h5>
               <ul>
-                <li>Trạng thái vật lý: rắn, lỏng, khí</li>
-                <li>Quan trọng vì mỗi trạng thái có yêu cầu lưu trữ khác nhau (bình chứa, nhiệt độ,…)</li>
+                <li>Trạng thái vật lý: <span class="highlight-technical">rắn, lỏng, khí</span></li>
+                <li>Quan trọng vì mỗi trạng thái có yêu cầu lưu trữ khác nhau (<span class="highlight-feature">bình chứa, nhiệt độ,…</span>)</li>
               </ul>
             </div>
             
             <div class="data-field">
-              <h5><i class="fas fa-exclamation-triangle"></i> Hazardous Material Warning</h5>
+              <h5><i class="fas fa-exclamation-triangle"></i> <span class="key-term">Hazardous Material Warning</span></h5>
               <ul>
-                <li>Mã cảnh báo hoặc ký hiệu theo chuẩn GHS (ví dụ: dễ cháy, độc hại, ăn mòn…)</li>
+                <li>Mã cảnh báo hoặc ký hiệu theo chuẩn <span class="highlight-technical">GHS</span> (ví dụ: dễ cháy, độc hại, ăn mòn…)</li>
                 <li>Có thể liên kết với nhãn in dán trên thùng hàng</li>
               </ul>
             </div>
             
             <div class="data-field">
-              <h5><i class="fas fa-barcode"></i> Hazardous Substance Number</h5>
+              <h5><i class="fas fa-barcode"></i> <span class="key-term">Hazardous Substance Number</span></h5>
               <ul>
-                <li>Số định danh của vật tư nguy hiểm theo tiêu chuẩn quốc tế (UN/ADR, GHS, hoặc nội bộ)</li>
+                <li>Số định danh của vật tư nguy hiểm theo tiêu chuẩn quốc tế (<span class="highlight-technical">UN/ADR, GHS</span>, hoặc nội bộ)</li>
                 <li><strong>Ví dụ:</strong>
                   <ul>
-                    <li>UN 1203: Gasoline</li>
-                    <li>UN 1993: Flammable liquids, n.o.s.</li>
+                    <li><span class="highlight-technical">UN 1203</span>: Gasoline</li>
+                    <li><span class="highlight-technical">UN 1993</span>: Flammable liquids, n.o.s.</li>
                   </ul>
                 </li>
               </ul>
@@ -605,7 +605,7 @@
         </h3>
         <div class="bin-status-intro">
           <p class="bin-status-description">
-            Đây là phần rất quan trọng để kiểm soát hoạt động trong kho. Em hiểu đúng phần này thì mới biết vì sao hệ thống không cho nhập hàng hay xuất hàng vào một bin cụ thể.
+            Đây là phần rất quan trọng để kiểm soát hoạt động trong kho. Em hiểu đúng phần này thì mới biết vì sao hệ thống không cho <span class="highlight-feature">nhập hàng</span> hay <span class="highlight-feature">xuất hàng</span> vào một <span class="key-term">bin</span> cụ thể.
           </p>
         </div>
 
@@ -614,9 +614,9 @@
             <i class="fas fa-bullseye"></i> Mục tiêu của "Storage Bin Status"
           </h4>
           <ul class="bin-status-objectives-list">
-            <li><strong>Ngăn không cho nhập hàng (putaway)</strong> vào bin bị lỗi, đang sửa chữa, hay đang kiểm kê</li>
-            <li><strong>Ngăn không cho xuất hàng (removal)</strong> từ bin đang bị kiểm kê, bị khóa bảo trì, hoặc lỗi kiểm soát chất lượng</li>
-            <li>Tránh để nhân viên warehouse nhập hoặc pick hàng sai vị trí</li>
+            <li><mark class="highlight-critical">Ngăn không cho nhập hàng (putaway)</mark> vào bin bị lỗi, đang sửa chữa, hay đang kiểm kê</li>
+            <li><mark class="highlight-critical">Ngăn không cho xuất hàng (removal)</mark> từ bin đang bị kiểmkê, bị khóa bảo trì, hoặc lỗi kiểm soát chất lượng</li>
+            <li>Tránh để nhân viên warehouse <span class="highlight-feature">nhập hoặc pick hàng sai vị trí</span></li>
           </ul>
         </div>
 
@@ -632,16 +632,16 @@
             <div class="status-card putaway-block">
               <div class="status-header">
                 <i class="fas fa-ban"></i>
-                <h5>Putaway Block</h5>
+                <h5><span class="key-term">Putaway Block</span></h5>
               </div>
               <div class="status-content">
-                <p class="status-definition">Không cho phép hệ thống đưa hàng mới vào bin này.</p>
+                <p class="status-definition">Không cho phép hệ thống đưa hàng mới vào <span class="key-term">bin</span> này.</p>
                 <div class="status-usage">
                   <h6>Thường dùng khi:</h6>
                   <ul>
-                    <li>Bin đang bị kiểm tra hoặc sửa chữa</li>
-                    <li>Bin đã đầy nhưng hệ thống chưa cập nhật</li>
-                    <li>Có lỗi vật lý tại vị trí đó (bị rách, gãy pallet,…)</li>
+                    <li><span class="key-term">Bin</span> đang bị kiểm tra hoặc sửa chữa</li>
+                    <li><span class="key-term">Bin</span> đã đầy nhưng hệ thống chưa cập nhật</li>
+                    <li>Có lỗi vật lý tại vị trí đó (<span class="highlight-example">bị rách, gãy pallet,…</span>)</li>
                   </ul>
                 </div>
               </div>
@@ -650,16 +650,16 @@
             <div class="status-card removal-block">
               <div class="status-header">
                 <i class="fas fa-times-circle"></i>
-                <h5>Stock Removal Block</h5>
+                <h5><span class="key-term">Stock Removal Block</span></h5>
               </div>
               <div class="status-content">
-                <p class="status-definition">Không cho phép lấy hàng ra từ bin này.</p>
+                <p class="status-definition">Không cho phép lấy hàng ra từ <span class="key-term">bin</span> này.</p>
                 <div class="status-usage">
                   <h6>Thường dùng khi:</h6>
                   <ul>
-                    <li>Hàng trong bin đang chờ kiểm tra chất lượng</li>
-                    <li>Bin đang nằm trong quy trình kiểm kê</li>
-                    <li>Tránh pick nhầm hàng lỗi, hàng chưa chuẩn bị</li>
+                    <li>Hàng trong bin đang chờ <span class="highlight-feature">kiểm tra chất lượng</span></li>
+                    <li><span class="key-term">Bin</span> đang nằm trong quy trình <span class="highlight-feature">kiểm kê</span></li>
+                    <li>Tránh pick nhầm <span class="highlight-example">hàng lỗi, hàng chưa chuẩn bị</span></li>
                   </ul>
                 </div>
               </div>
@@ -668,16 +668,16 @@
             <div class="status-card block-reason">
               <div class="status-header">
                 <i class="fas fa-question-circle"></i>
-                <h5>Block Indicator (Reason)</h5>
+                <h5><span class="key-term">Block Indicator (Reason)</span></h5>
               </div>
               <div class="status-content">
-                <p class="status-definition">Là lý do tại sao bin bị chặn.</p>
+                <p class="status-definition">Là lý do tại sao <span class="key-term">bin</span> bị chặn.</p>
                 <div class="status-examples">
                   <h6>Ví dụ:</h6>
                   <ul>
-                    <li>Q1: Đang kiểm tra chất lượng</li>
-                    <li>M1: Bảo trì thiết bị nâng ở khu vực đó</li>
-                    <li>I1: Bin thuộc vùng inventory count</li>
+                    <li><span class="highlight-technical">Q1</span>: Đang kiểm tra chất lượng</li>
+                    <li><span class="highlight-technical">M1</span>: Bảo trì thiết bị nâng ở khu vực đó</li>
+                    <li><span class="highlight-technical">I1</span>: Bin thuộc vùng inventory count</li>
                   </ul>
                 </div>
               </div>
@@ -696,40 +696,40 @@
           
           <div class="management-operations">
             <div class="management-operation check">
-              <h5><i class="fas fa-search"></i> Kiểm tra Bin Status</h5>
-              <p>Em dùng transaction <strong>LS03N</strong> để xem chi tiết một Storage Bin.</p>
+              <h5><i class="fas fa-search"></i> Kiểm tra <span class="key-term">Bin Status</span></h5>
+              <p>Em dùng transaction <span class="highlight-technical">LS03N</span> để xem chi tiết một <span class="key-term">Storage Bin</span>.</p>
               <ul>
-                <li>Vào LS03N → nhập Warehouse Number và Storage Bin → Enter</li>
-                <li>Tab "Status" sẽ hiện:
+                <li>Vào <span class="highlight-technical">LS03N</span> → nhập <span class="highlight-technical">Warehouse Number</span> và <span class="highlight-technical">Storage Bin</span> → Enter</li>
+                <li>Tab <span class="highlight-feature">"Status"</span> sẽ hiện:
                   <ul>
-                    <li><strong>Putaway blocked</strong> = X (có nghĩa là bin này không nhận hàng mới)</li>
-                    <li><strong>Stock removal blocked</strong> = X (không được pick hàng từ đây)</li>
-                    <li>Block Reason: hiển thị lý do (nếu có maintain)</li>
+                    <li><span class="highlight-technical">Putaway blocked = X</span> (có nghĩa là bin này không nhận hàng mới)</li>
+                    <li><span class="highlight-technical">Stock removal blocked = X</span> (không được pick hàng từ đây)</li>
+                    <li><span class="highlight-feature">Block Reason</span>: hiển thị lý do (nếu có maintain)</li>
                   </ul>
                 </li>
               </ul>
             </div>
             
             <div class="management-operation set-block">
-              <h5><i class="fas fa-lock"></i> Đặt block cho bin</h5>
-              <p>Dùng transaction <strong>LS02N</strong> (change bin)</p>
+              <h5><i class="fas fa-lock"></i> Đặt block cho <span class="key-term">bin</span></h5>
+              <p>Dùng transaction <span class="highlight-technical">LS02N</span> (change bin)</p>
               <ul>
-                <li>Vào LS02N → nhập Warehouse Number và Storage Bin</li>
-                <li>Chuyển sang tab "Status"</li>
+                <li>Vào <span class="highlight-technical">LS02N</span> → nhập <span class="highlight-technical">Warehouse Number</span> và <span class="highlight-technical">Storage Bin</span></li>
+                <li>Chuyển sang tab <span class="highlight-feature">"Status"</span></li>
                 <li>Tick vào:
                   <ul>
-                    <li>Putaway blocked</li>
-                    <li>Stock removal blocked</li>
+                    <li><span class="key-term">Putaway blocked</span></li>
+                    <li><span class="key-term">Stock removal blocked</span></li>
                   </ul>
                 </li>
-                <li>Ghi chú lý do nếu cần (Block Reason)</li>
+                <li>Ghi chú lý do nếu cần (<span class="highlight-feature">Block Reason</span>)</li>
                 <li>Save</li>
               </ul>
             </div>
             
             <div class="management-operation remove-block">
               <h5><i class="fas fa-unlock"></i> Gỡ block</h5>
-              <p>Cũng vào <strong>LS02N</strong>, bỏ dấu tick → Save.</p>
+              <p>Cũng vào <span class="highlight-technical">LS02N</span>, bỏ dấu tick → Save.</p>
             </div>
           </div>
         </div>
@@ -782,42 +782,42 @@
           <!-- Basic Terms -->
           <div class="term-card basic" data-term="warehouse">
             <div class="term-header">
-              <h3 class="term-name">Warehouse</h3>
+              <h3 class="term-name"><span class="key-term">Warehouse</span></h3>
               <span class="term-category basic">Cơ bản</span>
             </div>
             <div class="term-content">
               <p class="term-definition">
-                Kho hàng - Cơ sở vật chất để lưu trữ, bảo quản và quản lý hàng
+                <span class="highlight-feature">Kho hàng</span> - Cơ sở vật chất để lưu trữ, bảo quản và quản lý hàng
                 hóa.
               </p>
               <div class="term-details">
                 <p>
-                  <strong>Trong SAP:</strong> Được định nghĩa bằng Warehouse
-                  Number và có thể chứa nhiều Storage Type khác nhau.
+                  <strong>Trong SAP:</strong> Được định nghĩa bằng <span class="highlight-technical">Warehouse
+                  Number</span> và có thể chứa nhiều <span class="key-term">Storage Type</span> khác nhau.
                 </p>
-                <p><strong>Ví dụ:</strong> Warehouse 001, 002, 100</p>
+                <p><strong>Ví dụ:</strong> <span class="highlight-example">Warehouse 001, 002, 100</span></p>
               </div>
             </div>
           </div>
 
           <div class="term-card basic" data-term="storage-type">
             <div class="term-header">
-              <h3 class="term-name">Storage Type</h3>
+              <h3 class="term-name"><span class="key-term">Storage Type</span></h3>
               <span class="term-category basic">Cơ bản</span>
             </div>
             <div class="term-content">
               <p class="term-definition">
-                Loại khu vực lưu trữ - Phân loại các khu vực trong kho theo đặc
+                <span class="highlight-feature">Loại khu vực lưu trữ</span> - Phân loại các khu vực trong kho theo đặc
                 điểm và mục đích sử dụng.
               </p>
               <div class="term-details">
                 <p>
-                  <strong>Các loại phổ biến:</strong> PALLET, SHELF, FLOOR,
-                  BULK, PICK
+                  <strong>Các loại phổ biến:</strong> <span class="highlight-technical">PALLET, SHELF, FLOOR,
+                  BULK, PICK</span>
                 </p>
                 <p>
-                  <strong>Ví dụ:</strong> Storage Type PALLET cho hàng pallet,
-                  SHELF cho hàng kệ
+                  <strong>Ví dụ:</strong> <span class="highlight-example">Storage Type PALLET cho hàng pallet,
+                  SHELF cho hàng kệ</span>
                 </p>
               </div>
             </div>
@@ -825,21 +825,21 @@
 
           <div class="term-card basic" data-term="storage-bin">
             <div class="term-header">
-              <h3 class="term-name">Storage Bin</h3>
+              <h3 class="term-name"><span class="key-term">Storage Bin</span></h3>
               <span class="term-category basic">Cơ bản</span>
             </div>
             <div class="term-content">
               <p class="term-definition">
-                Vị trí lưu trữ - Địa chỉ cụ thể nhất để lưu trữ hàng hóa trong
+                <span class="highlight-feature">Vị trí lưu trữ</span> - Địa chỉ cụ thể nhất để lưu trữ hàng hóa trong
                 kho.
               </p>
               <div class="term-details">
                 <p>
-                  <strong>Cấu trúc:</strong> Thường có format như A1-01-01
-                  (Dãy-Tầng-Vị trí)
+                  <strong>Cấu trúc:</strong> Thường có format như <span class="highlight-technical">A1-01-01
+                  (Dãy-Tầng-Vị trí)</span>
                 </p>
                 <p>
-                  <strong>Thuộc tính:</strong> Capacity, Weight limit, Bin type
+                  <strong>Thuộc tính:</strong> <span class="highlight-technical">Capacity, Weight limit, Bin type</span>
                 </p>
               </div>
             </div>
@@ -847,21 +847,21 @@
 
           <div class="term-card basic" data-term="quant">
             <div class="term-header">
-              <h3 class="term-name">Quant</h3>
+              <h3 class="term-name"><span class="key-term">Quant</span></h3>
               <span class="term-category basic">Cơ bản</span>
             </div>
             <div class="term-content">
               <p class="term-definition">
-                Đơn vị quản lý stock - Đại diện cho một lượng hàng cụ thể tại
+                <span class="highlight-feature">Đơn vị quản lý stock</span> - Đại diện cho một lượng hàng cụ thể tại
                 một vị trí cụ thể.
               </p>
               <div class="term-details">
                 <p>
-                  <strong>Thông tin:</strong> Material, Quantity, Batch, Stock
-                  Type
+                  <strong>Thông tin:</strong> <span class="highlight-technical">Material, Quantity, Batch, Stock
+                  Type</span>
                 </p>
                 <p>
-                  <strong>Đặc điểm:</strong> Mỗi bin có thể chứa nhiều quant
+                  <strong>Đặc điểm:</strong> Mỗi <span class="key-term">bin</span> có thể chứa nhiều <span class="key-term">quant</span>
                   khác nhau
                 </p>
               </div>
@@ -871,22 +871,22 @@
           <!-- Process Terms -->
           <div class="term-card process" data-term="put-away">
             <div class="term-header">
-              <h3 class="term-name">Put-away</h3>
+              <h3 class="term-name"><span class="key-term">Put-away</span></h3>
               <span class="term-category process">Quy trình</span>
             </div>
             <div class="term-content">
               <p class="term-definition">
-                Quy trình sắp xếp hàng - Chuyển hàng từ khu tiếp nhận vào vị trí
+                <span class="highlight-feature">Quy trình sắp xếp hàng</span> - Chuyển hàng từ khu tiếp nhận vào vị trí
                 lưu trữ.
               </p>
               <div class="term-details">
                 <p>
-                  <strong>Các bước:</strong> Goods Receipt → Transfer Order →
-                  Put-away
+                  <strong>Các bước:</strong> <span class="highlight-technical">Goods Receipt → Transfer Order →
+                  Put-away</span>
                 </p>
                 <p>
-                  <strong>Chiến lược:</strong> Fixed bin, Dynamic, Addition to
-                  existing stock
+                  <strong>Chiến lược:</strong> <span class="highlight-technical">Fixed bin, Dynamic, Addition to
+                  existing stock</span>
                 </p>
               </div>
             </div>
@@ -894,21 +894,21 @@
 
           <div class="term-card process" data-term="picking">
             <div class="term-header">
-              <h3 class="term-name">Picking</h3>
+              <h3 class="term-name"><span class="key-term">Picking</span></h3>
               <span class="term-category process">Quy trình</span>
             </div>
             <div class="term-content">
               <p class="term-definition">
-                Quy trình lấy hàng - Lấy hàng từ vị trí lưu trữ để chuẩn bị xuất
+                <span class="highlight-feature">Quy trình lấy hàng</span> - Lấy hàng từ vị trí lưu trữ để chuẩn bị xuất
                 kho.
               </p>
               <div class="term-details">
                 <p>
-                  <strong>Loại picking:</strong> Single picking, Batch picking,
-                  Wave picking
+                  <strong>Loại picking:</strong> <span class="highlight-technical">Single picking, Batch picking,
+                  Wave picking</span>
                 </p>
                 <p>
-                  <strong>Chiến lược:</strong> FIFO, LIFO, Empty storage bin
+                  <strong>Chiến lược:</strong> <span class="highlight-technical">FIFO, LIFO, Empty storage bin</span>
                 </p>
               </div>
             </div>
@@ -916,39 +916,39 @@
 
           <div class="term-card process" data-term="transfer-order">
             <div class="term-header">
-              <h3 class="term-name">Transfer Order (TO)</h3>
+              <h3 class="term-name"><span class="key-term">Transfer Order (TO)</span></h3>
               <span class="term-category process">Quy trình</span>
             </div>
             <div class="term-content">
               <p class="term-definition">
-                Lệnh chuyển hàng - Chỉ thị di chuyển hàng từ vị trí này sang vị
+                <span class="highlight-feature">Lệnh chuyển hàng</span> - Chỉ thị di chuyển hàng từ vị trí này sang vị
                 trí khác.
               </p>
               <div class="term-details">
                 <p>
-                  <strong>Loại TO:</strong> Put-away TO, Pick TO, Stock Transfer
-                  TO
+                  <strong>Loại TO:</strong> <span class="highlight-technical">Put-away TO, Pick TO, Stock Transfer
+                  TO</span>
                 </p>
-                <p><strong>Trạng thái:</strong> Open, In process, Confirmed</p>
+                <p><strong>Trạng thái:</strong> <span class="highlight-technical">Open, In process, Confirmed</span></p>
               </div>
             </div>
           </div>
 
           <div class="term-card process" data-term="transfer-requirement">
             <div class="term-header">
-              <h3 class="term-name">Transfer Requirement (TR)</h3>
+              <h3 class="term-name"><span class="key-term">Transfer Requirement (TR)</span></h3>
               <span class="term-category process">Quy trình</span>
             </div>
             <div class="term-content">
               <p class="term-definition">
-                Yêu cầu chuyển hàng - Yêu cầu di chuyển hàng, được tạo tự động
+                <span class="highlight-feature">Yêu cầu chuyển hàng</span> - Yêu cầu di chuyển hàng, được tạo tự động
                 hoặc thủ công.
               </p>
               <div class="term-details">
                 <p>
-                  <strong>Nguồn tạo:</strong> Goods Receipt, Delivery, Manual
+                  <strong>Nguồn tạo:</strong> <span class="highlight-technical">Goods Receipt, Delivery, Manual</span>
                 </p>
-                <p><strong>Xử lý:</strong> TR → TO → Confirmation</p>
+                <p><strong>Xử lý:</strong> <span class="highlight-technical">TR → TO → Confirmation</span></p>
               </div>
             </div>
           </div>
@@ -1132,6 +1132,83 @@
 </div>
 
 <style>
+  /* Key Term Highlighting Styles */
+  .key-term {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    color: white;
+    padding: 0.15rem 0.4rem;
+    border-radius: 0.25rem;
+    font-weight: 600;
+    font-size: 0.95em;
+    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+    border: 1px solid rgba(59, 130, 246, 0.4);
+    display: inline-block;
+    margin: 0 0.1rem;
+  }
+
+  .highlight-critical {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.3rem;
+    font-weight: 700;
+    box-shadow: 0 2px 6px rgba(239, 68, 68, 0.4);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+  }
+
+  .highlight-feature {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    padding: 0.15rem 0.4rem;
+    border-radius: 0.25rem;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(16, 185, 129, 0.3);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+  }
+
+  .highlight-technical {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    color: white;
+    padding: 0.15rem 0.4rem;
+    border-radius: 0.25rem;
+    font-weight: 600;
+    font-family: 'Courier New', monospace;
+    box-shadow: 0 2px 4px rgba(139, 92, 246, 0.3);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+  }
+
+  .highlight-example {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+    padding: 0.15rem 0.4rem;
+    border-radius: 0.25rem;
+    font-weight: 600;
+    font-style: italic;
+    box-shadow: 0 2px 4px rgba(245, 158, 11, 0.3);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+  }
+
+  /* Enhanced mark styling */
+  mark {
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    color: #1f2937;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+    font-weight: 700;
+    box-shadow: 0 1px 3px rgba(251, 191, 36, 0.4);
+  }
+
+  /* Hover effects for highlighted terms */
+  .key-term:hover,
+  .highlight-critical:hover,
+  .highlight-feature:hover,
+  .highlight-technical:hover,
+  .highlight-example:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: help;
+  }
+
   /* Terms-specific styles */
   .content-grid {
     display: flex;
