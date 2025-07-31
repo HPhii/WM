@@ -299,6 +299,35 @@
       let loadedComponents = {};
 
       // Load component content from file
+      // Function to load processes JavaScript dynamically
+      function loadProcessesScript() {
+        // Check if the script is already loaded
+        if (document.getElementById("processes-script")) {
+          console.log("Processes script already loaded");
+          // Even if already loaded, try to initialize
+          if (window.initializeProcesses) {
+            window.initializeProcesses();
+          }
+          return;
+        }
+
+        console.log("Loading processes script...");
+        const script = document.createElement("script");
+        script.id = "processes-script";
+        script.src = "js/processes.js";
+        script.onload = function () {
+          console.log("Processes script loaded successfully");
+          // Initialize processes after script is loaded
+          if (window.initializeProcesses) {
+            window.initializeProcesses();
+          }
+        };
+        script.onerror = function () {
+          console.error("Failed to load processes script");
+        };
+        document.head.appendChild(script);
+      }
+
       async function loadComponent(componentName) {
         if (loadedComponents[componentName]) {
           return loadedComponents[componentName];
@@ -368,6 +397,11 @@
             // Load component content
             const componentContent = await loadComponent(sectionId);
             targetSection.innerHTML = componentContent;
+
+            // Load specific JavaScript for processes section
+            if (sectionId === "processes") {
+              loadProcessesScript();
+            }
           } else {
             targetSection.classList.remove("hidden");
             targetSection.classList.add("active");

@@ -58,8 +58,9 @@
             </div>
             <h4>Cập nhật thông tin</h4>
             <p>
-              Mục đích của việc clear trong đây là để update lại thông tin trên
-              hệ thống (khi move hàng từ A → B ở physical thì cần update).
+              Mục đích của việc clear trong đây là để <mark>update</mark> lại
+              thông tin trên hệ thống (khi move hàng từ A → B ở physical thì cần
+              update).
             </p>
           </div>
         </div>
@@ -87,8 +88,9 @@
               <div class="step-details">
                 <ul class="step-list">
                   <li>
-                    Dùng t-code <strong>LI01N</strong> hoặc
-                    <strong>LX01</strong> để tạo tài liệu kiểm kê cho warehouse.
+                    Dùng t-code <mark><strong>LI01N</strong></mark> hoặc
+                    <mark><strong>LX01</strong></mark> để tạo tài liệu kiểm kê
+                    cho warehouse.
                   </li>
                   <li>
                     Chọn phạm vi kiểm kê:
@@ -123,8 +125,8 @@
               <div class="step-details">
                 <ul class="step-list">
                   <li>
-                    Dùng t-code <strong>LI02N</strong> hoặc
-                    <strong>LX02</strong> để kích hoạt.
+                    Dùng t-code <mark><strong>LI02N</strong></mark> hoặc
+                    <mark><strong>LX02</strong></mark> để kích hoạt.
                   </li>
                   <li>
                     Trước khi activate,
@@ -162,8 +164,8 @@
               <div class="step-details">
                 <ul class="step-list">
                   <li>
-                    Dùng <strong>LX03</strong> để in danh sách kiểm kê cho nhân
-                    viên kho.
+                    Dùng <mark><strong>LX03</strong></mark> để in danh sách kiểm
+                    kê cho nhân viên kho.
                   </li>
                   <li>
                     Danh sách có thể:
@@ -192,7 +194,10 @@
             <div class="step-content">
               <div class="step-details">
                 <ul class="step-list">
-                  <li>Dùng t-code <strong>LI11N</strong>.</li>
+                  <li>
+                    Dùng t-code <mark><strong>LI11N</strong></mark
+                    >.
+                  </li>
                   <li>
                     Nhân viên sau khi đi kiểm kê → nhập lại số đếm vào từng dòng
                     của document.
@@ -502,49 +507,735 @@
         <div class="application-scenario">
           <div class="scenario-header">
             <i class="fas fa-calendar-check"></i>
-            <h4>Tình huống:</h4>
-            <p>
-              Cuối tháng 6, quản lý yêu cầu kiểm kê toàn bộ khu vực shelf A2.
-            </p>
+            <h4>Tình huống thực tế:</h4>
+            <div class="scenario-context">
+              <p><strong>Công ty:</strong> Global Bike Manufacturing Vietnam</p>
+              <p><strong>Warehouse:</strong> WH01 - Kho thành phẩm xe đạp</p>
+              <p>
+                <strong>Thời điểm:</strong> Ngày 28/06/2024 - Chuẩn bị đóng sổ
+                Q2
+              </p>
+              <p>
+                <strong>Yêu cầu kiểm toán:</strong> Kiểm kê toàn bộ khu vực
+                shelf A2 (Storage Type 001) chứa 150 xe đạp các loại
+              </p>
+              <p>
+                <strong>Phạm vi:</strong> 24 bins từ A2-01-01 đến A2-06-04, tổng
+                cộng khoảng 85 material codes khác nhau
+              </p>
+            </div>
+          </div>
+
+          <div class="scenario-details">
+            <div class="current-stock-info">
+              <h4>
+                <i class="fas fa-database"></i> Thông tin hiện tại trong hệ
+                thống:
+              </h4>
+              <div class="stock-table-container">
+                <table class="stock-table">
+                  <thead>
+                    <tr>
+                      <th>Storage Bin</th>
+                      <th>Material</th>
+                      <th>Description</th>
+                      <th>Book Qty</th>
+                      <th>Unit</th>
+                      <th>Batch</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>A2-01-01</td>
+                      <td>BIKE-MTB-001</td>
+                      <td>Mountain Bike 26" - Đỏ</td>
+                      <td>12</td>
+                      <td>EA</td>
+                      <td>240615001</td>
+                    </tr>
+                    <tr>
+                      <td>A2-01-02</td>
+                      <td>BIKE-MTB-001</td>
+                      <td>Mountain Bike 26" - Xanh</td>
+                      <td>8</td>
+                      <td>EA</td>
+                      <td>240615002</td>
+                    </tr>
+                    <tr>
+                      <td>A2-01-03</td>
+                      <td>BIKE-ROAD-002</td>
+                      <td>Road Bike 28" - Trắng</td>
+                      <td>15</td>
+                      <td>EA</td>
+                      <td>240620001</td>
+                    </tr>
+                    <tr>
+                      <td>A2-01-04</td>
+                      <td>BIKE-BMX-003</td>
+                      <td>BMX Bike 20" - Đen</td>
+                      <td>6</td>
+                      <td>EA</td>
+                      <td>240618001</td>
+                    </tr>
+                    <tr class="table-more-row">
+                      <td colspan="6">
+                        <em>... và 20 bins khác (tổng 150 xe)</em>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
 
           <div class="scenario-process">
-            <h4>Quy trình em làm:</h4>
+            <h4>Quy trình thực hiện chi tiết:</h4>
             <div class="process-steps-list">
-              <div class="process-step-item">
+              <!-- Step 1: Create Document -->
+              <div class="process-step-item detailed">
                 <div class="step-indicator">1</div>
-                <p>
-                  Dùng <strong>LX01</strong>, tạo document cho Storage Type 001.
-                </p>
+                <div class="step-content">
+                  <h5>Tạo Physical Inventory Document</h5>
+                  <div class="step-action">
+                    <p>
+                      <strong>T-Code:</strong>
+                      <span class="highlight-technical">LX01</span> hoặc
+                      <span class="highlight-technical">LI01N</span>
+                    </p>
+                    <div class="sap-screen-simulation">
+                      <div class="screen-header">
+                        <i class="fas fa-window-maximize"></i>
+                        <span>SAP - Create Physical Inventory Document</span>
+                      </div>
+                      <div class="screen-fields">
+                        <div class="field-row">
+                          <label>Warehouse Number:</label>
+                          <input type="text" value="001" readonly />
+                        </div>
+                        <div class="field-row">
+                          <label>Storage Type:</label>
+                          <input type="text" value="001" readonly />
+                          <span class="field-desc"
+                            >(High Rack - Shelf Storage)</span
+                          >
+                        </div>
+                        <div class="field-row">
+                          <label>Storage Section From:</label>
+                          <input type="text" value="A2" readonly />
+                          <label>To:</label>
+                          <input type="text" value="A2" readonly />
+                        </div>
+                        <div class="field-row">
+                          <label>Planned Count Date:</label>
+                          <input type="text" value="30.06.2024" readonly />
+                        </div>
+                      </div>
+                      <div class="screen-result">
+                        <p class="system-message">
+                          <i class="fas fa-check-circle text-success-600"></i>
+                          <strong>Kết quả:</strong> Document number
+                          <span class="highlight-example">8000000045</span> được
+                          tạo thành công cho 24 bins
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="process-step-item">
+
+              <!-- Step 2: Activate Document -->
+              <div class="process-step-item detailed">
                 <div class="step-indicator">2</div>
-                <p>
-                  Activate bằng <strong>LX02</strong> → hệ thống block bin A2.
-                </p>
+                <div class="step-content">
+                  <h5>Activate Physical Inventory Document</h5>
+                  <div class="step-action">
+                    <p>
+                      <strong>T-Code:</strong>
+                      <span class="highlight-technical">LX02</span> hoặc
+                      <span class="highlight-technical">LI02N</span>
+                    </p>
+                    <div class="sap-screen-simulation">
+                      <div class="screen-header">
+                        <i class="fas fa-window-maximize"></i>
+                        <span>SAP - Activate Physical Inventory Document</span>
+                      </div>
+                      <div class="screen-fields">
+                        <div class="field-row">
+                          <label>Physical Inventory Document:</label>
+                          <input type="text" value="8000000045" readonly />
+                        </div>
+                        <div class="field-row">
+                          <label>Count Date:</label>
+                          <input
+                            type="text"
+                            value="30.06.2024 14:30:00"
+                            readonly
+                          />
+                        </div>
+                      </div>
+                      <div class="screen-result">
+                        <div class="system-messages">
+                          <p class="system-message warning">
+                            <i
+                              class="fas fa-exclamation-triangle text-warning-600"
+                            ></i>
+                            <strong>Warning:</strong> 24 bins will be blocked
+                            for movements
+                          </p>
+                          <p class="system-message success">
+                            <i class="fas fa-check-circle text-success-600"></i>
+                            <strong>Success:</strong> Document activated. Book
+                            stock frozen at 30.06.2024 14:30:00
+                          </p>
+                          <p class="frozen-stock-info">
+                            <strong>Frozen Stock Snapshot:</strong><br />
+                            • Total items: 150 bikes across 24 bins<br />
+                            • Total materials: 85 different SKUs<br />
+                            • Value: ~$125,000 USD
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="process-step-item">
+
+              <!-- Step 3: Print Count Sheet -->
+              <div class="process-step-item detailed">
                 <div class="step-indicator">3</div>
-                <p>
-                  In danh sách bằng <strong>LX03</strong> → đưa cho tổ kiểm kê.
-                </p>
+                <div class="step-content">
+                  <h5>In danh sách kiểm kê</h5>
+                  <div class="step-action">
+                    <p>
+                      <strong>T-Code:</strong>
+                      <span class="highlight-technical">LX03</span>
+                    </p>
+                    <div class="print-options">
+                      <div class="option-card">
+                        <h6>
+                          <i class="fas fa-eye"></i> Open Count (Hiển thị
+                          material)
+                        </h6>
+                        <p>
+                          Nhân viên thấy được material code và quantity để đối
+                          chiếu
+                        </p>
+                        <div class="sample-output">
+                          <div class="count-sheet-header">
+                            <strong>PHYSICAL INVENTORY COUNT SHEET</strong
+                            ><br />
+                            Document: 8000000045 | Date: 30.06.2024 | WH: 001
+                          </div>
+                          <table class="count-sheet-table">
+                            <thead>
+                              <tr>
+                                <th>Bin</th>
+                                <th>Material</th>
+                                <th>Description</th>
+                                <th>Book Qty</th>
+                                <th>Counted</th>
+                                <th>Signature</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>A2-01-01</td>
+                                <td>BIKE-MTB-001</td>
+                                <td>Mountain Bike 26" - Đỏ</td>
+                                <td>12</td>
+                                <td>____</td>
+                                <td>____</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                      <div class="option-card">
+                        <h6>
+                          <i class="fas fa-eye-slash"></i> Blind Count (Ẩn
+                          material)
+                        </h6>
+                        <p>
+                          Nhân viên chỉ thấy bin, phải tự kiểm tra và ghi
+                          material + quantity
+                        </p>
+                        <div class="sample-output">
+                          <div class="count-sheet-header">
+                            <strong>BLIND PHYSICAL INVENTORY COUNT SHEET</strong
+                            ><br />
+                            Document: 8000000045 | Date: 30.06.2024 | WH: 001
+                          </div>
+                          <table class="count-sheet-table">
+                            <thead>
+                              <tr>
+                                <th>Bin</th>
+                                <th>Material Found</th>
+                                <th>Description</th>
+                                <th>Counted Qty</th>
+                                <th>Signature</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>A2-01-01</td>
+                                <td>________</td>
+                                <td>________</td>
+                                <td>____</td>
+                                <td>____</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="process-step-item">
+
+              <!-- Step 4: Count and Enter Results -->
+              <div class="process-step-item detailed">
                 <div class="step-indicator">4</div>
-                <p>Nhân viên đếm và nhập kết quả qua <strong>LI11N</strong>.</p>
+                <div class="step-content">
+                  <h5>Nhân viên kiểm kê và nhập dữ liệu</h5>
+                  <div class="step-action">
+                    <p>
+                      <strong>T-Code:</strong>
+                      <span class="highlight-technical">LI11N</span>
+                    </p>
+
+                    <div class="counting-scenario">
+                      <h6><i class="fas fa-users"></i> Tình huống thực tế:</h6>
+                      <div class="counting-team">
+                        <div class="team-member">
+                          <i class="fas fa-user"></i>
+                          <strong>Nguyễn Hữu An</strong> - Team Leader (khu
+                          A2-01 đến A2-03)
+                        </div>
+                        <div class="team-member">
+                          <i class="fas fa-user"></i>
+                          <strong>Trần Thị Phú Khang</strong> - Counter (khu
+                          A2-04 đến A2-06)
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="counting-results">
+                      <h6>
+                        <i class="fas fa-clipboard-check"></i> Kết quả đếm thực
+                        tế:
+                      </h6>
+                      <div class="sap-screen-simulation">
+                        <div class="screen-header">
+                          <i class="fas fa-window-maximize"></i>
+                          <span>SAP - Enter Physical Inventory Count</span>
+                        </div>
+                        <div class="count-entry-table">
+                          <table class="results-table">
+                            <thead>
+                              <tr>
+                                <th>Bin</th>
+                                <th>Material</th>
+                                <th>Book Qty</th>
+                                <th>Counted Qty</th>
+                                <th>Difference</th>
+                                <th>Status</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr class="match-row">
+                                <td>A2-01-01</td>
+                                <td>BIKE-MTB-001</td>
+                                <td>12</td>
+                                <td class="counted-input">12</td>
+                                <td class="no-diff">0</td>
+                                <td><span class="status-ok">✓ Match</span></td>
+                              </tr>
+                              <tr class="diff-row shortage">
+                                <td>A2-01-02</td>
+                                <td>BIKE-MTB-001</td>
+                                <td>8</td>
+                                <td class="counted-input">6</td>
+                                <td class="negative-diff">-2</td>
+                                <td>
+                                  <span class="status-shortage"
+                                    >⚠ Shortage</span
+                                  >
+                                </td>
+                              </tr>
+                              <tr class="diff-row surplus">
+                                <td>A2-01-03</td>
+                                <td>BIKE-ROAD-002</td>
+                                <td>15</td>
+                                <td class="counted-input">17</td>
+                                <td class="positive-diff">+2</td>
+                                <td>
+                                  <span class="status-surplus">⚠ Surplus</span>
+                                </td>
+                              </tr>
+                              <tr class="match-row">
+                                <td>A2-01-04</td>
+                                <td>BIKE-BMX-003</td>
+                                <td>6</td>
+                                <td class="counted-input">6</td>
+                                <td class="no-diff">0</td>
+                                <td><span class="status-ok">✓ Match</span></td>
+                              </tr>
+                              <tr class="found-row">
+                                <td>A2-02-01</td>
+                                <td class="new-material">BIKE-CITY-004</td>
+                                <td>0</td>
+                                <td class="counted-input">3</td>
+                                <td class="positive-diff">+3</td>
+                                <td>
+                                  <span class="status-found">⚠ Found</span>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <div class="count-summary">
+                          <div class="summary-stats">
+                            <div class="stat-item">
+                              <span class="stat-label"
+                                >Total Bins Counted:</span
+                              >
+                              <span class="stat-value">24/24</span>
+                            </div>
+                            <div class="stat-item">
+                              <span class="stat-label">Matches:</span>
+                              <span class="stat-value success">135 items</span>
+                            </div>
+                            <div class="stat-item">
+                              <span class="stat-label">Differences:</span>
+                              <span class="stat-value warning">18 items</span>
+                            </div>
+                            <div class="stat-item">
+                              <span class="stat-label">Accuracy Rate:</span>
+                              <span class="stat-value">88.2%</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="process-step-item">
+
+              <!-- Step 5: Analyze Differences in WM -->
+              <div class="process-step-item detailed">
                 <div class="step-indicator">5</div>
-                <p>
-                  Dùng <strong>LI20</strong> để xử lý các chênh lệch trong WM.
-                </p>
+                <div class="step-content">
+                  <h5>Phân tích và xử lý chênh lệch trong WM</h5>
+                  <div class="step-action">
+                    <p>
+                      <strong>T-Code:</strong>
+                      <span class="highlight-technical">LI20</span>
+                    </p>
+                    <div class="sap-screen-simulation">
+                      <div class="screen-header">
+                        <i class="fas fa-window-maximize"></i>
+                        <span
+                          >SAP - Analyze Physical Inventory Differences</span
+                        >
+                      </div>
+                      <div class="differences-analysis">
+                        <div class="analysis-filters">
+                          <div class="filter-row">
+                            <label>Physical Inventory Document:</label>
+                            <input type="text" value="8000000045" readonly />
+                          </div>
+                          <div class="filter-row">
+                            <label>Show only differences:</label>
+                            <input type="checkbox" checked readonly />
+                          </div>
+                        </div>
+
+                        <div class="differences-table">
+                          <table class="analysis-table">
+                            <thead>
+                              <tr>
+                                <th>Bin</th>
+                                <th>Material</th>
+                                <th>Book Qty</th>
+                                <th>Count Qty</th>
+                                <th>Difference</th>
+                                <th>Reason Code</th>
+                                <th>Action</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr class="shortage-row">
+                                <td>A2-01-02</td>
+                                <td>BIKE-MTB-001</td>
+                                <td>8</td>
+                                <td>6</td>
+                                <td class="negative">-2</td>
+                                <td>
+                                  <select>
+                                    <option selected>THEFT - Theft/Loss</option>
+                                    <option>DAMAGE - Damaged goods</option>
+                                    <option>MISPL - Misplaced</option>
+                                  </select>
+                                </td>
+                                <td>
+                                  <button class="action-btn">Create TO</button>
+                                </td>
+                              </tr>
+                              <tr class="surplus-row">
+                                <td>A2-01-03</td>
+                                <td>BIKE-ROAD-002</td>
+                                <td>15</td>
+                                <td>17</td>
+                                <td class="positive">+2</td>
+                                <td>
+                                  <select>
+                                    <option selected>
+                                      FOUND - Found goods
+                                    </option>
+                                    <option>RETURN - Unreported return</option>
+                                    <option>ERROR - System error</option>
+                                  </select>
+                                </td>
+                                <td>
+                                  <button class="action-btn">Create TO</button>
+                                </td>
+                              </tr>
+                              <tr class="found-row">
+                                <td>A2-02-01</td>
+                                <td>BIKE-CITY-004</td>
+                                <td>0</td>
+                                <td>3</td>
+                                <td class="positive">+3</td>
+                                <td>
+                                  <select>
+                                    <option selected>
+                                      UNRPT - Unreported receipt
+                                    </option>
+                                    <option>
+                                      MISPL - Misplaced from other area
+                                    </option>
+                                  </select>
+                                </td>
+                                <td>
+                                  <button class="action-btn">Create TO</button>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+
+                        <div class="system-actions">
+                          <h6>
+                            <i class="fas fa-cogs"></i> Hệ thống tự động tạo
+                            Transfer Orders:
+                          </h6>
+                          <div class="to-list">
+                            <div class="to-item">
+                              <span class="to-number">TO 1234567</span>
+                              <span class="to-desc"
+                                >Move 2 BIKE-MTB-001 from A2-01-02 to SCRP-001
+                                (Scrap Bin)</span
+                              >
+                            </div>
+                            <div class="to-item">
+                              <span class="to-number">TO 1234568</span>
+                              <span class="to-desc"
+                                >Move 2 BIKE-ROAD-002 from ADJ-001 (Adjustment
+                                Bin) to A2-01-03</span
+                              >
+                            </div>
+                            <div class="to-item">
+                              <span class="to-number">TO 1234569</span>
+                              <span class="to-desc"
+                                >Move 3 BIKE-CITY-004 from ADJ-001 (Adjustment
+                                Bin) to A2-02-01</span
+                              >
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="process-step-item">
+
+              <!-- Step 6: Clear Differences in IM -->
+              <div class="process-step-item detailed">
                 <div class="step-indicator">6</div>
-                <p>
-                  Cuối cùng dùng <strong>LI21</strong> để cập nhật tồn kho thực
-                  tế về lại trong IM.
-                </p>
+                <div class="step-content">
+                  <h5>Cập nhật tồn kho cuối cùng vào IM</h5>
+                  <div class="step-action">
+                    <p>
+                      <strong>T-Code:</strong>
+                      <span class="highlight-technical">LI21</span>
+                    </p>
+                    <div class="sap-screen-simulation">
+                      <div class="screen-header">
+                        <i class="fas fa-window-maximize"></i>
+                        <span>SAP - Clear Physical Inventory Differences</span>
+                      </div>
+                      <div class="im-clearing">
+                        <div class="clearing-process">
+                          <h6>
+                            <i class="fas fa-exchange-alt"></i> Posting to
+                            Inventory Management (MM-IM):
+                          </h6>
+                          <div class="material-docs">
+                            <div class="mat-doc-item decrease">
+                              <div class="doc-header">
+                                <strong>Material Document: 5000001234</strong>
+                                <span class="doc-date">30.06.2024</span>
+                              </div>
+                              <div class="doc-details">
+                                <table class="doc-table">
+                                  <thead>
+                                    <tr>
+                                      <th>Item</th>
+                                      <th>Material</th>
+                                      <th>Mvt Type</th>
+                                      <th>Qty</th>
+                                      <th>UoM</th>
+                                      <th>Reason</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td>001</td>
+                                      <td>BIKE-MTB-001</td>
+                                      <td class="mvt-712">712</td>
+                                      <td>-2</td>
+                                      <td>EA</td>
+                                      <td>Physical inventory decrease</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+
+                            <div class="mat-doc-item increase">
+                              <div class="doc-header">
+                                <strong>Material Document: 5000001235</strong>
+                                <span class="doc-date">30.06.2024</span>
+                              </div>
+                              <div class="doc-details">
+                                <table class="doc-table">
+                                  <thead>
+                                    <tr>
+                                      <th>Item</th>
+                                      <th>Material</th>
+                                      <th>Mvt Type</th>
+                                      <th>Qty</th>
+                                      <th>UoM</th>
+                                      <th>Reason</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td>001</td>
+                                      <td>BIKE-ROAD-002</td>
+                                      <td class="mvt-711">711</td>
+                                      <td>+2</td>
+                                      <td>EA</td>
+                                      <td>Physical inventory increase</td>
+                                    </tr>
+                                    <tr>
+                                      <td>002</td>
+                                      <td>BIKE-CITY-004</td>
+                                      <td class="mvt-711">711</td>
+                                      <td>+3</td>
+                                      <td>EA</td>
+                                      <td>Physical inventory increase</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="final-summary">
+                          <h6>
+                            <i class="fas fa-chart-line"></i> Tổng kết cuối
+                            cùng:
+                          </h6>
+                          <div class="summary-cards">
+                            <div class="summary-card">
+                              <div class="card-icon">
+                                <i
+                                  class="fas fa-check-circle text-success-600"
+                                ></i>
+                              </div>
+                              <div class="card-content">
+                                <h6>Hoàn tất kiểm kê</h6>
+                                <p>
+                                  24 bins đã được unblock, có thể hoạt động bình
+                                  thường
+                                </p>
+                              </div>
+                            </div>
+                            <div class="summary-card">
+                              <div class="card-icon">
+                                <i
+                                  class="fas fa-balance-scale text-info-600"
+                                ></i>
+                              </div>
+                              <div class="card-content">
+                                <h6>Kết quả điều chỉnh</h6>
+                                <p>
+                                  WM và IM đã đồng bộ: 147 xe đạp (giảm 3 chiếc
+                                  so với sổ sách)
+                                </p>
+                              </div>
+                            </div>
+                            <div class="summary-card">
+                              <div class="card-icon">
+                                <i
+                                  class="fas fa-dollar-sign text-warning-600"
+                                ></i>
+                              </div>
+                              <div class="card-content">
+                                <h6>Tác động tài chính</h6>
+                                <p>
+                                  Giảm tồn kho: ~$2,500 USD (2 MTB + cost
+                                  adjustment)
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="lessons-learned">
+              <h4>
+                <i class="fas fa-graduation-cap"></i> Bài học kinh nghiệm từ
+                case study:
+              </h4>
+              <div class="lessons-list">
+                <div class="lesson-item">
+                  <i class="fas fa-lightbulb text-warning-600"></i>
+                  <strong>Chuẩn bị kỹ lưỡng:</strong> Document phải được
+                  activate đúng giờ để freeze book stock chính xác
+                </div>
+                <div class="lesson-item">
+                  <i class="fas fa-users text-info-600"></i>
+                  <strong>Phân công hợp lý:</strong> Chia team theo khu vực, mỗi
+                  người chịu trách nhiệm rõ ràng
+                </div>
+                <div class="lesson-item">
+                  <i class="fas fa-clipboard-check text-success-600"></i>
+                  <strong>Double check:</strong> Với những chênh lệch lớn, nên
+                  recount để xác nhận
+                </div>
+                <div class="lesson-item">
+                  <i class="fas fa-tags text-secondary-600"></i>
+                  <strong>Ghi nhận nguyên nhân:</strong> Reason code giúp phân
+                  tích xu hướng và cải thiện quy trình
+                </div>
               </div>
             </div>
           </div>
@@ -858,3 +1549,717 @@
     </div>
   </div>
 </div>
+
+<style>
+  /* Enhanced styles for detailed inventory application scenario */
+
+  /* Scenario Context */
+  .scenario-context {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border-left: 4px solid #3b82f6;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .scenario-context p {
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+  }
+
+  .scenario-context strong {
+    color: #1e40af;
+    font-weight: 600;
+  }
+
+  /* Stock Information Table */
+  .stock-table-container {
+    margin: 1rem 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  .stock-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+
+  .stock-table thead {
+    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+    color: white;
+  }
+
+  .stock-table th,
+  .stock-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .stock-table tbody tr:hover {
+    background-color: #f8fafc;
+  }
+
+  .table-more-row {
+    background-color: #f1f5f9;
+    font-style: italic;
+    color: #64748b;
+  }
+
+  /* Detailed Process Steps */
+  .process-step-item.detailed {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    margin: 1.5rem 0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+
+  .process-step-item.detailed .step-content {
+    padding: 1.5rem;
+  }
+
+  .process-step-item.detailed h5 {
+    color: #1e40af;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  /* SAP Screen Simulation */
+  .sap-screen-simulation {
+    background: #f8fafc;
+    border: 2px solid #cbd5e1;
+    border-radius: 8px;
+    margin: 1rem 0;
+    overflow: hidden;
+  }
+
+  .screen-header {
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    color: white;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .screen-fields {
+    padding: 1rem;
+    background: white;
+  }
+
+  .field-row {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0;
+    gap: 0.5rem;
+  }
+
+  .field-row label {
+    min-width: 150px;
+    font-weight: 500;
+    color: #374151;
+  }
+
+  .field-row input {
+    padding: 0.25rem 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    background: #f9fafb;
+    font-family: monospace;
+  }
+
+  .field-desc {
+    color: #6b7280;
+    font-size: 0.85rem;
+    font-style: italic;
+  }
+
+  .screen-result {
+    padding: 1rem;
+    background: #f0f9ff;
+    border-top: 1px solid #cbd5e1;
+  }
+
+  .system-message {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border-radius: 4px;
+  }
+
+  .system-message.success {
+    background: #dcfce7;
+    border: 1px solid #bbf7d0;
+    color: #166534;
+  }
+
+  .system-message.warning {
+    background: #fef3c7;
+    border: 1px solid #fde68a;
+    color: #92400e;
+  }
+
+  .frozen-stock-info {
+    background: #f1f5f9;
+    padding: 0.75rem;
+    border-radius: 4px;
+    border-left: 4px solid #3b82f6;
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+  }
+
+  /* Print Options */
+  .print-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+
+  .option-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 1rem;
+  }
+
+  .option-card h6 {
+    color: #1e40af;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .sample-output {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+  }
+
+  .count-sheet-header {
+    background: #1f2937;
+    color: white;
+    padding: 0.5rem;
+    text-align: center;
+    font-family: monospace;
+    font-size: 0.75rem;
+  }
+
+  .count-sheet-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.7rem;
+  }
+
+  .count-sheet-table th,
+  .count-sheet-table td {
+    border: 1px solid #d1d5db;
+    padding: 0.25rem;
+    text-align: center;
+  }
+
+  .count-sheet-table th {
+    background: #f3f4f6;
+  }
+
+  /* Counting Scenario */
+  .counting-scenario {
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem 0;
+  }
+
+  .counting-team {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .team-member {
+    background: white;
+    padding: 0.75rem;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Results Table */
+  .count-entry-table {
+    padding: 1rem;
+    background: white;
+  }
+
+  .results-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+
+  .results-table th {
+    background: #1f2937;
+    color: white;
+    padding: 0.75rem;
+    text-align: left;
+  }
+
+  .results-table td {
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .match-row {
+    background: #f0fdf4;
+  }
+
+  .diff-row.shortage {
+    background: #fef2f2;
+  }
+
+  .diff-row.surplus {
+    background: #fffbeb;
+  }
+
+  .found-row {
+    background: #f0f9ff;
+  }
+
+  .counted-input {
+    font-weight: 600;
+    color: #1e40af;
+  }
+
+  .no-diff {
+    color: #059669;
+    font-weight: 500;
+  }
+
+  .negative-diff {
+    color: #dc2626;
+    font-weight: 600;
+  }
+
+  .positive-diff {
+    color: #d97706;
+    font-weight: 600;
+  }
+
+  .status-ok {
+    color: #059669;
+    font-weight: 500;
+  }
+
+  .status-shortage {
+    color: #dc2626;
+    font-weight: 500;
+  }
+
+  .status-surplus {
+    color: #d97706;
+    font-weight: 500;
+  }
+
+  .status-found {
+    color: #2563eb;
+    font-weight: 500;
+  }
+
+  .new-material {
+    font-style: italic;
+    color: #2563eb;
+  }
+
+  /* Count Summary */
+  .count-summary {
+    background: #f8fafc;
+    padding: 1rem;
+    border-top: 1px solid #e5e7eb;
+  }
+
+  .summary-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+
+  .stat-label {
+    font-weight: 500;
+    color: #374151;
+  }
+
+  .stat-value {
+    font-weight: 600;
+  }
+
+  .stat-value.success {
+    color: #059669;
+  }
+
+  .stat-value.warning {
+    color: #d97706;
+  }
+
+  /* Analysis Table */
+  .differences-analysis {
+    padding: 1rem;
+    background: white;
+  }
+
+  .analysis-filters {
+    background: #f8fafc;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+  }
+
+  .analysis-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+
+  .analysis-table th {
+    background: #374151;
+    color: white;
+    padding: 0.75rem;
+    text-align: left;
+  }
+
+  .analysis-table td {
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid #e5e7eb;
+    vertical-align: middle;
+  }
+
+  .shortage-row {
+    background: #fef2f2;
+  }
+
+  .surplus-row {
+    background: #fffbeb;
+  }
+
+  .shortage-row .negative {
+    color: #dc2626;
+    font-weight: 600;
+  }
+
+  .surplus-row .positive {
+    color: #d97706;
+    font-weight: 600;
+  }
+
+  .analysis-table select {
+    padding: 0.25rem;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    font-size: 0.8rem;
+  }
+
+  .action-btn {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  .action-btn:hover {
+    background: #2563eb;
+  }
+
+  /* System Actions */
+  .system-actions {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: #f0f9ff;
+    border-radius: 8px;
+  }
+
+  .to-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+
+  .to-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem;
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+
+  .to-number {
+    font-family: monospace;
+    font-weight: 600;
+    color: #1e40af;
+    min-width: 100px;
+  }
+
+  .to-desc {
+    color: #374151;
+    font-size: 0.9rem;
+  }
+
+  /* IM Clearing */
+  .im-clearing {
+    padding: 1rem;
+    background: white;
+  }
+
+  .clearing-process {
+    margin-bottom: 1.5rem;
+  }
+
+  .material-docs {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .mat-doc-item {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .mat-doc-item.decrease {
+    border-left: 4px solid #dc2626;
+  }
+
+  .mat-doc-item.increase {
+    border-left: 4px solid #059669;
+  }
+
+  .doc-header {
+    background: #f8fafc;
+    padding: 0.75rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .doc-date {
+    color: #6b7280;
+    font-size: 0.9rem;
+  }
+
+  .doc-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+
+  .doc-table th {
+    background: #f3f4f6;
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .doc-table td {
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid #f3f4f6;
+  }
+
+  .mvt-711 {
+    color: #059669;
+    font-weight: 600;
+  }
+
+  .mvt-712 {
+    color: #dc2626;
+    font-weight: 600;
+  }
+
+  /* Final Summary */
+  .final-summary {
+    background: #f0fdf4;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #bbf7d0;
+  }
+
+  .summary-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .summary-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  .card-icon {
+    font-size: 1.5rem;
+  }
+
+  .card-content h6 {
+    margin: 0 0 0.5rem 0;
+    color: #1f2937;
+    font-weight: 600;
+  }
+
+  .card-content p {
+    margin: 0;
+    color: #6b7280;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  /* Lessons Learned */
+  .lessons-learned {
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .lessons-learned h4 {
+    color: #92400e;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .lessons-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .lesson-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+
+  .lesson-item i {
+    margin-top: 0.125rem;
+  }
+
+  .lesson-item strong {
+    color: #1f2937;
+  }
+
+  /* Highlight classes for important terms */
+  .highlight-technical {
+    background: linear-gradient(120deg, #ddd6fe 0%, #c4b5fd 100%);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+    color: #5b21b6;
+    border: 1px solid #a78bfa;
+  }
+
+  .highlight-example {
+    background: linear-gradient(120deg, #fef3c7 0%, #fde68a 100%);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+    color: #92400e;
+    border: 1px solid #f59e0b;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .print-options {
+      grid-template-columns: 1fr;
+    }
+
+    .counting-team {
+      grid-template-columns: 1fr;
+    }
+
+    .summary-stats {
+      grid-template-columns: 1fr;
+    }
+
+    .summary-cards {
+      grid-template-columns: 1fr;
+    }
+
+    .material-docs {
+      gap: 0.5rem;
+    }
+
+    .field-row {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .field-row label {
+      min-width: auto;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .process-step-item.detailed .step-content {
+      padding: 1rem;
+    }
+
+    .sap-screen-simulation {
+      font-size: 0.9rem;
+    }
+
+    .stock-table,
+    .count-sheet-table,
+    .results-table,
+    .analysis-table,
+    .doc-table {
+      font-size: 0.8rem;
+    }
+
+    .stock-table th,
+    .stock-table td,
+    .results-table th,
+    .results-table td {
+      padding: 0.5rem;
+    }
+  }
+</style>

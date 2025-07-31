@@ -10,6 +10,69 @@
     </p>
   </div>
 
+  <!-- Quick Navigation Menu -->
+  <div class="process-navigation-menu" id="processNavMenu">
+    <div class="nav-container">
+      <div class="nav-title">
+        <i class="fas fa-compass"></i>
+        <span>Quick Navigation</span>
+        <button class="nav-toggle" onclick="toggleNavMenu()">
+          <i class="fas fa-chevron-down"></i>
+        </button>
+      </div>
+      <div class="nav-items" id="navItems">
+        <a
+          href="javascript:void(0)"
+          class="nav-item active"
+          onclick="navigateToProcess('goods-receipt', this, event); return false;"
+        >
+          <i class="fas fa-truck-loading"></i>
+          <span>Goods Receipt</span>
+        </a>
+        <a
+          href="javascript:void(0)"
+          class="nav-item"
+          onclick="navigateToProcess('goods-issue', this, event); return false;"
+        >
+          <i class="fas fa-shipping-fast"></i>
+          <span>Goods Issue</span>
+        </a>
+        <a
+          href="javascript:void(0)"
+          class="nav-item"
+          onclick="navigateToProcess('picking', this, event); return false;"
+        >
+          <i class="fas fa-hand-paper"></i>
+          <span>Picking</span>
+        </a>
+        <a
+          href="javascript:void(0)"
+          class="nav-item"
+          onclick="navigateToProcess('packing', this, event); return false;"
+        >
+          <i class="fas fa-box"></i>
+          <span>Packing</span>
+        </a>
+        <a
+          href="javascript:void(0)"
+          class="nav-item"
+          onclick="navigateToProcess('shipping', this, event); return false;"
+        >
+          <i class="fas fa-truck"></i>
+          <span>Shipping</span>
+        </a>
+        <a
+          href="javascript:void(0)"
+          class="nav-item"
+          onclick="navigateToProcess('inventory', this, event); return false;"
+        >
+          <i class="fas fa-clipboard-list"></i>
+          <span>Physical Inventory</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
   <div class="card-content">
     <div class="content-grid">
       <div class="content-section-intro">
@@ -23,404 +86,2406 @@
         </p>
       </div>
 
-      <div class="process-detail-section">
-        <h3 class="section-heading">
-          <i class="fas fa-truck-loading text-success-600"></i>
-          II. Goods Receipt (Nhập hàng)
-        </h3>
-
-        <div class="process-content">
-          <div class="process-description">
-            <p class="process-intro">
-              <strong>Ứng dụng thực tế:</strong> Khi công ty nhận hàng từ
-              supplier hoặc từ một kho khác, quy trình nhập hàng đảm bảo hàng
-              được ghi nhận vào hệ thống và đưa vào đúng vị trí lưu trữ.
-            </p>
+      <!-- Goods Receipt Process Section -->
+      <div
+        class="process-section"
+        id="goods-receipt"
+        data-process="goods-receipt"
+      >
+        <div
+          class="process-section-header"
+          onclick="toggleProcessSection('goods-receipt')"
+        >
+          <h3 class="section-heading">
+            <i class="fas fa-truck-loading text-success-600"></i>
+            II. Goods Receipt (Nhập hàng)
+          </h3>
+          <div class="section-controls">
+            <button class="expand-btn" title="Expand/Collapse">
+              <i class="fas fa-chevron-down"></i>
+            </button>
           </div>
+        </div>
 
-          <div class="process-steps">
-            <h4 class="steps-title">
-              <i class="fas fa-list-ol text-success-600"></i>
-              Các bước chính:
-            </h4>
-            <div class="steps-grid">
-              <div class="step-card">
-                <div class="step-number">1</div>
-                <div class="step-content">
-                  <h5>Goods receipt posting</h5>
-                  <p>Ghi nhận hàng đã đến (ví dụ: PO đã được giao).</p>
-                </div>
-              </div>
-
-              <div class="step-card">
-                <div class="step-number">2</div>
-                <div class="step-content">
-                  <h5>Transfer requirement (TR)</h5>
+        <div class="process-section-content" id="goods-receipt-content">
+          <div class="process-content">
+            <div class="process-description">
+              <p class="process-intro">
+                <strong>Ứng dụng thực tế:</strong> Khi công ty nhận hàng từ
+                supplier hoặc từ một kho khác, quy trình nhập hàng đảm bảo hàng
+                được ghi nhận vào hệ thống và đưa vào đúng vị trí lưu trữ.
+              </p>
+              <div class="process-context">
+                <div class="context-info">
+                  <h5>📋 Business Context:</h5>
                   <p>
-                    Tạo yêu cầu chuyển hàng từ khu vực nhận hàng đến vị trí lưu
-                    trữ. (chưa có sự thay đổi vật lý, chưa movement)
+                    Quy trình này liên quan chặt chẽ với
+                    <span class="highlight-technical"
+                      >MM (Materials Management)</span
+                    >
+                    và
+                    <span class="highlight-technical"
+                      >LE (Logistics Execution)</span
+                    >. Mỗi bước đều có tác động lên inventory và cost
+                    accounting.
                   </p>
-                </div>
-              </div>
-
-              <div class="step-card">
-                <div class="step-number">3</div>
-                <div class="step-content">
-                  <h5>Putaway with Transfer Order (TO)</h5>
-                  <p>
-                    Tạo TO để xác định cụ thể hàng sẽ được cất ở đâu (ví dụ: Bin
-                    A1-02-03). (RF Scanner)
-                  </p>
-                </div>
-              </div>
-
-              <div class="step-card">
-                <div class="step-number">4</div>
-                <div class="step-content">
-                  <h5>Confirm transfer order</h5>
-                  <p>Xác nhận hàng đã được đưa vào đúng bin trong hệ thống.</p>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div class="real-example">
-            <div class="example-card">
-              <div class="example-header">
-                <i class="fas fa-lightbulb text-warning-600"></i>
-                <h5>Trong thực tế:</h5>
+            <div class="detailed-scenario">
+              <h4 class="scenario-title">
+                <i class="fas fa-truck text-success-600"></i>
+                Case Study: Nhập 500 khung xe từ supplier ABC Corp
+              </h4>
+
+              <div class="scenario-details">
+                <div class="scenario-context">
+                  <div class="context-grid">
+                    <div class="context-item">
+                      <strong>Purchase Order:</strong>
+                      <span class="highlight-example">4500123456</span>
+                    </div>
+                    <div class="context-item">
+                      <strong>Supplier:</strong> ABC Bicycle Frames Ltd.
+                    </div>
+                    <div class="context-item">
+                      <strong>Material:</strong>
+                      <span class="highlight-technical">FRAME-MTB-26-AL</span>
+                      (Mountain Bike Frame 26" Aluminum)
+                    </div>
+                    <div class="context-item">
+                      <strong>Quantity:</strong> 500 EA
+                    </div>
+                    <div class="context-item">
+                      <strong>Warehouse:</strong> WH01 - Main Production
+                      Warehouse
+                    </div>
+                    <div class="context-item">
+                      <strong>Storage Location:</strong> 0001 - Raw Materials
+                    </div>
+                  </div>
+                </div>
               </div>
-              <p class="example-content">
-                Ví dụ: Xe tải giao 200 chiếc yên xe → bạn làm GR để nhập hệ
-                thống → tạo TO → nhân viên dùng RF scanner đẩy hàng vào đúng vị
-                trí → xác nhận hoàn tất.
-              </p>
+            </div>
+
+            <div class="process-steps">
+              <h4 class="steps-title">
+                <i class="fas fa-list-ol text-success-600"></i>
+                Quy trình chi tiết từng bước:
+              </h4>
+
+              <!-- Step 1: Goods Receipt Posting -->
+              <div class="detailed-step-card">
+                <div class="step-header">
+                  <div class="step-number">1</div>
+                  <div class="step-title">
+                    <h5>Goods Receipt Posting (GR) - Ghi nhận nhập hàng</h5>
+                    <span class="step-tcode"
+                      >T-Code:
+                      <span class="highlight-technical">MIGO</span> hoặc
+                      <span class="highlight-technical">VL31N</span></span
+                    >
+                  </div>
+                </div>
+
+                <div class="step-content-detailed">
+                  <div class="step-description">
+                    <p>
+                      <strong>Mục đích:</strong> Ghi nhận chính thức việc nhận
+                      hàng vào hệ thống, tạo Material Document và cập nhật stock
+                      trong IM.
+                    </p>
+                  </div>
+
+                  <div class="sap-screen-demo">
+                    <div class="screen-header">
+                      <i class="fas fa-window-maximize"></i>
+                      <span>SAP - Goods Receipt (MIGO)</span>
+                    </div>
+                    <div class="screen-content">
+                      <div class="screen-fields">
+                        <div class="field-group">
+                          <h6>Document Header:</h6>
+                          <div class="field-row">
+                            <label>Movement Type:</label>
+                            <input type="text" value="101" readonly />
+                            <span class="field-help"
+                              >GR for Purchase Order</span
+                            >
+                          </div>
+                          <div class="field-row">
+                            <label>Purchase Order:</label>
+                            <input type="text" value="4500123456" readonly />
+                          </div>
+                          <div class="field-row">
+                            <label>Posting Date:</label>
+                            <input type="text" value="15.07.2024" readonly />
+                          </div>
+                          <div class="field-row">
+                            <label>Document Date:</label>
+                            <input type="text" value="15.07.2024" readonly />
+                          </div>
+                        </div>
+
+                        <div class="field-group">
+                          <h6>Line Items:</h6>
+                          <table class="gr-table">
+                            <thead>
+                              <tr>
+                                <th>Item</th>
+                                <th>Material</th>
+                                <th>Description</th>
+                                <th>PO Qty</th>
+                                <th>Delivered</th>
+                                <th>Sloc</th>
+                                <th>Batch</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>10</td>
+                                <td class="highlight-technical">
+                                  FRAME-MTB-26-AL
+                                </td>
+                                <td>MTB Frame 26" Aluminum Black</td>
+                                <td>500 EA</td>
+                                <td class="delivered-qty">500 EA</td>
+                                <td>0001</td>
+                                <td>240715001</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+
+                      <div class="screen-result">
+                        <div class="result-message success">
+                          <i class="fas fa-check-circle"></i>
+                          <strong>Material Document:</strong>
+                          <span class="highlight-example">5000567890</span>
+                          created successfully
+                        </div>
+                        <div class="result-details">
+                          <div class="detail-row">
+                            <span class="detail-label">Stock Updated:</span>
+                            <span class="detail-value"
+                              >+500 EA in Storage Location 0001</span
+                            >
+                          </div>
+                          <div class="detail-row">
+                            <span class="detail-label">Value Posted:</span>
+                            <span class="detail-value"
+                              >$37,500 USD to Raw Materials Account</span
+                            >
+                          </div>
+                          <div class="detail-row">
+                            <span class="detail-label">Next Action:</span>
+                            <span class="detail-value warning"
+                              >⚠ Stock currently in GOODS-RECEIPT area, needs
+                              putaway</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="integration-note">
+                    <h6><i class="fas fa-link"></i> Integration với WM:</h6>
+                    <p>Khi GR được posting, hệ thống tự động:</p>
+                    <ul>
+                      <li>
+                        Tạo stock ở
+                        <span class="highlight-critical"
+                          >Goods Receipt Area</span
+                        >
+                        (bin type 902)
+                      </li>
+                      <li>
+                        Trigger tạo
+                        <span class="highlight-technical"
+                          >Transfer Requirement</span
+                        >
+                        để move hàng vào storage bins
+                      </li>
+                      <li>Update PO status thành "Goods Receipt Done"</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 2: Transfer Requirement -->
+              <div class="detailed-step-card">
+                <div class="step-header">
+                  <div class="step-number">2</div>
+                  <div class="step-title">
+                    <h5>Transfer Requirement (TR) - Yêu cầu chuyển hàng</h5>
+                    <span class="step-tcode"
+                      >Auto-generated hoặc Manual:
+                      <span class="highlight-technical">LT01</span></span
+                    >
+                  </div>
+                </div>
+
+                <div class="step-content-detailed">
+                  <div class="step-description">
+                    <p>
+                      <strong>Mục đích:</strong> Tạo "kế hoạch" di chuyển hàng
+                      từ Goods Receipt area đến storage bins. Đây chỉ là
+                      <em>yêu cầu</em>, chưa phải movement thật.
+                    </p>
+                  </div>
+
+                  <div class="tr-details">
+                    <div class="tr-header">
+                      <h6>
+                        <i class="fas fa-clipboard-list"></i> Transfer
+                        Requirement Details:
+                      </h6>
+                    </div>
+
+                    <div class="tr-content">
+                      <table class="tr-table">
+                        <thead>
+                          <tr>
+                            <th>TR Number</th>
+                            <th>Material</th>
+                            <th>From Bin</th>
+                            <th>To Storage Type</th>
+                            <th>Quantity</th>
+                            <th>Priority</th>
+                            <th>Status</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="highlight-example">TR-2024000789</td>
+                            <td class="highlight-technical">FRAME-MTB-26-AL</td>
+                            <td>GR-DOCK-01</td>
+                            <td>001 (High Rack)</td>
+                            <td>500 EA</td>
+                            <td>🔴 High</td>
+                            <td><span class="status-open">Open</span></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <div class="tr-metadata">
+                      <div class="metadata-grid">
+                        <div class="metadata-item">
+                          <strong>Created by:</strong> System (Auto from GR)
+                        </div>
+                        <div class="metadata-item">
+                          <strong>Created on:</strong> 15.07.2024 14:32:15
+                        </div>
+                        <div class="metadata-item">
+                          <strong>Required by:</strong> 15.07.2024 18:00:00
+                        </div>
+                        <div class="metadata-item">
+                          <strong>Movement Type:</strong> 999 (Putaway)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="business-rule-note">
+                    <h6><i class="fas fa-cogs"></i> Business Rules:</h6>
+                    <ul>
+                      <li>
+                        <strong>Priority:</strong> Raw materials có priority cao
+                        hơn finished goods
+                      </li>
+                      <li>
+                        <strong>Batch Management:</strong> Material này require
+                        batch, nên cần split theo batch
+                      </li>
+                      <li>
+                        <strong>Storage Section:</strong> Khung xe aluminum →
+                        Section A (theo material master config)
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 3: Transfer Order Creation -->
+              <div class="detailed-step-card">
+                <div class="step-header">
+                  <div class="step-number">3</div>
+                  <div class="step-title">
+                    <h5>
+                      Transfer Order (TO) Creation - Tạo lệnh di chuyển cụ thể
+                    </h5>
+                    <span class="step-tcode"
+                      >T-Code:
+                      <span class="highlight-technical">LT10</span> (Create TO
+                      from TR)</span
+                    >
+                  </div>
+                </div>
+
+                <div class="step-content-detailed">
+                  <div class="step-description">
+                    <p>
+                      <strong>Mục đích:</strong> Chuyển TR thành TO với thông
+                      tin cụ thể về source bin và destination bin. Đây là "work
+                      instruction" cho warehouse staff.
+                    </p>
+                  </div>
+
+                  <div class="to-creation-process">
+                    <div class="strategy-application">
+                      <h6>
+                        <i class="fas fa-chess"></i> Áp dụng Putaway Strategy:
+                      </h6>
+                      <div class="strategy-flow">
+                        <div class="strategy-step">
+                          <div class="strategy-icon">🎯</div>
+                          <div class="strategy-content">
+                            <strong>Strategy Type:</strong> FIFO + Addition to
+                            existing stock
+                          </div>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="strategy-step">
+                          <div class="strategy-icon">🔍</div>
+                          <div class="strategy-content">
+                            <strong>Search Sequence:</strong>
+                            <ol>
+                              <li>Find existing batch in Section A</li>
+                              <li>Check bin capacity</li>
+                              <li>Apply ABC analysis</li>
+                            </ol>
+                          </div>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="strategy-step">
+                          <div class="strategy-icon">📍</div>
+                          <div class="strategy-content">
+                            <strong>Result:</strong> Bin A1-03-05 selected<br />
+                            <small
+                              >Current stock: 150 EA, Capacity: 800 EA</small
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="sap-screen-demo">
+                      <div class="screen-header">
+                        <i class="fas fa-window-maximize"></i>
+                        <span>SAP - Create Transfer Order (LT10)</span>
+                      </div>
+                      <div class="screen-content">
+                        <div class="to-header-info">
+                          <div class="header-field">
+                            <label>Warehouse Number:</label>
+                            <span>001</span>
+                          </div>
+                          <div class="header-field">
+                            <label>TR Number:</label>
+                            <span class="highlight-example">TR-2024000789</span>
+                          </div>
+                          <div class="header-field">
+                            <label>Movement Date:</label>
+                            <span>15.07.2024</span>
+                          </div>
+                        </div>
+
+                        <div class="to-details-table">
+                          <table class="to-table">
+                            <thead>
+                              <tr>
+                                <th>TO Item</th>
+                                <th>Material</th>
+                                <th>From Bin</th>
+                                <th>To Bin</th>
+                                <th>Quantity</th>
+                                <th>UoM</th>
+                                <th>Batch</th>
+                                <th>Status</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr class="to-row">
+                                <td>001</td>
+                                <td class="highlight-technical">
+                                  FRAME-MTB-26-AL
+                                </td>
+                                <td class="source-bin">GR-DOCK-01</td>
+                                <td class="dest-bin">A1-03-05</td>
+                                <td class="qty-field">500</td>
+                                <td>EA</td>
+                                <td>240715001</td>
+                                <td><span class="status-open">Open</span></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+
+                        <div class="screen-result">
+                          <div class="result-message success">
+                            <i class="fas fa-check-circle"></i>
+                            <strong>Transfer Order:</strong>
+                            <span class="highlight-example">TO-1234567890</span>
+                            created successfully
+                          </div>
+                          <div class="system-actions">
+                            <h6>🤖 System Actions Performed:</h6>
+                            <ul>
+                              <li>
+                                ✅ Bin capacity check passed (650 EA available)
+                              </li>
+                              <li>✅ Material compatibility verified</li>
+                              <li>✅ Batch management rules applied</li>
+                              <li>
+                                ✅ Work instruction generated for RF device
+                              </li>
+                              <li>⏳ TR status updated to "TO Created"</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="rf-device-instruction">
+                    <h6>
+                      <i class="fas fa-mobile-alt"></i> RF Scanner Instructions
+                      Generated:
+                    </h6>
+                    <div class="rf-display">
+                      <div class="rf-screen" style="background: #4667af">
+                        <div class="rf-header">PUTAWAY - TO: 1234567890</div>
+                        <div class="rf-content" style="background: #9fa9bf">
+                          <div class="rf-line">
+                            <strong>Material:</strong> FRAME-MTB-26-AL
+                          </div>
+                          <div class="rf-line">
+                            <strong>From:</strong> GR-DOCK-01
+                          </div>
+                          <div class="rf-line">
+                            <strong>To:</strong> A1-03-05
+                          </div>
+                          <div class="rf-line">
+                            <strong>Qty:</strong> 500 EA
+                          </div>
+                          <div class="rf-line">
+                            <strong>Batch:</strong> 240715001
+                          </div>
+                          <div class="rf-action">
+                            <button class="rf-btn">Scan Source Bin</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 4: TO Confirmation -->
+              <div class="detailed-step-card">
+                <div class="step-header">
+                  <div class="step-number">4</div>
+                  <div class="step-title">
+                    <h5>Transfer Order Confirmation - Xác nhận hoàn thành</h5>
+                    <span class="step-tcode"
+                      >Via RF:
+                      <span class="highlight-technical">RF_MOVE</span> |
+                      Desktop:
+                      <span class="highlight-technical">LT12</span></span
+                    >
+                  </div>
+                </div>
+
+                <div class="step-content-detailed">
+                  <div class="step-description">
+                    <p>
+                      <strong>Mục đích:</strong> Xác nhận vật lý rằng hàng đã
+                      được di chuyển thành công từ source đến destination bin.
+                      Đây là bước cuối cùng để cập nhật stock location trong WM.
+                    </p>
+                  </div>
+
+                  <div class="confirmation-scenario">
+                    <h6>
+                      <i class="fas fa-user-hard-hat"></i> Thực tế tại
+                      warehouse:
+                    </h6>
+
+                    <div class="warehouse-activity">
+                      <div class="activity-timeline">
+                        <div class="timeline-item">
+                          <div class="timeline-time">15:30</div>
+                          <div class="timeline-content">
+                            <strong>Nhân viên Nguyễn Văn A</strong> nhận TO trên
+                            RF scanner
+                          </div>
+                        </div>
+                        <div class="timeline-item">
+                          <div class="timeline-time">15:32</div>
+                          <div class="timeline-content">
+                            Scan bin
+                            <span class="highlight-technical">GR-DOCK-01</span>
+                            → System confirms location
+                          </div>
+                        </div>
+                        <div class="timeline-item">
+                          <div class="timeline-time">15:35</div>
+                          <div class="timeline-content">
+                            Scan material barcode → Verify:
+                            <span class="highlight-technical"
+                              >FRAME-MTB-26-AL</span
+                            >
+                            ✅
+                          </div>
+                        </div>
+                        <div class="timeline-item">
+                          <div class="timeline-time">15:45</div>
+                          <div class="timeline-content">
+                            Load 500 frames onto forklift (5 pallets, 100 frames
+                            each)
+                          </div>
+                        </div>
+                        <div class="timeline-item">
+                          <div class="timeline-time">15:52</div>
+                          <div class="timeline-content">
+                            Arrive at destination
+                            <span class="highlight-technical">A1-03-05</span> →
+                            Scan bin
+                          </div>
+                        </div>
+                        <div class="timeline-item">
+                          <div class="timeline-time">15:55</div>
+                          <div class="timeline-content">
+                            Unload and organize frames in bin → Enter
+                            confirmation
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="rf-confirmation-flow">
+                      <h6>
+                        <i class="fas fa-mobile-alt"></i> RF Confirmation
+                        Process:
+                      </h6>
+                      <div class="rf-steps">
+                        <div class="rf-step">
+                          <div class="rf-step-screen">
+                            <strong>Step 1: Scan Source</strong>
+                            <div class="rf-mini-screen">
+                              Scan: GR-DOCK-01 ✅
+                            </div>
+                          </div>
+                        </div>
+                        <div class="rf-arrow">→</div>
+                        <div class="rf-step">
+                          <div class="rf-step-screen">
+                            <strong>Step 2: Verify Material</strong>
+                            <div class="rf-mini-screen">
+                              FRAME-MTB-26-AL ✅<br />
+                              Batch: 240715001 ✅
+                            </div>
+                          </div>
+                        </div>
+                        <div class="rf-arrow">→</div>
+                        <div class="rf-step">
+                          <div class="rf-step-screen">
+                            <strong>Step 3: Confirm Quantity</strong>
+                            <div class="rf-mini-screen">
+                              Expected: 500 EA<br />
+                              Actual:
+                              <input
+                                type="number"
+                                value="500"
+                                class="rf-input"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="rf-arrow">→</div>
+                        <div class="rf-step">
+                          <div class="rf-step-screen">
+                            <strong>Step 4: Scan Destination</strong>
+                            <div class="rf-mini-screen">Scan: A1-03-05 ✅</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="system-updates">
+                    <h6>
+                      <i class="fas fa-database"></i> System Updates After
+                      Confirmation:
+                    </h6>
+
+                    <div class="update-grid">
+                      <div class="update-card wm-update">
+                        <div class="update-header">
+                          <i class="fas fa-warehouse"></i>
+                          <strong>Warehouse Management (WM)</strong>
+                        </div>
+                        <div class="update-content">
+                          <div class="update-item">
+                            <span class="label">Stock Removal:</span>
+                            <span class="value">GR-DOCK-01: -500 EA</span>
+                          </div>
+                          <div class="update-item">
+                            <span class="label">Stock Addition:</span>
+                            <span class="value">A1-03-05: +500 EA</span>
+                          </div>
+                          <div class="update-item">
+                            <span class="label">TO Status:</span>
+                            <span class="value success">Confirmed ✅</span>
+                          </div>
+                          <div class="update-item">
+                            <span class="label">Bin Status:</span>
+                            <span class="value"
+                              >A1-03-05: 650/800 EA (81% full)</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="update-card im-update">
+                        <div class="update-header">
+                          <i class="fas fa-boxes"></i>
+                          <strong>Inventory Management (MM-IM)</strong>
+                        </div>
+                        <div class="update-content">
+                          <div class="update-item">
+                            <span class="label">Storage Location:</span>
+                            <span class="value">0001 - Raw Materials ✅</span>
+                          </div>
+                          <div class="update-item">
+                            <span class="label">Available Stock:</span>
+                            <span class="value"
+                              >500 EA (ready for production)</span
+                            >
+                          </div>
+                          <div class="update-item">
+                            <span class="label">Batch Status:</span>
+                            <span class="value">240715001: Available</span>
+                          </div>
+                          <div class="update-item">
+                            <span class="label">MRP Relevance:</span>
+                            <span class="value"
+                              >Stock available for MRP run</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="audit-trail">
+                    <h6><i class="fas fa-history"></i> Audit Trail:</h6>
+                    <div class="audit-log">
+                      <div class="log-entry">
+                        <span class="log-time">15:55:42</span>
+                        <span class="log-user">NGUYEN.A</span>
+                        <span class="log-action">TO_CONFIRM</span>
+                        <span class="log-details"
+                          >TO-1234567890 confirmed via RF</span
+                        >
+                      </div>
+                      <div class="log-entry">
+                        <span class="log-time">15:55:43</span>
+                        <span class="log-user">SYSTEM</span>
+                        <span class="log-action">STOCK_UPDATE</span>
+                        <span class="log-details"
+                          >WM stock updated: A1-03-05 +500 EA</span
+                        >
+                      </div>
+                      <div class="log-entry">
+                        <span class="log-time">15:55:44</span>
+                        <span class="log-user">SYSTEM</span>
+                        <span class="log-action">TR_CLOSE</span>
+                        <span class="log-details"
+                          >TR-2024000789 status → Completed</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="process-summary">
+              <h4 class="summary-title">
+                <i class="fas fa-chart-line text-success-600"></i>
+                Tổng kết quy trình & Key Performance Indicators
+              </h4>
+
+              <div class="summary-content">
+                <div class="kpi-grid">
+                  <div class="kpi-card">
+                    <div class="kpi-icon">
+                      <i class="fas fa-clock text-success-600"></i>
+                    </div>
+                    <div class="kpi-content">
+                      <div class="kpi-value">25 phút</div>
+                      <div class="kpi-label">Total Processing Time</div>
+                      <div class="kpi-detail">
+                        From GR posting to TO confirmation
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="kpi-card">
+                    <div class="kpi-icon">
+                      <i class="fas fa-check-circle text-success-600"></i>
+                    </div>
+                    <div class="kpi-content">
+                      <div class="kpi-value">100%</div>
+                      <div class="kpi-label">Accuracy Rate</div>
+                      <div class="kpi-detail">No discrepancies found</div>
+                    </div>
+                  </div>
+
+                  <div class="kpi-card">
+                    <div class="kpi-icon">
+                      <i class="fas fa-dollar-sign text-success-600"></i>
+                    </div>
+                    <div class="kpi-content">
+                      <div class="kpi-value">$37,500</div>
+                      <div class="kpi-label">Value Processed</div>
+                      <div class="kpi-detail">Raw materials received</div>
+                    </div>
+                  </div>
+
+                  <div class="kpi-card">
+                    <div class="kpi-icon">
+                      <i class="fas fa-cube text-success-600"></i>
+                    </div>
+                    <div class="kpi-content">
+                      <div class="kpi-value">81%</div>
+                      <div class="kpi-label">Bin Utilization</div>
+                      <div class="kpi-detail">Optimal space usage</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="lessons-learned">
+                  <h5>
+                    <i class="fas fa-graduation-cap"></i> Key Lessons & Best
+                    Practices:
+                  </h5>
+                  <div class="lessons-grid">
+                    <div class="lesson-card">
+                      <div class="lesson-icon">⚡</div>
+                      <div class="lesson-content">
+                        <strong>Automation Benefits:</strong>
+                        <p>
+                          TR tự động tạo từ GR giúp giảm 70% thời gian xử lý
+                          manual
+                        </p>
+                      </div>
+                    </div>
+                    <div class="lesson-card">
+                      <div class="lesson-icon">🎯</div>
+                      <div class="lesson-content">
+                        <strong>Strategy Impact:</strong>
+                        <p>
+                          Putaway strategy đúng giúp optimize bin utilization và
+                          picking efficiency
+                        </p>
+                      </div>
+                    </div>
+                    <div class="lesson-card">
+                      <div class="lesson-icon">📱</div>
+                      <div class="lesson-content">
+                        <strong>RF Integration:</strong>
+                        <p>
+                          Real-time confirmation via RF giúp đảm bảo accuracy và
+                          traceability
+                        </p>
+                      </div>
+                    </div>
+                    <div class="lesson-card">
+                      <div class="lesson-icon">🔗</div>
+                      <div class="lesson-content">
+                        <strong>Module Integration:</strong>
+                        <p>
+                          WM-MM integration đảm bảo data consistency across
+                          modules
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="advanced-topics">
+              <h4 class="advanced-title">
+                <i class="fas fa-cogs text-success-600"></i>
+                Advanced Topics & Variations
+              </h4>
+
+              <div class="advanced-content">
+                <div class="topic-cards">
+                  <div class="topic-card">
+                    <div class="topic-header">
+                      <i class="fas fa-split"></i>
+                      <h5>TO Splitting</h5>
+                    </div>
+                    <div class="topic-content">
+                      <p>Khi bin không đủ chỗ, system tự động split TO:</p>
+                      <ul>
+                        <li>TO-001: 300 EA → A1-03-05</li>
+                        <li>TO-002: 200 EA → A1-03-06</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="topic-card">
+                    <div class="topic-header">
+                      <i class="fas fa-exclamation-triangle"></i>
+                      <h5>Exception Handling</h5>
+                    </div>
+                    <div class="topic-content">
+                      <p>Xử lý khi có sự cố:</p>
+                      <ul>
+                        <li>
+                          <strong>Damaged goods:</strong> Movement type 103
+                        </li>
+                        <li><strong>Quality hold:</strong> Block bin Q-HOLD</li>
+                        <li>
+                          <strong>Quantity difference:</strong> Create
+                          difference TO
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="topic-card">
+                    <div class="topic-header">
+                      <i class="fas fa-flask"></i>
+                      <h5>Quality Management</h5>
+                    </div>
+                    <div class="topic-content">
+                      <p>Tích hợp với QM module:</p>
+                      <ul>
+                        <li>Inspection lot tự động tạo</li>
+                        <li>Stock moves to Q-inspection bin</li>
+                        <li>Release after quality approval</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="topic-card">
+                    <div class="topic-header">
+                      <i class="fas fa-layer-group"></i>
+                      <h5>Batch Management</h5>
+                    </div>
+                    <div class="topic-content">
+                      <p>Quản lý batch trong putaway:</p>
+                      <ul>
+                        <li>FEFO strategy (First Expire, First Out)</li>
+                        <li>Batch mixing rules</li>
+                        <li>Shelf life monitoring</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="process-detail-section">
-        <h3 class="section-heading">
-          <i class="fas fa-shipping-fast text-primary-600"></i>
-          III. Goods Issue (Xuất hàng)
-        </h3>
-
-        <div class="process-content">
-          <div class="process-description">
-            <p class="process-intro">
-              <strong>Ứng dụng thực tế:</strong> Dùng khi xuất hàng cho khách
-              hàng, hoặc chuyển hàng nội bộ giữa các plant.
-            </p>
+      <!-- Goods Issue Process Section -->
+      <div class="process-section" id="goods-issue" data-process="goods-issue">
+        <div
+          class="process-section-header"
+          onclick="toggleProcessSection('goods-issue')"
+        >
+          <h3 class="section-heading">
+            <i class="fas fa-shipping-fast text-primary-600"></i>
+            III. Goods Issue (Xuất hàng)
+          </h3>
+          <div class="section-controls">
+            <button class="expand-btn" title="Expand/Collapse">
+              <i class="fas fa-chevron-down"></i>
+            </button>
           </div>
+        </div>
 
-          <div class="process-steps">
-            <h4 class="steps-title">
-              <i class="fas fa-list-ol text-primary-600"></i>
-              Các bước chính:
-            </h4>
-            <div class="steps-grid">
-              <div class="step-card">
-                <div class="step-number">1</div>
-                <div class="step-content">
-                  <h5>Goods issue posting</h5>
-                  <p>Xác nhận hàng sẽ được xuất đi.</p>
-                </div>
-              </div>
-
-              <div class="step-card">
-                <div class="step-number">2</div>
-                <div class="step-content">
-                  <h5>Transfer requirement</h5>
-                  <p>Yêu cầu nhân viên kho chuyển hàng ra khu vực xuất.</p>
-                </div>
-              </div>
-
-              <div class="step-card">
-                <div class="step-number">3</div>
-                <div class="step-content">
-                  <h5>Picking with Transfer Order</h5>
+        <div class="process-section-content collapsed" id="goods-issue-content">
+          <div class="process-content">
+            <div class="process-description">
+              <p class="process-intro">
+                <strong>Ứng dụng thực tế:</strong> Dùng khi xuất hàng cho khách
+                hàng, hoặc chuyển hàng nội bộ giữa các plant.
+              </p>
+              <div class="process-context">
+                <div class="context-info">
+                  <h5>📋 Business Context:</h5>
                   <p>
-                    Dùng TO để hướng dẫn người kho lấy đúng hàng từ đúng vị trí.
-                    (RF Scanner)
+                    Quy trình này liên quan chặt chẽ với
+                    <span class="highlight-technical"
+                      >SD (Sales & Distribution)</span
+                    >
+                    và
+                    <span class="highlight-technical"
+                      >LE (Logistics Execution)</span
+                    >. Mỗi bước đều ảnh hưởng đến customer satisfaction và
+                    inventory accuracy.
                   </p>
                 </div>
               </div>
+            </div>
 
-              <div class="step-card">
-                <div class="step-number">4</div>
-                <div class="step-content">
-                  <h5>Confirm transfer order</h5>
-                  <p>Xác nhận đã pick đúng hàng, đúng số lượng.</p>
+            <div class="detailed-scenario">
+              <h4 class="scenario-title">
+                <i class="fas fa-shipping-fast text-primary-600"></i>
+                Case Study: Xuất 250 xe đạp hoàn chỉnh cho khách hàng Global
+                Sports
+              </h4>
+
+              <div class="scenario-details">
+                <div class="scenario-context">
+                  <div class="context-grid">
+                    <div class="context-item">
+                      <strong>Sales Order:</strong>
+                      <span class="highlight-example">SO-2024567890</span>
+                    </div>
+                    <div class="context-item">
+                      <strong>Customer:</strong> Global Sports Retailer Inc.
+                    </div>
+                    <div class="context-item">
+                      <strong>Material:</strong>
+                      <span class="highlight-technical">BIKE-COMPLETE-MTB</span>
+                      (Complete Mountain Bike)
+                    </div>
+                    <div class="context-item">
+                      <strong>Quantity:</strong> 250 EA
+                    </div>
+                    <div class="context-item">
+                      <strong>Warehouse:</strong> WH01 - Finished Goods
+                      Warehouse
+                    </div>
+                    <div class="context-item">
+                      <strong>Storage Location:</strong> 0002 - Finished
+                      Products
+                    </div>
+                    <div class="context-item">
+                      <strong>Delivery Date:</strong> 20.07.2024
+                    </div>
+                    <div class="context-item">
+                      <strong>Shipping Point:</strong> SP01 - Main Loading Dock
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div class="real-example">
-            <div class="example-card">
-              <div class="example-header">
-                <i class="fas fa-lightbulb text-warning-600"></i>
-                <h5>Trong thực tế:</h5>
+            <div class="process-steps">
+              <h4 class="steps-title">
+                <i class="fas fa-list-ol text-primary-600"></i>
+                Quy trình chi tiết từng bước:
+              </h4>
+
+              <!-- Step 1: Goods Issue Posting -->
+              <div class="detailed-step-card">
+                <div class="step-header">
+                  <div class="step-number">1</div>
+                  <div class="step-title">
+                    <h5>Goods Issue Posting (GI) - Ghi nhận xuất hàng</h5>
+                    <span class="step-tcode"
+                      >T-Code:
+                      <span class="highlight-technical">VL02N</span> hoặc
+                      <span class="highlight-technical">MIGO</span></span
+                    >
+                  </div>
+                </div>
+
+                <div class="step-content-detailed">
+                  <div class="step-description">
+                    <p>
+                      <strong>Mục đích:</strong> Tạo Delivery Document và ghi
+                      nhận chính thức việc xuất hàng, cập nhật stock trong IM và
+                      trigger WM processes.
+                    </p>
+                  </div>
+
+                  <div class="sap-screen-demo">
+                    <div class="screen-header">
+                      <i class="fas fa-window-maximize"></i>
+                      <span>SAP - Create Outbound Delivery (VL01N)</span>
+                    </div>
+                    <div class="screen-content">
+                      <div class="screen-fields">
+                        <div class="field-group">
+                          <h6>Delivery Header:</h6>
+                          <div class="field-row">
+                            <label>Sales Order:</label>
+                            <input type="text" value="SO-2024567890" readonly />
+                          </div>
+                          <div class="field-row">
+                            <label>Ship-to Party:</label>
+                            <input
+                              type="text"
+                              value="100001 - Global Sports Retailer"
+                              readonly
+                            />
+                          </div>
+                          <div class="field-row">
+                            <label>Shipping Point:</label>
+                            <input type="text" value="SP01" readonly />
+                            <span class="field-help">Main Loading Dock</span>
+                          </div>
+                          <div class="field-row">
+                            <label>Planned GI Date:</label>
+                            <input type="text" value="20.07.2024" readonly />
+                          </div>
+                          <div class="field-row">
+                            <label>Route:</label>
+                            <input type="text" value="R001" readonly />
+                            <span class="field-help">Standard Truck Route</span>
+                          </div>
+                        </div>
+
+                        <div class="field-group">
+                          <h6>Line Items:</h6>
+                          <table class="gr-table">
+                            <thead>
+                              <tr>
+                                <th>Item</th>
+                                <th>Material</th>
+                                <th>Description</th>
+                                <th>Order Qty</th>
+                                <th>Delivery Qty</th>
+                                <th>Plant</th>
+                                <th>Sloc</th>
+                                <th>Available Stock</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>10</td>
+                                <td class="highlight-technical">
+                                  BIKE-COMPLETE-MTB
+                                </td>
+                                <td>Mountain Bike Complete Red 26"</td>
+                                <td>250 EA</td>
+                                <td class="delivered-qty">250 EA</td>
+                                <td>1000</td>
+                                <td>0002</td>
+                                <td>275 EA</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+
+                      <div class="screen-result">
+                        <div class="result-message success">
+                          <i class="fas fa-check-circle"></i>
+                          <strong>Delivery Document:</strong>
+                          <span class="highlight-example">DN-8000123456</span>
+                          created successfully
+                        </div>
+                        <div class="result-details">
+                          <div class="detail-row">
+                            <span class="detail-label">Status:</span>
+                            <span class="detail-value"
+                              >Not yet picked - Ready for warehouse
+                              processing</span
+                            >
+                          </div>
+                          <div class="detail-row">
+                            <span class="detail-label">Total Value:</span>
+                            <span class="detail-value">$187,500 USD</span>
+                          </div>
+                          <div class="detail-row">
+                            <span class="detail-label">Next Action:</span>
+                            <span class="detail-value warning"
+                              >⚠ Requires Transfer Requirement creation for
+                              picking</span
+                            >
+                          </div>
+                          <div class="detail-row">
+                            <span class="detail-label">WM Integration:</span>
+                            <span class="detail-value"
+                              >Auto-triggered via delivery save</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="integration-note">
+                    <h6><i class="fas fa-link"></i> Integration với WM:</h6>
+                    <p>Khi Delivery Document được tạo, hệ thống tự động:</p>
+                    <ul>
+                      <li>
+                        Tạo
+                        <span class="highlight-technical"
+                          >Transfer Requirement</span
+                        >
+                        để pick hàng từ storage bins
+                      </li>
+                      <li>
+                        Reserve stock trong
+                        <span class="highlight-critical"
+                          >Storage Location 0002</span
+                        >
+                      </li>
+                      <li>
+                        Update delivery status thành "In Warehouse Processing"
+                      </li>
+                      <li>Trigger picking workflow notifications</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
-              <p class="example-content">
-                Ví dụ: Có đơn hàng xuất 50 khung xe → hệ thống tạo TO → nhân
-                viên quét cái RF scanner và số lượng đúng thì cho qua, sai giữ
-                lại→ xác nhận → hàng chuyển ra shipping area → giao đi.
-              </p>
+
+              <!-- Step 2: Transfer Requirement for Picking -->
+              <div class="detailed-step-card">
+                <div class="step-header">
+                  <div class="step-number">2</div>
+                  <div class="step-title">
+                    <h5>
+                      Transfer Requirement (TR) for Picking - Yêu cầu picking
+                    </h5>
+                    <span class="step-tcode"
+                      >Auto-generated hoặc Manual:
+                      <span class="highlight-technical">LT03</span></span
+                    >
+                  </div>
+                </div>
+
+                <div class="step-content-detailed">
+                  <div class="step-description">
+                    <p>
+                      <strong>Mục đích:</strong> Tạo "kế hoạch" di chuyển hàng
+                      từ storage bins đến Goods Issue area để chuẩn bị xuất
+                      hàng. Đây là instruction cho warehouse team.
+                    </p>
+                  </div>
+
+                  <div class="tr-details">
+                    <div class="tr-header">
+                      <h6>
+                        <i class="fas fa-clipboard-list"></i> Transfer
+                        Requirement for Picking:
+                      </h6>
+                    </div>
+
+                    <div class="tr-content">
+                      <table class="tr-table">
+                        <thead>
+                          <tr>
+                            <th>TR Number</th>
+                            <th>Material</th>
+                            <th>From Storage Type</th>
+                            <th>To Bin</th>
+                            <th>Quantity</th>
+                            <th>Priority</th>
+                            <th>Delivery</th>
+                            <th>Status</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="highlight-example">TR-2024001456</td>
+                            <td class="highlight-technical">
+                              BIKE-COMPLETE-MTB
+                            </td>
+                            <td>001 (High Rack)</td>
+                            <td>GI-DOCK-02</td>
+                            <td>250 EA</td>
+                            <td>🔴 High</td>
+                            <td>DN-8000123456</td>
+                            <td><span class="status-open">Open</span></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <div class="tr-metadata">
+                      <div class="metadata-grid">
+                        <div class="metadata-item">
+                          <strong>Created by:</strong> System (Auto from
+                          Delivery)
+                        </div>
+                        <div class="metadata-item">
+                          <strong>Created on:</strong> 19.07.2024 08:15:30
+                        </div>
+                        <div class="metadata-item">
+                          <strong>Required by:</strong> 20.07.2024 12:00:00
+                        </div>
+                        <div class="metadata-item">
+                          <strong>Movement Type:</strong> 998 (Picking)
+                        </div>
+                        <div class="metadata-item">
+                          <strong>Pick Route:</strong> Optimized by system
+                        </div>
+                        <div class="metadata-item">
+                          <strong>Batch Strategy:</strong> FIFO (First In, First
+                          Out)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="business-rule-note">
+                    <h6>
+                      <i class="fas fa-cogs"></i> Business Rules for Picking:
+                    </h6>
+                    <ul>
+                      <li>
+                        <strong>Priority:</strong> Customer orders có priority
+                        cao hơn internal transfers
+                      </li>
+                      <li>
+                        <strong>FIFO Strategy:</strong> Pick từ batch cũ nhất
+                        trước (date-based)
+                      </li>
+                      <li>
+                        <strong>Zone Optimization:</strong> Group picks theo
+                        storage sections để tối ưu route
+                      </li>
+                      <li>
+                        <strong>Capacity Check:</strong> Validate GI area có đủ
+                        chỗ chứa không
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 3: Transfer Order Creation for Picking -->
+              <div class="detailed-step-card">
+                <div class="step-header">
+                  <div class="step-number">3</div>
+                  <div class="step-title">
+                    <h5>
+                      Picking Transfer Order (TO) Creation - Tạo lệnh picking cụ
+                      thể
+                    </h5>
+                    <span class="step-tcode"
+                      >T-Code:
+                      <span class="highlight-technical">LT10</span> (Create TO
+                      from TR)</span
+                    >
+                  </div>
+                </div>
+
+                <div class="step-content-detailed">
+                  <div class="step-description">
+                    <p>
+                      <strong>Mục đích:</strong> Chuyển TR thành TO với thông
+                      tin cụ thể về source bins và picking sequence. Tạo
+                      optimized picking route cho warehouse staff.
+                    </p>
+                  </div>
+
+                  <div class="to-creation-process">
+                    <div class="strategy-application">
+                      <h6>
+                        <i class="fas fa-chess"></i> Áp dụng Picking Strategy:
+                      </h6>
+                      <div class="strategy-flow">
+                        <div class="strategy-step">
+                          <div class="strategy-icon">🎯</div>
+                          <div class="strategy-content">
+                            <strong>Strategy Type:</strong> FIFO +
+                            Zone-optimized picking
+                          </div>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="strategy-step">
+                          <div class="strategy-icon">🔍</div>
+                          <div class="strategy-content">
+                            <strong>Search Sequence:</strong>
+                            <ol>
+                              <li>Find oldest batches in Section B</li>
+                              <li>Optimize pick route by aisle</li>
+                              <li>Check bin accessibility</li>
+                            </ol>
+                          </div>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="strategy-step">
+                          <div class="strategy-icon">📍</div>
+                          <div class="strategy-content">
+                            <strong>Result:</strong> Multi-bin picking
+                            determined<br />
+                            <small>B1-02-01: 120 EA, B1-03-04: 130 EA</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="sap-screen-demo">
+                      <div class="screen-header">
+                        <i class="fas fa-window-maximize"></i>
+                        <span>SAP - Create Picking Transfer Order (LT10)</span>
+                      </div>
+                      <div class="screen-content">
+                        <div class="to-header-info">
+                          <div class="header-field">
+                            <label>Warehouse Number:</label>
+                            <span>001</span>
+                          </div>
+                          <div class="header-field">
+                            <label>TR Number:</label>
+                            <span class="highlight-example">TR-2024001456</span>
+                          </div>
+                          <div class="header-field">
+                            <label>Delivery Reference:</label>
+                            <span class="highlight-example">DN-8000123456</span>
+                          </div>
+                          <div class="header-field">
+                            <label>Picking Date:</label>
+                            <span>19.07.2024</span>
+                          </div>
+                        </div>
+
+                        <div class="to-details-table">
+                          <table class="to-table">
+                            <thead>
+                              <tr>
+                                <th>TO Item</th>
+                                <th>Material</th>
+                                <th>From Bin</th>
+                                <th>To Bin</th>
+                                <th>Quantity</th>
+                                <th>UoM</th>
+                                <th>Batch</th>
+                                <th>Pick Seq</th>
+                                <th>Status</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr class="to-row">
+                                <td>001</td>
+                                <td class="highlight-technical">
+                                  BIKE-COMPLETE-MTB
+                                </td>
+                                <td class="source-bin">B1-02-01</td>
+                                <td class="dest-bin">GI-DOCK-02</td>
+                                <td class="qty-field">120</td>
+                                <td>EA</td>
+                                <td>240710001</td>
+                                <td>1</td>
+                                <td><span class="status-open">Open</span></td>
+                              </tr>
+                              <tr class="to-row">
+                                <td>002</td>
+                                <td class="highlight-technical">
+                                  BIKE-COMPLETE-MTB
+                                </td>
+                                <td class="source-bin">B1-03-04</td>
+                                <td class="dest-bin">GI-DOCK-02</td>
+                                <td class="qty-field">130</td>
+                                <td>EA</td>
+                                <td>240712001</td>
+                                <td>2</td>
+                                <td><span class="status-open">Open</span></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+
+                        <div class="screen-result">
+                          <div class="result-message success">
+                            <i class="fas fa-check-circle"></i>
+                            <strong>Transfer Order:</strong>
+                            <span class="highlight-example">TO-9876543210</span>
+                            created successfully
+                          </div>
+                          <div class="system-actions">
+                            <h6>🤖 System Actions Performed:</h6>
+                            <ul>
+                              <li>
+                                ✅ FIFO batch selection applied (oldest batches
+                                first)
+                              </li>
+                              <li>
+                                ✅ Pick route optimized: B1 aisle → GI dock
+                              </li>
+                              <li>✅ Stock reserved in source bins</li>
+                              <li>✅ RF picking instructions generated</li>
+                              <li>⏳ TR status updated to "TO Created"</li>
+                              <li>
+                                📧 Picker notification sent to warehouse team
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="rf-device-instruction">
+                    <h6>
+                      <i class="fas fa-mobile-alt"></i> RF Scanner Picking
+                      Instructions:
+                    </h6>
+                    <div class="rf-display">
+                      <div class="rf-screen">
+                        <div class="rf-header">PICK - TO: 9876543210</div>
+                        <div class="rf-content">
+                          <div class="rf-line">
+                            <strong>Delivery:</strong> DN-8000123456
+                          </div>
+                          <div class="rf-line">
+                            <strong>Customer:</strong> Global Sports
+                          </div>
+                          <div class="rf-line">
+                            <strong>Priority:</strong> HIGH ⚡
+                          </div>
+                          <div class="rf-line">
+                            <strong>Route:</strong> B1 → GI-DOCK-02
+                          </div>
+                          <div class="rf-action">
+                            <button class="rf-btn">Start Picking</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 4: Picking Execution & TO Confirmation -->
+              <div class="detailed-step-card">
+                <div class="step-header">
+                  <div class="step-number">4</div>
+                  <div class="step-title">
+                    <h5>
+                      Picking Execution & TO Confirmation - Thực hiện picking
+                    </h5>
+                    <span class="step-tcode"
+                      >Via RF:
+                      <span class="highlight-technical">RF_PICK</span> |
+                      Desktop:
+                      <span class="highlight-technical">LT12</span></span
+                    >
+                  </div>
+                </div>
+
+                <div class="step-content-detailed">
+                  <div class="step-description">
+                    <p>
+                      <strong>Mục đích:</strong> Thực hiện việc picking thực tế
+                      và xác nhận hoàn thành việc di chuyển hàng từ storage bins
+                      đến GI area. Cập nhật delivery status.
+                    </p>
+                  </div>
+
+                  <div class="confirmation-scenario">
+                    <h6>
+                      <i class="fas fa-user-hard-hat"></i> Thực tế picking tại
+                      warehouse:
+                    </h6>
+
+                    <div class="warehouse-activity">
+                      <div class="activity-timeline">
+                        <div class="timeline-item">
+                          <div class="timeline-time">09:00</div>
+                          <div class="timeline-content">
+                            <strong>Picker Trần Văn B</strong> nhận TO trên RF
+                            scanner, check priority HIGH
+                          </div>
+                        </div>
+                        <div class="timeline-item">
+                          <div class="timeline-time">09:02</div>
+                          <div class="timeline-content">
+                            Navigate đến
+                            <span class="highlight-technical">B1-02-01</span> →
+                            Scan bin barcode ✅
+                          </div>
+                        </div>
+                        <div class="timeline-item">
+                          <div class="timeline-time">09:05</div>
+                          <div class="timeline-content">
+                            Scan material
+                            <span class="highlight-technical"
+                              >BIKE-COMPLETE-MTB</span
+                            >
+                            → Verify batch 240710001 ✅
+                          </div>
+                        </div>
+                        <div class="timeline-item">
+                          <div class="timeline-time">09:15</div>
+                          <div class="timeline-content">
+                            Pick 120 bikes onto cart (6 pallets, 20 bikes each)
+                            → Confirm quantity
+                          </div>
+                        </div>
+                        <div class="timeline-item">
+                          <div class="timeline-time">09:18</div>
+                          <div class="timeline-content">
+                            Move đến
+                            <span class="highlight-technical">B1-03-04</span> →
+                            Scan bin → Pick remaining 130 bikes
+                          </div>
+                        </div>
+                        <div class="timeline-item">
+                          <div class="timeline-time">09:35</div>
+                          <div class="timeline-content">
+                            Transport all 250 bikes đến
+                            <span class="highlight-technical">GI-DOCK-02</span>
+                            → Final scan & confirm
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="rf-confirmation-flow">
+                      <h6>
+                        <i class="fas fa-mobile-alt"></i> RF Picking
+                        Confirmation Process:
+                      </h6>
+                      <div class="rf-steps">
+                        <div class="rf-step">
+                          <div class="rf-step-screen">
+                            <strong>Step 1: Scan Source Bin</strong>
+                            <div class="rf-mini-screen">
+                              Bin: B1-02-01 ✅<br />
+                              Qty to pick: 120 EA
+                            </div>
+                          </div>
+                        </div>
+                        <div class="rf-arrow">→</div>
+                        <div class="rf-step">
+                          <div class="rf-step-screen">
+                            <strong>Step 2: Verify Material & Batch</strong>
+                            <div class="rf-mini-screen">
+                              Material: BIKE-COMPLETE-MTB ✅<br />
+                              Batch: 240710001 ✅
+                            </div>
+                          </div>
+                        </div>
+                        <div class="rf-arrow">→</div>
+                        <div class="rf-step">
+                          <div class="rf-step-screen">
+                            <strong>Step 3: Confirm Pick Quantity</strong>
+                            <div class="rf-mini-screen">
+                              Expected: 120 EA<br />
+                              Picked:
+                              <input
+                                type="number"
+                                value="120"
+                                class="rf-input"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="rf-arrow">→</div>
+                        <div class="rf-step">
+                          <div class="rf-step-screen">
+                            <strong>Step 4: Scan Destination</strong>
+                            <div class="rf-mini-screen">
+                              GI-DOCK-02 ✅<br />
+                              Status: Confirmed
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="picking-challenges">
+                      <h6>
+                        <i class="fas fa-exclamation-triangle"></i> Challenges &
+                        Solutions:
+                      </h6>
+                      <div class="challenge-cards">
+                        <div class="challenge-card">
+                          <div class="challenge-icon">⚠️</div>
+                          <div class="challenge-content">
+                            <strong>Short Pick Scenario:</strong>
+                            <p>
+                              Bin B1-03-04 chỉ có 125 EA thay vì 130 EA → System
+                              tự động suggest alternative bin B1-04-02
+                            </p>
+                          </div>
+                        </div>
+                        <div class="challenge-card">
+                          <div class="challenge-icon">🔄</div>
+                          <div class="challenge-content">
+                            <strong>Batch Expiry Check:</strong>
+                            <p>
+                              RF scanner warning: Batch 240710001 expires trong
+                              30 ngày → Prioritize for shipment
+                            </p>
+                          </div>
+                        </div>
+                        <div class="challenge-card">
+                          <div class="challenge-icon">📦</div>
+                          <div class="challenge-content">
+                            <strong>Damage Detection:</strong>
+                            <p>
+                              5 bikes bị damage → Move to DAMAGE bin, system tự
+                              tạo replacement pick từ backup stock
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="system-updates">
+                    <h6>
+                      <i class="fas fa-database"></i> System Updates After
+                      Picking Confirmation:
+                    </h6>
+
+                    <div class="update-grid">
+                      <div class="update-card wm-update">
+                        <div class="update-header">
+                          <i class="fas fa-warehouse"></i>
+                          <strong>Warehouse Management (WM)</strong>
+                        </div>
+                        <div class="update-content">
+                          <div class="update-item">
+                            <span class="label">Stock Removal:</span>
+                            <span class="value"
+                              >B1-02-01: -120 EA, B1-03-04: -130 EA</span
+                            >
+                          </div>
+                          <div class="update-item">
+                            <span class="label">Stock Addition:</span>
+                            <span class="value">GI-DOCK-02: +250 EA</span>
+                          </div>
+                          <div class="update-item">
+                            <span class="label">TO Status:</span>
+                            <span class="value success">Confirmed ✅</span>
+                          </div>
+                          <div class="update-item">
+                            <span class="label">Picking Efficiency:</span>
+                            <span class="value"
+                              >35 minutes (excellent performance)</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="update-card sd-update">
+                        <div class="update-header">
+                          <i class="fas fa-truck"></i>
+                          <strong>Sales & Distribution (SD)</strong>
+                        </div>
+                        <div class="update-content">
+                          <div class="update-item">
+                            <span class="label">Delivery Status:</span>
+                            <span class="value success"
+                              >Picked - Ready for GI ✅</span
+                            >
+                          </div>
+                          <div class="update-item">
+                            <span class="label">Customer Notification:</span>
+                            <span class="value"
+                              >Auto-sent: "Order picked, ready for
+                              shipment"</span
+                            >
+                          </div>
+                          <div class="update-item">
+                            <span class="label">Next Action:</span>
+                            <span class="value warning"
+                              >Pack & Load for shipment</span
+                            >
+                          </div>
+                          <div class="update-item">
+                            <span class="label">Delivery Window:</span>
+                            <span class="value"
+                              >On track for 20.07.2024 delivery</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="final-gi-posting">
+                    <h6>
+                      <i class="fas fa-shipping-fast"></i> Final Goods Issue
+                      Posting:
+                    </h6>
+                    <div class="gi-posting-details">
+                      <div class="posting-screen">
+                        <div class="posting-header">
+                          <strong>Post Goods Issue (VL02N)</strong>
+                        </div>
+                        <div class="posting-content">
+                          <div class="posting-info">
+                            <div class="info-row">
+                              <span class="info-label">Delivery:</span>
+                              <span class="info-value">DN-8000123456</span>
+                            </div>
+                            <div class="info-row">
+                              <span class="info-label">Posting Date:</span>
+                              <span class="info-value">19.07.2024</span>
+                            </div>
+                            <div class="info-row">
+                              <span class="info-label">Material Document:</span>
+                              <span class="info-value highlight-example"
+                                >5000998877</span
+                              >
+                            </div>
+                            <div class="info-row">
+                              <span class="info-label">Movement Type:</span>
+                              <span class="info-value"
+                                >601 (Goods Issue for Delivery)</span
+                              >
+                            </div>
+                          </div>
+
+                          <div class="financial-impact">
+                            <h6>💰 Financial Impact:</h6>
+                            <ul>
+                              <li>
+                                <strong>COGS Posted:</strong> $125,000 USD to
+                                Cost of Goods Sold
+                              </li>
+                              <li>
+                                <strong>Inventory Reduction:</strong> -$125,000
+                                USD from Finished Goods
+                              </li>
+                              <li>
+                                <strong>Revenue Recognition:</strong> $187,500
+                                USD (triggered by GI posting)
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="audit-trail">
+                    <h6>
+                      <i class="fas fa-history"></i> Complete Audit Trail:
+                    </h6>
+                    <div class="audit-log">
+                      <div class="log-entry">
+                        <span class="log-time">09:00:15</span>
+                        <span class="log-user">TRAN.B</span>
+                        <span class="log-action">PICK_START</span>
+                        <span class="log-details"
+                          >TO-9876543210 picking started</span
+                        >
+                      </div>
+                      <div class="log-entry">
+                        <span class="log-time">09:35:22</span>
+                        <span class="log-user">TRAN.B</span>
+                        <span class="log-action">TO_CONFIRM</span>
+                        <span class="log-details"
+                          >250 EA picked to GI-DOCK-02</span
+                        >
+                      </div>
+                      <div class="log-entry">
+                        <span class="log-time">09:35:23</span>
+                        <span class="log-user">SYSTEM</span>
+                        <span class="log-action">DELIVERY_UPDATE</span>
+                        <span class="log-details"
+                          >DN-8000123456 status → Picked</span
+                        >
+                      </div>
+                      <div class="log-entry">
+                        <span class="log-time">10:15:44</span>
+                        <span class="log-user">SHIP.SUPERVISOR</span>
+                        <span class="log-action">GI_POST</span>
+                        <span class="log-details"
+                          >Material Doc 5000998877 posted</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="process-summary">
+              <h4 class="summary-title">
+                <i class="fas fa-chart-line text-primary-600"></i>
+                Tổng kết quy trình & Key Performance Indicators
+              </h4>
+
+              <div class="summary-content">
+                <div class="kpi-grid">
+                  <div class="kpi-card">
+                    <div class="kpi-icon">
+                      <i class="fas fa-clock text-primary-600"></i>
+                    </div>
+                    <div class="kpi-content">
+                      <div class="kpi-value">35 phút</div>
+                      <div class="kpi-label">Total Picking Time</div>
+                      <div class="kpi-detail">For 250 units across 2 bins</div>
+                    </div>
+                  </div>
+
+                  <div class="kpi-card">
+                    <div class="kpi-icon">
+                      <i class="fas fa-bullseye text-primary-600"></i>
+                    </div>
+                    <div class="kpi-content">
+                      <div class="kpi-value">100%</div>
+                      <div class="kpi-label">Pick Accuracy</div>
+                      <div class="kpi-detail">No picking errors detected</div>
+                    </div>
+                  </div>
+
+                  <div class="kpi-card">
+                    <div class="kpi-icon">
+                      <i class="fas fa-dollar-sign text-primary-600"></i>
+                    </div>
+                    <div class="kpi-content">
+                      <div class="kpi-value">$187,500</div>
+                      <div class="kpi-label">Revenue Value</div>
+                      <div class="kpi-detail">Customer order value</div>
+                    </div>
+                  </div>
+
+                  <div class="kpi-card">
+                    <div class="kpi-icon">
+                      <i class="fas fa-route text-primary-600"></i>
+                    </div>
+                    <div class="kpi-content">
+                      <div class="kpi-value">2.1 km</div>
+                      <div class="kpi-label">Pick Route Distance</div>
+                      <div class="kpi-detail">Optimized warehouse travel</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="lessons-learned">
+                  <h5>
+                    <i class="fas fa-graduation-cap"></i> Key Lessons & Best
+                    Practices:
+                  </h5>
+                  <div class="lessons-grid">
+                    <div class="lesson-card">
+                      <div class="lesson-icon">🎯</div>
+                      <div class="lesson-content">
+                        <strong>Route Optimization:</strong>
+                        <p>
+                          FIFO + zone-based picking giúp giảm 40% travel time so
+                          với random picking
+                        </p>
+                      </div>
+                    </div>
+                    <div class="lesson-card">
+                      <div class="lesson-icon">📱</div>
+                      <div class="lesson-content">
+                        <strong>RF Integration:</strong>
+                        <p>
+                          Real-time validation giúp đạt 100% accuracy và
+                          immediate issue detection
+                        </p>
+                      </div>
+                    </div>
+                    <div class="lesson-card">
+                      <div class="lesson-icon">⚡</div>
+                      <div class="lesson-content">
+                        <strong>Exception Handling:</strong>
+                        <p>
+                          System có khả năng tự động suggest alternative khi có
+                          short pick hoặc damage
+                        </p>
+                      </div>
+                    </div>
+                    <div class="lesson-card">
+                      <div class="lesson-icon">🔄</div>
+                      <div class="lesson-content">
+                        <strong>Customer Communication:</strong>
+                        <p>
+                          Automated notifications giúp customers track real-time
+                          order status
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="advanced-topics">
+              <h4 class="advanced-title">
+                <i class="fas fa-cogs text-primary-600"></i>
+                Advanced Picking Scenarios & Optimizations
+              </h4>
+
+              <div class="advanced-content">
+                <div class="topic-cards">
+                  <div class="topic-card">
+                    <div class="topic-header">
+                      <i class="fas fa-layer-group"></i>
+                      <h5>Wave Picking</h5>
+                    </div>
+                    <div class="topic-content">
+                      <p>Nhóm nhiều orders thành waves để optimize picking:</p>
+                      <ul>
+                        <li>
+                          <strong>Multi-order picking:</strong> 1 picker handle
+                          5-10 orders cùng lúc
+                        </li>
+                        <li>
+                          <strong>Zone picking:</strong> Mỗi picker chịu trách
+                          nhiệm 1 zone
+                        </li>
+                        <li>
+                          <strong>Batch consolidation:</strong> Consolidate
+                          picks tại staging area
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="topic-card">
+                    <div class="topic-header">
+                      <i class="fas fa-robot"></i>
+                      <h5>Pick-by-Voice & Automation</h5>
+                    </div>
+                    <div class="topic-content">
+                      <p>Advanced picking technologies:</p>
+                      <ul>
+                        <li>
+                          <strong>Voice picking:</strong> Hands-free operation
+                          với voice commands
+                        </li>
+                        <li>
+                          <strong>Pick-by-light:</strong> LED lights guide
+                          pickers đến correct bins
+                        </li>
+                        <li>
+                          <strong>AGV integration:</strong> Automated guided
+                          vehicles transport goods
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="topic-card">
+                    <div class="topic-header">
+                      <i class="fas fa-chart-line"></i>
+                      <h5>Picking Analytics</h5>
+                    </div>
+                    <div class="topic-content">
+                      <p>Data-driven picking optimization:</p>
+                      <ul>
+                        <li>
+                          <strong>Picker performance:</strong> Tracking speed,
+                          accuracy, efficiency
+                        </li>
+                        <li>
+                          <strong>SKU velocity analysis:</strong> Relocate
+                          fast-moving items
+                        </li>
+                        <li>
+                          <strong>Route optimization:</strong> Machine learning
+                          for optimal paths
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="topic-card">
+                    <div class="topic-header">
+                      <i class="fas fa-exclamation-triangle"></i>
+                      <h5>Exception Management</h5>
+                    </div>
+                    <div class="topic-content">
+                      <p>Handling picking exceptions:</p>
+                      <ul>
+                        <li>
+                          <strong>Short picks:</strong> Auto-suggest
+                          alternatives, backorder handling
+                        </li>
+                        <li>
+                          <strong>Damaged goods:</strong> QC holds, replacement
+                          workflows
+                        </li>
+                        <li>
+                          <strong>Cycle counting:</strong> Real-time inventory
+                          adjustments
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="process-detail-section">
-        <h3 class="section-heading">
-          <i class="fas fa-hand-pointer text-accent-600"></i>
-          IV. Picking (Chọn hàng)
-        </h3>
-
-        <div class="process-content">
-          <div class="process-description">
-            <p class="process-intro">
-              <strong>Ứng dụng thực tế:</strong> Dùng trong quá trình chuẩn bị
-              hàng xuất. Đảm bảo đúng vật tư, đúng vị trí, đúng số lượng.
-            </p>
+      <!-- Picking Process Section -->
+      <div class="process-section" id="picking" data-process="picking">
+        <div
+          class="process-section-header"
+          onclick="toggleProcessSection('picking')"
+        >
+          <h3 class="section-heading">
+            <i class="fas fa-hand-pointer text-accent-600"></i>
+            IV. Picking (Chọn hàng)
+          </h3>
+          <div class="section-controls">
+            <button class="expand-btn" title="Expand/Collapse">
+              <i class="fas fa-chevron-down"></i>
+            </button>
           </div>
+        </div>
 
-          <div class="picking-roles">
-            <h4 class="steps-title">
-              <i class="fas fa-star text-accent-600"></i>
-              Vai trò trong WM:
-            </h4>
-            <div class="role-cards">
-              <div class="role-card">
-                <i class="fas fa-crosshairs"></i>
-                <p>Dựa trên Transfer Order để tìm chính xác bin lưu vật tư.</p>
+        <div class="process-section-content collapsed" id="picking-content">
+          <div class="process-content">
+            <div class="process-description">
+              <p class="process-intro">
+                <strong>Ứng dụng thực tế:</strong> Dùng trong quá trình chuẩn bị
+                hàng xuất. Đảm bảo đúng vật tư, đúng vị trí, đúng số lượng.
+              </p>
+            </div>
+
+            <div class="picking-roles">
+              <h4 class="steps-title">
+                <i class="fas fa-star text-accent-600"></i>
+                Vai trò trong WM:
+              </h4>
+              <div class="role-cards">
+                <div class="role-card">
+                  <i class="fas fa-crosshairs"></i>
+                  <p>
+                    Dựa trên Transfer Order để tìm chính xác bin lưu vật tư.
+                  </p>
+                </div>
+                <div class="role-card">
+                  <i class="fas fa-tachometer-alt"></i>
+                  <p>
+                    Giúp tăng tốc độ và độ chính xác khi xuất hàng (thường tích
+                    hợp với máy quét mã vạch/RF device).
+                  </p>
+                </div>
               </div>
-              <div class="role-card">
-                <i class="fas fa-tachometer-alt"></i>
-                <p>
-                  Giúp tăng tốc độ và độ chính xác khi xuất hàng (thường tích
-                  hợp với máy quét mã vạch/RF device).
+            </div>
+
+            <div class="real-example">
+              <div class="example-card">
+                <div class="example-header">
+                  <i class="fas fa-lightbulb text-warning-600"></i>
+                  <h5>Thực tế:</h5>
+                </div>
+                <p class="example-content">
+                  Warehouse có 1000 bin, nếu không có WM bạn không biết hàng nằm
+                  ở đâu. Với WM, bạn biết thùng xích xe ở A2-01-05, số lượng còn
+                  250 chiếc → dễ dàng pick đúng. (nói chung chỗ này là tạo
+                  delivery note)
                 </p>
               </div>
             </div>
           </div>
-
-          <div class="real-example">
-            <div class="example-card">
-              <div class="example-header">
-                <i class="fas fa-lightbulb text-warning-600"></i>
-                <h5>Thực tế:</h5>
-              </div>
-              <p class="example-content">
-                Warehouse có 1000 bin, nếu không có WM bạn không biết hàng nằm ở
-                đâu. Với WM, bạn biết thùng xích xe ở A2-01-05, số lượng còn 250
-                chiếc → dễ dàng pick đúng. (nói chung chỗ này là tạo delivery
-                note)
-              </p>
-            </div>
-          </div>
         </div>
       </div>
 
-      <div class="process-detail-section">
-        <h3 class="section-heading">
-          <i class="fas fa-box text-secondary-600"></i>
-          V. Packing (Đóng gói)
-        </h3>
-
-        <div class="process-content">
-          <div class="process-description">
-            <p class="process-intro">
-              <strong>Ứng dụng thực tế:</strong> Chuẩn bị hàng sau khi đã pick
-              xong, đóng vào thùng, pallet,... để sẵn sàng giao đi.
-            </p>
+      <!-- Packing Process Section -->
+      <div class="process-section" id="packing" data-process="packing">
+        <div
+          class="process-section-header"
+          onclick="toggleProcessSection('packing')"
+        >
+          <h3 class="section-heading">
+            <i class="fas fa-box text-secondary-600"></i>
+            V. Packing (Đóng gói)
+          </h3>
+          <div class="section-controls">
+            <button class="expand-btn" title="Expand/Collapse">
+              <i class="fas fa-chevron-down"></i>
+            </button>
           </div>
+        </div>
 
-          <div class="packing-features">
-            <h4 class="steps-title">
-              <i class="fas fa-cogs text-secondary-600"></i>
-              Trong WM (kết hợp với module SD/LE):
-            </h4>
-            <div class="feature-cards">
-              <div class="feature-card">
-                <i class="fas fa-calculator"></i>
-                <h5>Xác định số lượng thùng</h5>
-                <p>Xác định số lượng thùng cần thiết.</p>
+        <div class="process-section-content collapsed" id="packing-content">
+          <div class="process-content">
+            <div class="process-description">
+              <p class="process-intro">
+                <strong>Ứng dụng thực tế:</strong> Chuẩn bị hàng sau khi đã pick
+                xong, đóng vào thùng, pallet,... để sẵn sàng giao đi.
+              </p>
+            </div>
+
+            <div class="packing-features">
+              <h4 class="steps-title">
+                <i class="fas fa-tools text-secondary-600"></i>
+                Tính năng chính:
+              </h4>
+              <div class="feature-cards">
+                <div class="feature-card">
+                  <i class="fas fa-weight-hanging"></i>
+                  <h5>Weight & Volume calculation</h5>
+                  <p>
+                    Tự động tính trọng lượng, thể tích gói hàng để chọn đúng
+                    container.
+                  </p>
+                </div>
+                <div class="feature-card">
+                  <i class="fas fa-qrcode"></i>
+                  <h5>Label printing</h5>
+                  <p>
+                    In nhãn mã vạch cho từng package, liên kết với delivery
+                    document.
+                  </p>
+                </div>
+                <div class="feature-card">
+                  <i class="fas fa-layer-group"></i>
+                  <h5>Packing unit hierarchy</h5>
+                  <p>
+                    Quản lý mối quan hệ: Item → Carton → Pallet → Container.
+                  </p>
+                </div>
               </div>
-              <div class="feature-card">
-                <i class="fas fa-tags"></i>
-                <h5>Gán vật tư</h5>
-                <p>Gán vật tư vào từng packing unit.</p>
-              </div>
-              <div class="feature-card">
-                <i class="fas fa-weight"></i>
-                <h5>Ghi nhận thông tin</h5>
-                <p>
-                  Ghi nhận số hiệu, trọng lượng, thể tích của từng kiện hàng.
+            </div>
+
+            <div class="real-example">
+              <div class="example-card">
+                <div class="example-header">
+                  <i class="fas fa-lightbulb text-warning-600"></i>
+                  <h5>Thực tế:</h5>
+                </div>
+                <p class="example-content">
+                  Ví dụ: 200 cái yên xe → chia vào 4 thùng → mỗi thùng được gán
+                  vào system và in nhãn mã vạch → hệ thống biết từng thùng chứa gì
+                  và có thể trace được.
                 </p>
               </div>
             </div>
           </div>
-
-          <div class="real-example">
-            <div class="example-card">
-              <div class="example-header">
-                <i class="fas fa-lightbulb text-warning-600"></i>
-                <h5>Thực tế:</h5>
-              </div>
-              <p class="example-content">
-                Ví dụ: 200 cái yên xe → chia vào 4 thùng → mỗi thùng được gán
-                vào system và in nhãn mã vạch → hệ thống biết từng thùng chứa gì
-                và có thể trace được.
-              </p>
-            </div>
-          </div>
         </div>
       </div>
-
-      <div class="process-detail-section">
-        <h3 class="section-heading">
-          <i class="fas fa-truck text-blue-600"></i>
-          VI. Shipping (Vận chuyển)
-        </h3>
-
-        <div class="process-content">
-          <div class="process-description">
-            <p class="process-intro">
-              <strong>Ứng dụng thực tế:</strong> Là phần liên kết cuối với khách
-              hàng. Mọi dữ liệu vận chuyển đều được quản lý để đảm bảo hàng ra
-              đúng cách.
-            </p>
-          </div>
-
-          <div class="shipping-components">
-            <h4 class="steps-title">
-              <i class="fas fa-link text-blue-600"></i>
-              Liên quan đến:
-            </h4>
-            <div class="component-cards">
-              <div class="component-card">
-                <i class="fas fa-map-marker-alt"></i>
-                <h5>Shipping Point</h5>
-                <p>Nơi quản lý vận chuyển (có thể theo nhà kho, loại hàng…).</p>
-              </div>
-              <div class="component-card">
-                <i class="fas fa-file-alt"></i>
-                <h5>Delivery Document</h5>
-                <p>Làm rõ hàng nào đang được ship.</p>
-              </div>
-              <div class="component-card">
-                <i class="fas fa-route"></i>
-                <h5>Transportation Planning</h5>
-                <p>Xác định lịch xe, phương tiện, tuyến đường...</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="real-example">
-            <div class="example-card">
-              <div class="example-header">
-                <i class="fas fa-lightbulb text-warning-600"></i>
-                <h5>Thực tế:</h5>
-              </div>
-              <p class="example-content">
-                Bạn giao hàng từ kho San Diego về cho đại lý ở Texas → dùng
-                shipping point SD01, hệ thống tính toán thời gian giao, in nhãn
-                pallet, tạo delivery document và lập kế hoạch xe tải.
-              </p>
-            </div>
+              <i class="fas fa-chevron-down"></i>
+            </button>
           </div>
         </div>
-      </div>
 
-      <div class="process-detail-section">
-        <h3 class="section-heading">
-          <i class="fas fa-clipboard-check text-warning-600"></i>
-          VII. Physical Inventory (Kiểm kê kho vật lý)
-        </h3>
+        <div class="process-section-content collapsed" id="packing-content">
+          <div class="process-content">
+            <div class="process-description">
+              <p class="process-intro">
+                <strong>Ứng dụng thực tế:</strong> Chuẩn bị hàng sau khi đã pick
+                xong, đóng vào thùng, pallet,... để sẵn sàng giao đi.
+              </p>
+            </div>
 
-        <div class="process-content">
-          <div class="process-description">
-            <p class="process-intro">
-              <strong>Ứng dụng thực tế:</strong> Đảm bảo số lượng hàng thực tế
-              khớp với số liệu hệ thống. Thường dùng vào cuối kỳ, kiểm tra đột
-              xuất hoặc định kỳ.
-            </p>
-          </div>
+            <div class="packing-features">
+              <h4 class="steps-title">
+                <i class="fas fa-cogs text-secondary-600"></i>
+                Trong WM (kết hợp với module SD/LE):
+              </h4>
+              <div class="feature-cards">
+                <div class="feature-card">
+                  <i class="fas fa-calculator"></i>
+                  <h5>Xác định số lượng thùng</h5>
+                  <p>Xác định số lượng thùng cần thiết.</p>
+                </div>
+                <div class="feature-card">
+                  <i class="fas fa-tags"></i>
+                  <h5>Gán vật tư</h5>
+                  <p>Gán vật tư vào từng packing unit.</p>
+                </div>
+                <div class="feature-card">
+                  <i class="fas fa-weight"></i>
+                  <h5>Ghi nhận thông tin</h5>
+                  <p>
+                    Ghi nhận số hiệu, trọng lượng, thể tích của từng kiện hàng.
+                  </p>
+                </div>
+              </div>
+            </div>
 
-          <div class="inventory-methods">
-            <h4 class="steps-title">
-              <i class="fas fa-tools text-warning-600"></i>
-              Các phương pháp kiểm kê:
-            </h4>
-            <div class="method-cards">
-              <div class="method-card">
-                <i class="fas fa-calendar-alt"></i>
-                <h5>Periodic Inventory</h5>
-                <p>Kiểm kê toàn bộ kho vào thời điểm cố định (cuối năm).</p>
-              </div>
-              <div class="method-card">
-                <i class="fas fa-sync"></i>
-                <h5>Continuous Inventory</h5>
-                <p>Kiểm kê từng phần theo kế hoạch rải đều.</p>
-              </div>
-              <div class="method-card">
-                <i class="fas fa-plus-circle"></i>
-                <h5>Inventory on Putaway</h5>
-                <p>Kiểm kê luôn khi nhập kho.</p>
-              </div>
-              <div class="method-card">
-                <i class="fas fa-redo"></i>
-                <h5>Cycle-Counting</h5>
-                <p>
-                  Kiểm kê thường xuyên theo tần suất tùy mức độ quan trọng của
-                  vật tư.
+            <div class="real-example">
+              <div class="example-card">
+                <div class="example-header">
+                  <i class="fas fa-lightbulb text-warning-600"></i>
+                  <h5>Thực tế:</h5>
+                </div>
+                <p class="example-content">
+                  Ví dụ: 200 cái yên xe → chia vào 4 thùng → mỗi thùng được gán
+                  vào system và in nhãn mã vạch → hệ thống biết từng thùng chứa
+                  gì và có thể trace được.
                 </p>
               </div>
-              <div class="method-card">
-                <i class="fas fa-minus-circle"></i>
-                <h5>Zero stock check</h5>
-                <p>Kiểm tra những bin dự kiến rỗng.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Shipping Process Section -->
+      <div class="process-section" id="shipping" data-process="shipping">
+        <div
+          class="process-section-header"
+          onclick="toggleProcessSection('shipping')"
+        >
+          <h3 class="section-heading">
+            <i class="fas fa-truck text-blue-600"></i>
+            VI. Shipping (Vận chuyển)
+          </h3>
+          <div class="section-controls">
+            <button class="expand-btn" title="Expand/Collapse">
+              <i class="fas fa-chevron-down"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="process-section-content collapsed" id="shipping-content">
+          <div class="process-content">
+            <div class="process-description">
+              <p class="process-intro">
+                <strong>Ứng dụng thực tế:</strong> Là phần liên kết cuối với
+                khách hàng. Mọi dữ liệu vận chuyển đều được quản lý để đảm bảo
+                hàng ra đúng cách.
+              </p>
+            </div>
+
+            <div class="shipping-components">
+              <h4 class="steps-title">
+                <i class="fas fa-link text-blue-600"></i>
+                Liên quan đến:
+              </h4>
+              <div class="component-cards">
+                <div class="component-card">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <h5>Shipping Point</h5>
+                  <p>
+                    Nơi quản lý vận chuyển (có thể theo nhà kho, loại hàng…).
+                  </p>
+                </div>
+                <div class="component-card">
+                  <i class="fas fa-file-alt"></i>
+                  <h5>Delivery Document</h5>
+                  <p>Làm rõ hàng nào đang được ship.</p>
+                </div>
+                <div class="component-card">
+                  <i class="fas fa-route"></i>
+                  <h5>Transportation Planning</h5>
+                  <p>Xác định lịch xe, phương tiện, tuyến đường...</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="real-example">
+              <div class="example-card">
+                <div class="example-header">
+                  <i class="fas fa-lightbulb text-warning-600"></i>
+                  <h5>Thực tế:</h5>
+                </div>
+                <p class="example-content">
+                  Bạn giao hàng từ kho San Diego về cho đại lý ở Texas → dùng
+                  shipping point SD01, hệ thống tính toán thời gian giao, in
+                  nhãn pallet, tạo delivery document và lập kế hoạch xe tải.
+                </p>
               </div>
             </div>
           </div>
+        </div>
+      </div>
 
-          <div class="inventory-steps">
-            <h4 class="steps-title">
-              <i class="fas fa-list-ol text-warning-600"></i>
-              Các bước chuẩn:
-            </h4>
-            <div class="steps-list">
-              <div class="step-item">
-                <div class="step-indicator">1</div>
-                <div class="step-text">
-                  <strong>Create Physical Inventory Document</strong>
+      <!-- Physical Inventory Process Section -->
+      <div class="process-section" id="inventory" data-process="inventory">
+        <div
+          class="process-section-header"
+          onclick="toggleProcessSection('inventory')"
+        >
+          <h3 class="section-heading">
+            <i class="fas fa-clipboard-check text-warning-600"></i>
+            VII. Physical Inventory (Kiểm kê kho vật lý)
+          </h3>
+          <div class="section-controls">
+            <button class="expand-btn" title="Expand/Collapse">
+              <i class="fas fa-chevron-down"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="process-section-content collapsed" id="inventory-content">
+          <div class="process-content">
+            <div class="process-description">
+              <p class="process-intro">
+                <strong>Ứng dụng thực tế:</strong> Đảm bảo số lượng hàng thực tế
+                khớp với số liệu hệ thống. Thường dùng vào cuối kỳ, kiểm tra đột
+                xuất hoặc định kỳ.
+              </p>
+            </div>
+
+            <div class="inventory-methods">
+              <h4 class="steps-title">
+                <i class="fas fa-tools text-warning-600"></i>
+                Các phương pháp kiểm kê:
+              </h4>
+              <div class="method-cards">
+                <div class="method-card">
+                  <i class="fas fa-calendar-alt"></i>
+                  <h5>Periodic Inventory</h5>
+                  <p>Kiểm kê toàn bộ kho vào thời điểm cố định (cuối năm).</p>
+                </div>
+                <div class="method-card">
+                  <i class="fas fa-sync"></i>
+                  <h5>Continuous Inventory</h5>
+                  <p>Kiểm kê từng phần theo kế hoạch rải đều.</p>
+                </div>
+                <div class="method-card">
+                  <i class="fas fa-plus-circle"></i>
+                  <h5>Inventory on Putaway</h5>
+                  <p>Kiểm kê luôn khi nhập kho.</p>
+                </div>
+                <div class="method-card">
+                  <i class="fas fa-redo"></i>
+                  <h5>Cycle-Counting</h5>
+                  <p>
+                    Kiểm kê thường xuyên theo tần suất tùy mức độ quan trọng của
+                    vật tư.
+                  </p>
+                </div>
+                <div class="method-card">
+                  <i class="fas fa-minus-circle"></i>
+                  <h5>Zero stock check</h5>
+                  <p>Kiểm tra những bin dự kiến rỗng.</p>
                 </div>
               </div>
-              <div class="step-item">
-                <div class="step-indicator">2</div>
-                <div class="step-text">
-                  <strong>Activate</strong> để cho phép nhập liệu.
+            </div>
+
+            <div class="inventory-steps">
+              <h4 class="steps-title">
+                <i class="fas fa-list-ol text-warning-600"></i>
+                Các bước chuẩn:
+              </h4>
+              <div class="steps-list">
+                <div class="step-item">
+                  <div class="step-indicator">1</div>
+                  <div class="step-text">
+                    <strong>Create Physical Inventory Document</strong>
+                  </div>
                 </div>
-              </div>
-              <div class="step-item">
-                <div class="step-indicator">3</div>
-                <div class="step-text">
-                  <strong>Print list</strong> để kiểm kê.
+                <div class="step-item">
+                  <div class="step-indicator">2</div>
+                  <div class="step-text">
+                    <strong>Activate</strong> để cho phép nhập liệu.
+                  </div>
                 </div>
-              </div>
-              <div class="step-item">
-                <div class="step-indicator">4</div>
-                <div class="step-text">
-                  <strong>Enter count result</strong>.
+                <div class="step-item">
+                  <div class="step-indicator">3</div>
+                  <div class="step-text">
+                    <strong>Print list</strong> để kiểm kê.
+                  </div>
                 </div>
-              </div>
-              <div class="step-item">
-                <div class="step-indicator">5</div>
-                <div class="step-text">
-                  <strong>Clear differences</strong> trong WM & IM.
+                <div class="step-item">
+                  <div class="step-indicator">4</div>
+                  <div class="step-text">
+                    <strong>Enter count result</strong>.
+                  </div>
+                </div>
+                <div class="step-item">
+                  <div class="step-indicator">5</div>
+                  <div class="step-text">
+                    <strong>Clear differences</strong> trong WM & IM.
+                  </div>
                 </div>
               </div>
             </div>
@@ -429,4 +2494,1582 @@
       </div>
     </div>
   </div>
+
+  <!-- Floating Back to Top Button -->
+  <div class="back-to-top" id="backToTop" onclick="scrollToTop()">
+    <i class="fas fa-chevron-up"></i>
+  </div>
 </div>
+
+<style>
+  /* Process Navigation Menu */
+  .process-navigation-menu {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+  }
+
+  .nav-container {
+    padding: 1rem 1.5rem;
+  }
+
+  .nav-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .nav-title i {
+    margin-right: 0.5rem;
+    color: #fde68a;
+  }
+
+  .nav-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+
+  .nav-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.75rem;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .nav-items.collapsed {
+    display: none;
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+  }
+
+  .nav-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .nav-item.active {
+    background: rgba(253, 230, 138, 0.2);
+    border-color: #fde68a;
+    box-shadow: 0 0 20px rgba(253, 230, 138, 0.3);
+  }
+
+  .nav-item i {
+    margin-right: 0.5rem;
+    font-size: 1.1rem;
+  }
+
+  /* Process Sections */
+  .process-section {
+    margin-bottom: 2rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .process-section:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .process-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-bottom: 1px solid #e2e8f0;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.3s ease;
+  }
+
+  .process-section-header:hover {
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  }
+
+  .process-section-header .section-heading {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+
+  .section-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .expand-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: #64748b;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+
+  .expand-btn:hover {
+    background: rgba(100, 116, 139, 0.1);
+    color: #334155;
+  }
+
+  .expand-btn i {
+    transition: transform 0.3s ease;
+  }
+
+  .process-section-content {
+    padding: 0 1.5rem 1.5rem;
+    max-height: none;
+    overflow: visible;
+    transition: all 0.5s ease;
+  }
+
+  .process-section-content.collapsed {
+    max-height: 0;
+    padding: 0 1.5rem;
+    overflow: hidden;
+  }
+
+  .process-section.collapsed .expand-btn i {
+    transform: rotate(-90deg);
+  }
+
+  /* Back to Top Button */
+  .back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+  }
+
+  .back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .back-to-top:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(102, 126, 234, 0.6);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .nav-items {
+      grid-template-columns: 1fr;
+    }
+
+    .process-section-header {
+      padding: 1rem;
+    }
+
+    .process-section-content {
+      padding: 0 1rem 1rem;
+    }
+
+    .process-section-content.collapsed {
+      padding: 0 1rem;
+    }
+
+    .back-to-top {
+      bottom: 1rem;
+      right: 1rem;
+      width: 45px;
+      height: 45px;
+    }
+  }
+
+  /* Enhanced styles for detailed Goods Receipt process */
+
+  /* Highlight classes for important terms */
+  .highlight-technical {
+    background: linear-gradient(120deg, #ddd6fe 0%, #c4b5fd 100%);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+    color: #5b21b6;
+    border: 1px solid #a78bfa;
+    font-family: "Courier New", monospace;
+  }
+
+  .highlight-example {
+    background: linear-gradient(120deg, #fef3c7 0%, #fde68a 100%);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+    color: #92400e;
+    border: 1px solid #f59e0b;
+    font-family: "Courier New", monospace;
+  }
+
+  .highlight-critical {
+    background: linear-gradient(120deg, #fecaca 0%, #fca5a5 100%);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+    color: #991b1b;
+    border: 1px solid #ef4444;
+  }
+
+  /* Process Context */
+  .process-context {
+    margin: 1.5rem 0;
+  }
+
+  .context-info {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border-left: 4px solid #0ea5e9;
+    padding: 1rem 1.5rem;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .context-info h5 {
+    color: #0c4a6e;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+
+  /* Detailed Scenario */
+  .detailed-scenario {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    margin: 2rem 0;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  .scenario-title {
+    background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+    color: white;
+    padding: 1rem 1.5rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .scenario-details {
+    padding: 1.5rem;
+  }
+
+  .scenario-context {
+    background: #f8fafc;
+    border-radius: 8px;
+    padding: 1rem;
+  }
+
+  .context-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .context-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+
+  .context-item strong {
+    color: #374151;
+    min-width: 100px;
+  }
+
+  /* Detailed Step Cards */
+  .detailed-step-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    margin: 2rem 0;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  .step-header {
+    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+    color: white;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .step-header .step-number {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+  }
+
+  .step-title {
+    flex: 1;
+  }
+
+  .step-title h5 {
+    margin: 0 0 0.25rem 0;
+    font-size: 1.2rem;
+  }
+
+  .step-tcode {
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+
+  .step-content-detailed {
+    padding: 1.5rem;
+  }
+
+  .step-description {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: #f8fafc;
+    border-radius: 8px;
+    border-left: 4px solid #3b82f6;
+  }
+
+  /* SAP Screen Demo */
+  .sap-screen-demo {
+    background: #f1f5f9;
+    border: 2px solid #cbd5e1;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    overflow: hidden;
+  }
+
+  .screen-header {
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    color: white;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+  }
+
+  .screen-content {
+    background: white;
+  }
+
+  .screen-fields {
+    padding: 1rem;
+  }
+
+  .field-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .field-group h6 {
+    color: #374151;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .field-row {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0;
+    gap: 0.75rem;
+  }
+
+  .field-row label {
+    min-width: 140px;
+    font-weight: 500;
+    color: #374151;
+  }
+
+  .field-row input {
+    padding: 0.25rem 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    background: #f9fafb;
+    font-family: monospace;
+    font-size: 0.9rem;
+  }
+
+  .field-help {
+    color: #6b7280;
+    font-size: 0.85rem;
+    font-style: italic;
+  }
+
+  /* Tables */
+  .gr-table,
+  .tr-table,
+  .to-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    margin: 1rem 0;
+  }
+
+  .gr-table th,
+  .tr-table th,
+  .to-table th {
+    background: #374151;
+    color: white;
+    padding: 0.75rem;
+    text-align: left;
+    font-weight: 500;
+  }
+
+  .gr-table td,
+  .tr-table td,
+  .to-table td {
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .delivered-qty {
+    font-weight: 600;
+    color: #059669;
+  }
+
+  .source-bin {
+    background: #fef3c7;
+    color: #92400e;
+    font-weight: 500;
+    border-radius: 4px;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .dest-bin {
+    background: #dcfce7;
+    color: #166534;
+    font-weight: 500;
+    border-radius: 4px;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .qty-field {
+    font-weight: 600;
+    color: #1e40af;
+  }
+
+  /* Screen Results */
+  .screen-result {
+    background: #f0f9ff;
+    padding: 1rem;
+    border-top: 1px solid #e5e7eb;
+  }
+
+  .result-message {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+  }
+
+  .result-message.success {
+    background: #dcfce7;
+    border: 1px solid #bbf7d0;
+    color: #166534;
+  }
+
+  .result-details {
+    background: white;
+    padding: 1rem;
+    border-radius: 6px;
+    border: 1px solid #e5e7eb;
+  }
+
+  .detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f3f4f6;
+  }
+
+  .detail-row:last-child {
+    border-bottom: none;
+  }
+
+  .detail-label {
+    font-weight: 500;
+    color: #374151;
+  }
+
+  .detail-value {
+    font-weight: 600;
+    color: #1e40af;
+  }
+
+  .detail-value.warning {
+    color: #d97706;
+  }
+
+  /* Integration Notes */
+  .integration-note,
+  .business-rule-note {
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem 0;
+  }
+
+  .integration-note h6,
+  .business-rule-note h6 {
+    color: #92400e;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .integration-note ul,
+  .business-rule-note ul {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+  }
+
+  .integration-note li,
+  .business-rule-note li {
+    margin: 0.25rem 0;
+  }
+
+  /* Transfer Requirement Details */
+  .tr-details {
+    background: #f8fafc;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+  }
+
+  .tr-header {
+    margin-bottom: 1rem;
+  }
+
+  .tr-header h6 {
+    color: #1e40af;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .tr-metadata {
+    background: white;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-top: 1rem;
+  }
+
+  .metadata-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .metadata-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .metadata-item strong {
+    color: #374151;
+    font-size: 0.9rem;
+  }
+
+  /* Status Indicators */
+  .status-open {
+    background: #fef3c7;
+    color: #92400e;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+
+  .status-confirmed {
+    background: #dcfce7;
+    color: #166534;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+
+  /* Strategy Application */
+  .strategy-application {
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+  }
+
+  .strategy-application h6 {
+    color: #0c4a6e;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .strategy-flow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .strategy-step {
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    min-width: 200px;
+  }
+
+  .strategy-icon {
+    font-size: 1.5rem;
+  }
+
+  .strategy-content strong {
+    color: #1e40af;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .strategy-content ol {
+    margin: 0.5rem 0;
+    padding-left: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .strategy-content small {
+    color: #6b7280;
+    font-size: 0.8rem;
+  }
+
+  .arrow {
+    color: #3b82f6;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+
+  /* TO Details */
+  .to-header-info {
+    display: flex;
+    gap: 2rem;
+    padding: 1rem;
+    background: #f8fafc;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .header-field {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .header-field label {
+    font-weight: 500;
+    color: #374151;
+  }
+
+  .header-field span {
+    font-family: monospace;
+    background: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #d1d5db;
+  }
+
+  .to-details-table {
+    padding: 1rem;
+  }
+
+  .to-row {
+    background: #f9fafb;
+  }
+
+  .system-actions {
+    background: #f0fdf4;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-top: 1rem;
+  }
+
+  .system-actions h6 {
+    color: #166534;
+    margin-bottom: 0.75rem;
+  }
+
+  .system-actions ul {
+    margin: 0;
+    padding-left: 1.5rem;
+  }
+
+  .system-actions li {
+    margin: 0.25rem 0;
+    font-size: 0.9rem;
+  }
+
+  /* RF Device Instructions */
+  .rf-device-instruction {
+    background: #1f2937;
+    color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+  }
+
+  .rf-device-instruction h6 {
+    color: #f3f4f6;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .rf-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .rf-screen {
+    background: #111827;
+    border: 3px solid #374151;
+    border-radius: 12px;
+    padding: 1rem;
+    width: 300px;
+    font-family: monospace;
+  }
+
+  .rf-header {
+    background: #3b82f6;
+    color: white;
+    text-align: center;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .rf-content {
+    background: #1f2937;
+    padding: 0.75rem;
+    border-radius: 4px;
+  }
+
+  .rf-line {
+    color: #f3f4f6;
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+  }
+
+  .rf-action {
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .rf-btn {
+    background: #10b981;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  /* Confirmation Scenario */
+  .confirmation-scenario {
+    background: #f8fafc;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+  }
+
+  .confirmation-scenario h6 {
+    color: #1e40af;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* Warehouse Activity Timeline */
+  .warehouse-activity {
+    margin: 1rem 0;
+  }
+
+  .activity-timeline {
+    position: relative;
+    padding-left: 2rem;
+  }
+
+  .activity-timeline::before {
+    content: "";
+    position: absolute;
+    left: 0.75rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #3b82f6;
+  }
+
+  .timeline-item {
+    position: relative;
+    margin: 1rem 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -2.25rem;
+    top: 0.25rem;
+    width: 0.75rem;
+    height: 0.75rem;
+    background: #3b82f6;
+    border-radius: 50%;
+    border: 2px solid white;
+  }
+
+  .timeline-time {
+    background: #1e40af;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    min-width: 60px;
+    text-align: center;
+  }
+
+  .timeline-content {
+    flex: 1;
+    background: white;
+    padding: 0.75rem;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .timeline-content strong {
+    color: #1e40af;
+  }
+
+  /* RF Confirmation Flow */
+  .rf-confirmation-flow {
+    background: #111827;
+    color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+  }
+
+  .rf-confirmation-flow h6 {
+    color: #f3f4f6;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .rf-steps {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .rf-step {
+    background: #1f2937;
+    border-radius: 8px;
+    padding: 1rem;
+    min-width: 150px;
+  }
+
+  .rf-step-screen strong {
+    color: #3b82f6;
+    display: block;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+
+  .rf-mini-screen {
+    background: #111827;
+    border: 1px solid #374151;
+    border-radius: 4px;
+    padding: 0.5rem;
+    font-family: monospace;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  .rf-input {
+    background: #374151;
+    color: white;
+    border: 1px solid #6b7280;
+    border-radius: 3px;
+    padding: 0.25rem;
+    width: 60px;
+    text-align: center;
+    font-family: monospace;
+  }
+
+  .rf-arrow {
+    color: #3b82f6;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  /* System Updates */
+  .system-updates {
+    margin: 1.5rem 0;
+  }
+
+  .system-updates h6 {
+    color: #1e40af;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .update-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .update-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .update-header {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+  }
+
+  .wm-update .update-header {
+    background: #f0f9ff;
+    color: #1e40af;
+  }
+
+  .im-update .update-header {
+    background: #f0fdf4;
+    color: #166534;
+  }
+
+  .update-content {
+    padding: 1rem;
+  }
+
+  .update-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f3f4f6;
+  }
+
+  .update-item:last-child {
+    border-bottom: none;
+  }
+
+  .update-item .label {
+    color: #6b7280;
+    font-size: 0.9rem;
+  }
+
+  .update-item .value {
+    font-weight: 500;
+    color: #374151;
+  }
+
+  .update-item .value.success {
+    color: #059669;
+  }
+
+  /* Audit Trail */
+  .audit-trail {
+    background: #f8fafc;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+  }
+
+  .audit-trail h6 {
+    color: #374151;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .audit-log {
+    background: #111827;
+    border-radius: 6px;
+    padding: 1rem;
+    font-family: monospace;
+    font-size: 0.8rem;
+  }
+
+  .log-entry {
+    display: grid;
+    grid-template-columns: 80px 100px 120px 1fr;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #374151;
+    color: #f3f4f6;
+  }
+
+  .log-entry:last-child {
+    border-bottom: none;
+  }
+
+  .log-time {
+    color: #60a5fa;
+  }
+
+  .log-user {
+    color: #34d399;
+  }
+
+  .log-action {
+    color: #fbbf24;
+  }
+
+  .log-details {
+    color: #f3f4f6;
+  }
+
+  /* Process Summary */
+  .process-summary {
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    border: 1px solid #bbf7d0;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+  }
+
+  .summary-title {
+    color: #166534;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  /* KPI Grid */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .kpi-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  .kpi-icon {
+    font-size: 2rem;
+  }
+
+  .kpi-content {
+    flex: 1;
+  }
+
+  .kpi-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #059669;
+    margin-bottom: 0.25rem;
+  }
+
+  .kpi-label {
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.25rem;
+  }
+
+  .kpi-detail {
+    font-size: 0.8rem;
+    color: #6b7280;
+  }
+
+  /* Lessons Learned */
+  .lessons-learned h5 {
+    color: #166534;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .lessons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+
+  .lesson-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  .lesson-icon {
+    font-size: 1.5rem;
+    margin-top: 0.25rem;
+  }
+
+  .lesson-content strong {
+    color: #1e40af;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .lesson-content p {
+    color: #6b7280;
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  /* Advanced Topics */
+  .advanced-topics {
+    background: linear-gradient(135deg, #fef7ff 0%, #f3e8ff 100%);
+    border: 1px solid #d8b4fe;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+  }
+
+  .advanced-title {
+    color: #7c3aed;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .topic-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .topic-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  .topic-header {
+    background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
+    color: white;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .topic-header h5 {
+    margin: 0;
+  }
+
+  .topic-content {
+    padding: 1rem;
+  }
+
+  .topic-content p {
+    color: #374151;
+    margin-bottom: 0.75rem;
+  }
+
+  .topic-content ul {
+    margin: 0;
+    padding-left: 1.5rem;
+  }
+
+  .topic-content li {
+    color: #6b7280;
+    margin: 0.25rem 0;
+    font-size: 0.9rem;
+  }
+
+  .topic-content strong {
+    color: #7c3aed;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .context-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .strategy-flow {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .strategy-step {
+      min-width: auto;
+    }
+
+    .arrow {
+      transform: rotate(90deg);
+      align-self: center;
+    }
+
+    .update-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .kpi-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .lessons-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .topic-cards {
+      grid-template-columns: 1fr;
+    }
+
+    .rf-steps {
+      flex-direction: column;
+    }
+
+    .rf-arrow {
+      transform: rotate(90deg);
+    }
+
+    .to-header-info {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .log-entry {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .step-header {
+      flex-direction: column;
+      text-align: center;
+      gap: 0.5rem;
+    }
+
+    .step-content-detailed {
+      padding: 1rem;
+    }
+
+    .field-row {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .field-row label {
+      min-width: auto;
+    }
+
+    .gr-table,
+    .tr-table,
+    .to-table {
+      font-size: 0.8rem;
+    }
+
+    .gr-table th,
+    .gr-table td,
+    .tr-table th,
+    .tr-table td,
+    .to-table th,
+    .to-table td {
+      padding: 0.5rem;
+    }
+
+    .timeline-item {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .timeline-time {
+      align-self: flex-start;
+    }
+  }
+
+  /* Additional styles for Goods Issue process */
+
+  /* SD Update Card */
+  .sd-update .update-header {
+    background: #eff6ff;
+    color: #1e40af;
+  }
+
+  /* Challenge Cards */
+  .picking-challenges {
+    background: #fef7ff;
+    border: 1px solid #e879f9;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+  }
+
+  .picking-challenges h6 {
+    color: #a21caf;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .challenge-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+
+  .challenge-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  .challenge-icon {
+    font-size: 1.5rem;
+    margin-top: 0.25rem;
+  }
+
+  .challenge-content strong {
+    color: #a21caf;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .challenge-content p {
+    color: #6b7280;
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  /* Final GI Posting */
+  .final-gi-posting {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border: 1px solid #bae6fd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .final-gi-posting h6 {
+    color: #0c4a6e;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .posting-screen {
+    background: white;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .posting-header {
+    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+    color: white;
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+  }
+
+  .posting-content {
+    padding: 1rem;
+  }
+
+  .posting-info {
+    background: #f8fafc;
+    border-radius: 6px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .info-row:last-child {
+    border-bottom: none;
+  }
+
+  .info-label {
+    font-weight: 500;
+    color: #374151;
+  }
+
+  .info-value {
+    color: #1e40af;
+    font-weight: 500;
+  }
+
+  .financial-impact {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 6px;
+    padding: 1rem;
+  }
+
+  .financial-impact h6 {
+    color: #166534;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .financial-impact ul {
+    margin: 0;
+    padding-left: 1.5rem;
+  }
+
+  .financial-impact li {
+    color: #374151;
+    margin: 0.5rem 0;
+  }
+
+  .financial-impact strong {
+    color: #166534;
+  }
+
+  /* Pick Route Distance KPI specific styling */
+  .kpi-card:nth-child(4) .kpi-icon {
+    color: #2563eb;
+  }
+
+  /* Additional responsive adjustments for Goods Issue */
+  @media (max-width: 768px) {
+    .challenge-cards {
+      grid-template-columns: 1fr;
+    }
+
+    .info-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.25rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .posting-content {
+      padding: 0.75rem;
+    }
+
+    .challenge-card {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .challenge-icon {
+      align-self: center;
+      margin-top: 0;
+    }
+  }
+</style>
+
+<!-- Process navigation functionality is loaded separately via js/processes.js -->
