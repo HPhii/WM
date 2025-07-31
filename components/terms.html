@@ -258,6 +258,31 @@
           </p>
         </div>
 
+        <div class="sto-image">
+          <img src="assets/images/stock-transfer-order.png" alt="Stock Transport Order Process" class="img-fluid">
+          <div class="sto-image-explanation">
+            <h4>Giải thích quy trình Stock Transfer với STO</h4>
+            <p>
+              Đây là quy trình <strong>chuyển hàng giữa hai plant</strong> trong SAP sử dụng <strong>Stock Transport Order (STO)</strong>:
+            </p>
+            <ol>
+              <li>
+                <strong>Issuing Plant (Nhà máy xuất):</strong> Hàng nằm ở <span class="highlight-technical">Unrestricted-use stock</span>. Khi có yêu cầu, <span class="key-term">STO</span> được tạo từ plant nhận, sau đó hàng được xuất kho và chuyển sang trạng thái <span class="highlight-technical">Stock in transit</span>.
+              </li>
+              <li>
+                <strong>Stock in Transit:</strong> Hàng đang vận chuyển, không thuộc quyền sử dụng của plant xuất, cũng chưa về kho plant nhận. Trạng thái này giúp theo dõi chính xác cả về vật lý lẫn tài chính.
+              </li>
+              <li>
+                <strong>Receiving Plant (Nhà máy nhận):</strong> Khi hàng đến, thực hiện <span class="key-term">Goods Receipt</span>. Tùy quy trình, hàng sẽ vào <span class="highlight-technical">Unrestricted-use stock</span>, <span class="highlight-technical">Quality Inspection</span> hoặc <span class="highlight-technical">Blocked stock</span>.
+              </li>
+            </ol>
+            <p>
+              <strong>Kết luận:</strong> Quy trình này giúp <span class="highlight-feature">theo dõi hàng trong vận chuyển</span>, <span class="highlight-feature">liên kết hai plant</span> và <span class="highlight-feature">quản lý nghiệp vụ rõ ràng</span>. <br>
+              <em>Khác với transfer thường, STO có chứng từ quản lý và có thể định giá nội bộ.</em>
+            </p>
+          </div>
+        </div>
+
         <div class="sto-objectives">
           <h4 class="sto-subtitle">
             <i class="fas fa-bullseye"></i> Mục tiêu của Stock Transport Order
@@ -694,20 +719,27 @@
             <i class="fas fa-cogs"></i> Cách kiểm tra và quản lý Bin Status trong SAP
           </h4>
           
-          <div class="management-operations">
+            <div class="management-operations">
             <div class="management-operation check">
-              <h5><i class="fas fa-search"></i> Kiểm tra <span class="key-term">Bin Status</span></h5>
-              <p>Em dùng transaction <span class="highlight-technical">LS03N</span> để xem chi tiết một <span class="key-term">Storage Bin</span>.</p>
-              <ul>
-                <li>Vào <span class="highlight-technical">LS03N</span> → nhập <span class="highlight-technical">Warehouse Number</span> và <span class="highlight-technical">Storage Bin</span> → Enter</li>
-                <li>Tab <span class="highlight-feature">"Status"</span> sẽ hiện:
+              <div class="operation-content-with-image">
+                <div class="operation-text">
+                  <h5><i class="fas fa-search"></i> Kiểm tra <span class="key-term">Bin Status</span></h5>
+                  <p>Em dùng transaction <span class="highlight-technical">LS03N</span> để xem chi tiết một <span class="key-term">Storage Bin</span>.</p>
                   <ul>
-                    <li><span class="highlight-technical">Putaway blocked = X</span> (có nghĩa là bin này không nhận hàng mới)</li>
-                    <li><span class="highlight-technical">Stock removal blocked = X</span> (không được pick hàng từ đây)</li>
-                    <li><span class="highlight-feature">Block Reason</span>: hiển thị lý do (nếu có maintain)</li>
+                    <li>Vào <span class="highlight-technical">LS03N</span> → nhập <span class="highlight-technical">Warehouse Number</span> và <span class="highlight-technical">Storage Bin</span> → Enter</li>
+                    <li>Tab <span class="highlight-feature">"Status"</span> sẽ hiện:
+                      <ul>
+                        <li><span class="highlight-technical">Putaway blocked = X</span> (có nghĩa là bin này không nhận hàng mới)</li>
+                        <li><span class="highlight-technical">Stock removal blocked = X</span> (không được pick hàng từ đây)</li>
+                        <li><span class="highlight-feature">Block Reason</span>: hiển thị lý do (nếu có maintain)</li>
+                      </ul>
+                    </li>
                   </ul>
-                </li>
-              </ul>
+                </div>
+                <div class="operation-image">
+                  <img src="assets/images/str-bin-status.png" alt="Storage Bin Status Display" class="bin-status-img">
+                </div>
+              </div>
             </div>
             
             <div class="management-operation set-block">
@@ -778,354 +810,121 @@
   </div>
 </div>
 
-        <div class="terms-grid" id="terms-grid">
-          <!-- Basic Terms -->
-          <div class="term-card basic" data-term="warehouse">
-            <div class="term-header">
-              <h3 class="term-name"><span class="key-term">Warehouse</span></h3>
-              <span class="term-category basic">Cơ bản</span>
-            </div>
-            <div class="term-content">
-              <p class="term-definition">
-                <span class="highlight-feature">Kho hàng</span> - Cơ sở vật chất để lưu trữ, bảo quản và quản lý hàng
-                hóa.
-              </p>
-              <div class="term-details">
-                <p>
-                  <strong>Trong SAP:</strong> Được định nghĩa bằng <span class="highlight-technical">Warehouse
-                  Number</span> và có thể chứa nhiều <span class="key-term">Storage Type</span> khác nhau.
-                </p>
-                <p><strong>Ví dụ:</strong> <span class="highlight-example">Warehouse 001, 002, 100</span></p>
-              </div>
-            </div>
+        <div class="terms-horizontal-list">
+          <h3 class="terms-section-title">📚 Các Thuật Ngữ Chính trong SAP WM</h3>
+          
+          <div class="horizontal-term">
+            <h4><span class="key-term">Warehouse</span></h4>
+            <p><strong>Kho hàng</strong> - Cơ sở vật chất để lưu trữ, bảo quản và quản lý hàng hóa.</p>
+            <p><strong>Trong SAP:</strong> Được định nghĩa bằng <span class="highlight-technical">Warehouse Number</span> và có thể chứa nhiều <span class="key-term">Storage Type</span> khác nhau.</p>
+            <p><strong>Ví dụ:</strong> <span class="highlight-example">Kho chính Global Bike tại Hà Nội = Warehouse 001, kho phụ tại HCM = Warehouse 002</span></p>
           </div>
 
-          <div class="term-card basic" data-term="storage-type">
-            <div class="term-header">
-              <h3 class="term-name"><span class="key-term">Storage Type</span></h3>
-              <span class="term-category basic">Cơ bản</span>
-            </div>
-            <div class="term-content">
-              <p class="term-definition">
-                <span class="highlight-feature">Loại khu vực lưu trữ</span> - Phân loại các khu vực trong kho theo đặc
-                điểm và mục đích sử dụng.
-              </p>
-              <div class="term-details">
-                <p>
-                  <strong>Các loại phổ biến:</strong> <span class="highlight-technical">PALLET, SHELF, FLOOR,
-                  BULK, PICK</span>
-                </p>
-                <p>
-                  <strong>Ví dụ:</strong> <span class="highlight-example">Storage Type PALLET cho hàng pallet,
-                  SHELF cho hàng kệ</span>
-                </p>
-              </div>
-            </div>
+          <div class="horizontal-term">
+            <h4><span class="key-term">Storage Type</span></h4>
+            <p><strong>Loại khu vực lưu trữ</strong> - Phân loại các khu vực trong kho theo đặc điểm và mục đích sử dụng.</p>
+            <p><strong>Các loại phổ biến:</strong> <span class="highlight-technical">PALLET, SHELF, FLOOR, BULK, PICK</span></p>
+            <p><strong>Ví dụ:</strong> <span class="highlight-example">Khu PALLET để khung xe lớn, khu SHELF để phụ tùng nhỏ, khu PICK để lấy hàng nhanh</span></p>
           </div>
 
-          <div class="term-card basic" data-term="storage-bin">
-            <div class="term-header">
-              <h3 class="term-name"><span class="key-term">Storage Bin</span></h3>
-              <span class="term-category basic">Cơ bản</span>
-            </div>
-            <div class="term-content">
-              <p class="term-definition">
-                <span class="highlight-feature">Vị trí lưu trữ</span> - Địa chỉ cụ thể nhất để lưu trữ hàng hóa trong
-                kho.
-              </p>
-              <div class="term-details">
-                <p>
-                  <strong>Cấu trúc:</strong> Thường có format như <span class="highlight-technical">A1-01-01
-                  (Dãy-Tầng-Vị trí)</span>
-                </p>
-                <p>
-                  <strong>Thuộc tính:</strong> <span class="highlight-technical">Capacity, Weight limit, Bin type</span>
-                </p>
-              </div>
-            </div>
+          <div class="horizontal-term">
+            <h4><span class="key-term">Storage Bin</span></h4>
+            <p><strong>Vị trí lưu trữ</strong> - Địa chỉ cụ thể nhất để lưu trữ hàng hóa trong kho.</p>
+            <p><strong>Cấu trúc:</strong> Thường có format như <span class="highlight-technical">A1-01-01 (Dãy-Tầng-Vị trí)</span></p>
+            <p><strong>Ví dụ:</strong> <span class="highlight-example">Bin A1-02-05 = Dãy A1, tầng 2, vị trí số 5. Đây là nơi cất 50 cái phanh đĩa Honda</span></p>
           </div>
 
-          <div class="term-card basic" data-term="quant">
-            <div class="term-header">
-              <h3 class="term-name"><span class="key-term">Quant</span></h3>
-              <span class="term-category basic">Cơ bản</span>
-            </div>
-            <div class="term-content">
-              <p class="term-definition">
-                <span class="highlight-feature">Đơn vị quản lý stock</span> - Đại diện cho một lượng hàng cụ thể tại
-                một vị trí cụ thể.
-              </p>
-              <div class="term-details">
-                <p>
-                  <strong>Thông tin:</strong> <span class="highlight-technical">Material, Quantity, Batch, Stock
-                  Type</span>
-                </p>
-                <p>
-                  <strong>Đặc điểm:</strong> Mỗi <span class="key-term">bin</span> có thể chứa nhiều <span class="key-term">quant</span>
-                  khác nhau
-                </p>
-              </div>
-            </div>
+          <div class="horizontal-term">
+            <h4><span class="key-term">Quant</span></h4>
+            <p><strong>Đơn vị quản lý stock</strong> - Đại diện cho một lượng hàng cụ thể tại một vị trí cụ thể.</p>
+            <p><strong>Thông tin:</strong> <span class="highlight-technical">Material, Quantity, Batch, Stock Type</span></p>
+            <p><strong>Ví dụ:</strong> <span class="highlight-example">Tại bin A1-02-05 có Quant #1: 30 phanh Honda batch LOT001, Quant #2: 20 phanh Yamaha batch LOT002</span></p>
           </div>
 
-          <!-- Process Terms -->
-          <div class="term-card process" data-term="put-away">
-            <div class="term-header">
-              <h3 class="term-name"><span class="key-term">Put-away</span></h3>
-              <span class="term-category process">Quy trình</span>
-            </div>
-            <div class="term-content">
-              <p class="term-definition">
-                <span class="highlight-feature">Quy trình sắp xếp hàng</span> - Chuyển hàng từ khu tiếp nhận vào vị trí
-                lưu trữ.
-              </p>
-              <div class="term-details">
-                <p>
-                  <strong>Các bước:</strong> <span class="highlight-technical">Goods Receipt → Transfer Order →
-                  Put-away</span>
-                </p>
-                <p>
-                  <strong>Chiến lược:</strong> <span class="highlight-technical">Fixed bin, Dynamic, Addition to
-                  existing stock</span>
-                </p>
-              </div>
-            </div>
+          <div class="horizontal-term">
+            <h4><span class="key-term">Put-away</span></h4>
+            <p><strong>Quy trình sắp xếp hàng</strong> - Chuyển hàng từ khu tiếp nhận vào vị trí lưu trữ.</p>
+            <p><strong>Các bước:</strong> <span class="highlight-technical">Goods Receipt → Transfer Order → Put-away</span></p>
+            <p><strong>Ví dụ:</strong> <span class="highlight-example">Xe tải đem 100 lốp xe đến → nhận hàng tại cửa → tạo TO → nhân viên đẩy xe nâng cất vào bin B2-01-03</span></p>
           </div>
 
-          <div class="term-card process" data-term="picking">
-            <div class="term-header">
-              <h3 class="term-name"><span class="key-term">Picking</span></h3>
-              <span class="term-category process">Quy trình</span>
-            </div>
-            <div class="term-content">
-              <p class="term-definition">
-                <span class="highlight-feature">Quy trình lấy hàng</span> - Lấy hàng từ vị trí lưu trữ để chuẩn bị xuất
-                kho.
-              </p>
-              <div class="term-details">
-                <p>
-                  <strong>Loại picking:</strong> <span class="highlight-technical">Single picking, Batch picking,
-                  Wave picking</span>
-                </p>
-                <p>
-                  <strong>Chiến lược:</strong> <span class="highlight-technical">FIFO, LIFO, Empty storage bin</span>
-                </p>
-              </div>
-            </div>
+          <div class="horizontal-term">
+            <h4><span class="key-term">Picking</span></h4>
+            <p><strong>Quy trình lấy hàng</strong> - Lấy hàng từ vị trí lưu trữ để chuẩn bị xuất kho.</p>
+            <p><strong>Loại picking:</strong> <span class="highlight-technical">Single picking, Batch picking, Wave picking</span></p>
+            <p><strong>Ví dụ:</strong> <span class="highlight-example">Khách đặt 5 lốp xe → tạo TO pick → nhân viên đến bin B2-01-03 lấy 5 lốp → đưa ra khu xuất hàng</span></p>
           </div>
 
-          <div class="term-card process" data-term="transfer-order">
-            <div class="term-header">
-              <h3 class="term-name"><span class="key-term">Transfer Order (TO)</span></h3>
-              <span class="term-category process">Quy trình</span>
-            </div>
-            <div class="term-content">
-              <p class="term-definition">
-                <span class="highlight-feature">Lệnh chuyển hàng</span> - Chỉ thị di chuyển hàng từ vị trí này sang vị
-                trí khác.
-              </p>
-              <div class="term-details">
-                <p>
-                  <strong>Loại TO:</strong> <span class="highlight-technical">Put-away TO, Pick TO, Stock Transfer
-                  TO</span>
-                </p>
-                <p><strong>Trạng thái:</strong> <span class="highlight-technical">Open, In process, Confirmed</span></p>
-              </div>
-            </div>
+          <div class="horizontal-term">
+            <h4><span class="key-term">Transfer Order (TO)</span></h4>
+            <p><strong>Lệnh chuyển hàng</strong> - Chỉ thị di chuyển hàng từ vị trí này sang vị trí khác.</p>
+            <p><strong>Loại TO:</strong> <span class="highlight-technical">Put-away TO, Pick TO, Stock Transfer TO</span></p>
+            <p><strong>Ví dụ:</strong> <span class="highlight-example">TO #1001: Di chuyển 10 gương chiếu hậu từ bin A1-01-01 đến khu đóng gói</span></p>
           </div>
 
-          <div class="term-card process" data-term="transfer-requirement">
-            <div class="term-header">
-              <h3 class="term-name"><span class="key-term">Transfer Requirement (TR)</span></h3>
-              <span class="term-category process">Quy trình</span>
-            </div>
-            <div class="term-content">
-              <p class="term-definition">
-                <span class="highlight-feature">Yêu cầu chuyển hàng</span> - Yêu cầu di chuyển hàng, được tạo tự động
-                hoặc thủ công.
-              </p>
-              <div class="term-details">
-                <p>
-                  <strong>Nguồn tạo:</strong> <span class="highlight-technical">Goods Receipt, Delivery, Manual</span>
-                </p>
-                <p><strong>Xử lý:</strong> <span class="highlight-technical">TR → TO → Confirmation</span></p>
-              </div>
-            </div>
+          <div class="horizontal-term">
+            <h4><span class="key-term">Transfer Requirement (TR)</span></h4>
+            <p><strong>Yêu cầu chuyển hàng</strong> - Yêu cầu di chuyển hàng, được tạo tự động hoặc thủ công.</p>
+            <p><strong>Nguồn tạo:</strong> <span class="highlight-technical">Goods Receipt, Delivery, Manual</span></p>
+            <p><strong>Ví dụ:</strong> <span class="highlight-example">Khi nhận 200 bugi → hệ thống tự tạo TR → sau đó tạo TO → nhân viên thực hiện</span></p>
           </div>
 
-          <!-- Technical Terms -->
-          <div class="term-card technical" data-term="storage-unit">
-            <div class="term-header">
-              <h3 class="term-name">Storage Unit (SU)</h3>
-              <span class="term-category technical">Kỹ thuật</span>
-            </div>
-            <div class="term-content">
-              <p class="term-definition">
-                Đơn vị lưu trữ - Container logic để nhóm các material lại với
-                nhau.
-              </p>
-              <div class="term-details">
-                <p>
-                  <strong>Đặc điểm:</strong> Có thể chứa nhiều material, di
-                  chuyển như một khối
-                </p>
-                <p>
-                  <strong>Ứng dụng:</strong> Pallet management, Container
-                  tracking
-                </p>
-              </div>
-            </div>
+          <div class="horizontal-term">
+            <h4><span class="key-term">Storage Unit (SU)</span></h4>
+            <p><strong>Đơn vị lưu trữ</strong> - Container logic để nhóm các material lại với nhau.</p>
+            <p><strong>Đặc điểm:</strong> Có thể chứa nhiều material, di chuyển như một khối</p>
+            <p><strong>Ví dụ:</strong> <span class="highlight-example">Pallet P001 chứa cả lốp xe + phanh + gương, di chuyển cả pallet thay vì từng món</span></p>
           </div>
 
-          <div class="term-card technical" data-term="warehouse-task">
-            <div class="term-header">
-              <h3 class="term-name">Warehouse Task</h3>
-              <span class="term-category technical">Kỹ thuật</span>
-            </div>
-            <div class="term-content">
-              <p class="term-definition">
-                Nhiệm vụ kho - Đơn vị công việc cơ bản nhất trong WM, tương ứng
-                với một TO item.
-              </p>
-              <div class="term-details">
-                <p>
-                  <strong>Thông tin:</strong> Source bin, Destination bin,
-                  Material, Quantity
-                </p>
-                <p><strong>Trạng thái:</strong> Open, Confirmed, Cancelled</p>
-              </div>
-            </div>
+          <div class="horizontal-term">
+            <h4><span class="key-term">Warehouse Task</span></h4>
+            <p><strong>Nhiệm vụ kho</strong> - Đơn vị công việc cơ bản nhất trong WM, tương ứng với một TO item.</p>
+            <p><strong>Thông tin:</strong> <span class="highlight-technical">Source bin, Destination bin, Material, Quantity</span></p>
+            <p><strong>Ví dụ:</strong> <span class="highlight-example">Task #001: Lấy 15 bình ắc quy từ bin C1-03-02 chuyển đến khu đóng gói</span></p>
           </div>
 
-          <div class="term-card technical" data-term="interim-storage">
-            <div class="term-header">
-              <h3 class="term-name">Interim Storage</h3>
-              <span class="term-category technical">Kỹ thuật</span>
-            </div>
-            <div class="term-content">
-              <p class="term-definition">
-                Kho tạm - Khu vực tạm thời để xử lý hàng trước khi chuyển đến vị
-                trí cuối cùng.
-              </p>
-              <div class="term-details">
-                <p>
-                  <strong>Mục đích:</strong> Quality check, Repackaging, Staging
-                </p>
-                <p>
-                  <strong>Đặc điểm:</strong> Thời gian lưu trữ ngắn, luồng xử lý
-                  nhanh
-                </p>
-              </div>
-            </div>
+          <div class="horizontal-term">
+            <h4><span class="key-term">Stock Removal Strategy</span></h4>
+            <p><strong>Chiến lược lấy hàng</strong> - Quy tắc xác định thứ tự lấy hàng khi có nhiều lựa chọn.</p>
+            <p><strong>Các loại:</strong> <span class="highlight-technical">FIFO, LIFO, FEFO, LEFO</span></p>
+            <p><strong>Ví dụ:</strong> <span class="highlight-example">FIFO: Lấy lốp sản xuất 01/2024 trước, sau đó mới lấy lốp 03/2024</span></p>
           </div>
 
-          <div class="term-card technical" data-term="stock-removal">
-            <div class="term-header">
-              <h3 class="term-name">Stock Removal Strategy</h3>
-              <span class="term-category technical">Kỹ thuật</span>
-            </div>
-            <div class="term-content">
-              <p class="term-definition">
-                Chiến lược lấy hàng - Quy tắc xác định thứ tự lấy hàng khi có
-                nhiều lựa chọn.
-              </p>
-              <div class="term-details">
-                <p><strong>Các loại:</strong> FIFO, LIFO, FEFO, LEFO</p>
-                <p>
-                  <strong>Cấu hình:</strong> Theo Material, Storage Type, hoặc
-                  Warehouse
-                </p>
-              </div>
-            </div>
+          <div class="horizontal-term">
+            <h4><span class="key-term">Replenishment</span></h4>
+            <p><strong>Bổ sung hàng</strong> - Quy trình tự động bổ sung hàng từ khu bulk xuống khu picking.</p>
+            <p><strong>Trigger:</strong> <span class="highlight-technical">Min/Max quantity, Empty bin, Time-based</span></p>
+            <p><strong>Ví dụ:</strong> <span class="highlight-example">Khu pick còn 5 bugi (min=10) → hệ thống tự tạo TO bổ sung 50 bugi từ khu bulk</span></p>
           </div>
 
-          <div class="term-card process" data-term="replenishment">
-            <div class="term-header">
-              <h3 class="term-name">Replenishment</h3>
-              <span class="term-category process">Quy trình</span>
-            </div>
-            <div class="term-content">
-              <p class="term-definition">
-                Bổ sung hàng - Quy trình tự động bổ sung hàng từ khu bulk xuống
-                khu picking.
-              </p>
-              <div class="term-details">
-                <p>
-                  <strong>Trigger:</strong> Min/Max quantity, Empty bin,
-                  Time-based
-                </p>
-                <p><strong>Loại:</strong> Automatic, Manual, Planned</p>
-              </div>
-            </div>
+          <div class="horizontal-term">
+            <h4><span class="key-term">Batch Management</span></h4>
+            <p><strong>Quản lý theo lô</strong> - Theo dõi hàng hóa theo từng lô sản xuất hoặc nhập kho.</p>
+            <p><strong>Thông tin batch:</strong> <span class="highlight-technical">Production date, Expiry date, Vendor batch</span></p>
+            <p><strong>Ví dụ:</strong> <span class="highlight-example">Dầu nhớt batch LOT2024A sản xuất 15/01/2024, hết hạn 15/01/2026</span></p>
           </div>
 
-          <div class="term-card technical" data-term="batch-management">
-            <div class="term-header">
-              <h3 class="term-name">Batch Management</h3>
-              <span class="term-category technical">Kỹ thuật</span>
-            </div>
-            <div class="term-content">
-              <p class="term-definition">
-                Quản lý theo lô - Theo dõi hàng hóa theo từng lô sản xuất hoặc
-                nhập kho.
-              </p>
-              <div class="term-details">
-                <p>
-                  <strong>Thông tin batch:</strong> Production date, Expiry
-                  date, Vendor batch
-                </p>
-                <p>
-                  <strong>Ứng dụng:</strong> Traceability, Quality management,
-                  FEFO
-                </p>
-              </div>
-            </div>
+          <div class="horizontal-term">
+            <h4><span class="key-term">Physical Inventory</span></h4>
+            <p><strong>Kiểm kê thực tế</strong> - Quy trình đếm và xác minh số lượng hàng thực tế trong kho.</p>
+            <p><strong>Loại:</strong> <span class="highlight-technical">Annual, Cycle counting, Continuous</span></p>
+            <p><strong>Ví dụ:</strong> <span class="highlight-example">Cuối năm kiểm kê toàn bộ: Hệ thống báo 100 lốp, đếm thực tế 98 lốp → chênh lệch -2</span></p>
           </div>
 
-          <div class="term-card technical" data-term="physical-inventory">
-            <div class="term-header">
-              <h3 class="term-name">Physical Inventory</h3>
-              <span class="term-category technical">Kỹ thuật</span>
-            </div>
-            <div class="term-content">
-              <p class="term-definition">
-                Kiểm kê thực tế - Quy trình đếm và xác minh số lượng hàng thực
-                tế trong kho.
-              </p>
-              <div class="term-details">
-                <p><strong>Loại:</strong> Annual, Cycle counting, Continuous</p>
-                <p>
-                  <strong>Quy trình:</strong> Create document → Count → Post
-                  differences
-                </p>
-              </div>
-            </div>
+          <div class="horizontal-term">
+            <h4><span class="key-term">Cross-docking</span></h4>
+            <p><strong>Chuyển hàng trực tiếp</strong> - Hàng được chuyển từ nhận về giao mà không lưu trữ.</p>
+            <p><strong>Lợi ích:</strong> Giảm handling cost, Tăng tốc độ, Giảm inventory</p>
+            <p><strong>Ví dụ:</strong> <span class="highlight-example">Xe tải A đem 50 phanh → không cất kho → chuyển thẳng lên xe tải B giao cho đại lý</span></p>
           </div>
 
-          <div class="term-card process" data-term="cross-docking">
-            <div class="term-header">
-              <h3 class="term-name">Cross-docking</h3>
-              <span class="term-category process">Quy trình</span>
-            </div>
-            <div class="term-content">
-              <p class="term-definition">
-                Chuyển hàng trực tiếp - Hàng được chuyển từ nhận về giao mà
-                không lưu trữ.
-              </p>
-              <div class="term-details">
-                <p>
-                  <strong>Lợi ích:</strong> Giảm handling cost, Tăng tốc độ,
-                  Giảm inventory
-                </p>
-                <p>
-                  <strong>Áp dụng:</strong> Fast-moving items, Just-in-time
-                  delivery
-                </p>
-              </div>
-            </div>
+          <div class="horizontal-term">
+            <h4><span class="key-term">Interim Storage</span></h4>
+            <p><strong>Kho tạm</strong> - Khu vực tạm thời để xử lý hàng trước khi chuyển đến vị trí cuối cùng.</p>
+            <p><strong>Mục đích:</strong> <span class="highlight-technical">Quality check, Repackaging, Staging</span></p>
+            <p><strong>Ví dụ:</strong> <span class="highlight-example">Nhận 200 gương chiếu hậu → để khu tạm QC001 kiểm tra chất lượng → OK thì chuyển vào kho chính</span></p>
           </div>
         </div>
-      </div>
 
     </div>
   </div>
@@ -1207,6 +1006,58 @@
     transform: translateY(-1px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     cursor: help;
+  }
+
+  /* Terms Horizontal Layout */
+  .terms-horizontal-list {
+    margin-top: var(--space-8, 2rem);
+  }
+
+  .terms-section-title {
+    font-size: var(--text-2xl, 1.5rem);
+    font-weight: 700;
+    color: var(--neutral-800, #1f2937);
+    margin-bottom: var(--space-6, 1.5rem);
+    text-align: center;
+    padding: var(--space-4, 1rem);
+    background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+    border-radius: var(--radius-lg, 0.5rem);
+    border-left: 4px solid var(--primary-500, #3b82f6);
+  }
+
+  .horizontal-term {
+    margin-bottom: var(--space-8, 2rem);
+    padding: var(--space-6, 1.5rem);
+    background: white;
+    border-radius: var(--radius-lg, 0.5rem);
+    border: 1px solid var(--neutral-200, #e5e7eb);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+  }
+
+  .horizontal-term:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-300, #93c5fd);
+  }
+
+  .horizontal-term h4 {
+    font-size: var(--text-xl, 1.25rem);
+    font-weight: 700;
+    color: var(--neutral-800, #1f2937);
+    margin-bottom: var(--space-3, 0.75rem);
+    padding-bottom: var(--space-2, 0.5rem);
+    border-bottom: 2px solid var(--neutral-100, #f3f4f6);
+  }
+
+  .horizontal-term p {
+    margin-bottom: var(--space-2, 0.5rem);
+    line-height: 1.6;
+    color: var(--neutral-700, #374151);
+  }
+
+  .horizontal-term p:last-child {
+    margin-bottom: 0;
   }
 
   /* Terms-specific styles */
@@ -1650,6 +1501,43 @@
     display: flex;
     align-items: center;
     gap: var(--space-2, 0.5rem);
+  }
+
+  /* Layout for operation content with image */
+  .operation-content-with-image {
+    display: flex;
+    gap: var(--space-4, 1rem);
+    align-items: flex-start;
+  }
+
+  .operation-text {
+    flex: 1;
+  }
+
+  .operation-image {
+    flex-shrink: 0;
+    width: 500px;
+  }
+
+  .bin-status-img {
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--neutral-200, #e5e7eb);
+    border-radius: var(--radius-sm, 0.25rem);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .operation-content-with-image {
+      flex-direction: column;
+    }
+    
+    .operation-image {
+      width: 100%;
+      max-width: 350px;
+      align-self: center;
+    }
   }
 
   .impact-list {
