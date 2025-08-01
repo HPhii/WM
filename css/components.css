@@ -3731,3 +3731,340 @@ img {
   text-align: center;
 }
 
+/* Enhanced Practical Example Styles */
+.practical-example-section {
+  background: linear-gradient(135deg, var(--warning-50), var(--accent-50));
+  border: 2px solid var(--warning-200);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  margin: var(--space-6) 0;
+}
+
+.example-intro {
+  text-align: center;
+  margin-bottom: var(--space-6);
+  padding: var(--space-4);
+  background: white;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--warning-200);
+}
+
+.subsection-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  margin: var(--space-6) 0 var(--space-4) 0;
+  color: var(--warning-700);
+  padding-bottom: var(--space-2);
+  border-bottom: 2px solid var(--warning-200);
+}
+
+.subsection-title i {
+  font-size: var(--text-2xl);
+  color: var(--warning-600);
+}
+
+/* Example Tables */
+.overview-table,
+.warehouse-table {
+  background: white;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  margin: var(--space-4) 0;
+}
+
+.example-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+}
+
+.example-table thead {
+  background: linear-gradient(135deg, var(--primary-600), var(--primary-700));
+  color: white;
+}
+
+.example-table th {
+  padding: var(--space-4);
+  text-align: left;
+  font-weight: 600;
+  font-size: var(--text-base);
+}
+
+.example-table td {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--neutral-200);
+  vertical-align: top;
+}
+
+.example-table tbody tr:hover {
+  background: #f9fafb;
+}
+
+.example-table tbody tr:nth-child(even) {
+  background: #f3f4f6;
+}
+
+.example-table tbody tr:nth-child(even):hover {
+  background: #e5e7eb;
+}
+
+/* Ensure tooltips work in table context */
+.example-table td .sap-term {
+  position: relative !important;
+  display: inline-flex !important;
+  z-index: 10;
+}
+
+.example-table td .sap-term:hover {
+  background: #dbeafe !important;
+  color: #1d4ed8 !important;
+  z-index: 1000;
+}
+
+/* Override any table cell overflow issues - Enhanced */
+.example-table td {
+  overflow: visible !important;
+  position: relative;
+}
+
+.example-table {
+  overflow: visible !important;
+}
+
+/* Ensure tooltips have enough space and don't overlap */
+.example-table .sap-term {
+  margin: 8px 0;
+}
+
+/* Force tooltips to appear with proper spacing */
+.sap-term::after {
+  margin-bottom: 8px !important;
+}
+
+/* Additional spacing for category headers */
+.category-header {
+  padding: 16px 12px !important;
+}
+
+/* SAP Terms with Tooltips - Enhanced specificity */
+.sap-term {
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center;
+  gap: 8px;
+  cursor: help;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.sap-term:hover {
+  background: #dbeafe !important;
+  color: #1d4ed8 !important;
+}
+
+.tooltip-icon {
+  font-size: 12px;
+  color: #3b82f6;
+  opacity: 0.7;
+}
+
+.sap-term:hover .tooltip-icon {
+  opacity: 1;
+  color: #2563eb;
+}
+
+/* Enhanced Tooltip with higher specificity and better positioning */
+.example-table .sap-term::after,
+.sap-term::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 20px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #374151;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 400;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 99999 !important;
+  pointer-events: none;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  max-width: 320px;
+  white-space: normal;
+  text-align: center;
+  line-height: 1.5;
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Tooltip arrow with better positioning */
+.example-table .sap-term::before,
+.sap-term::before {
+  content: "";
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  border: 8px solid transparent;
+  border-top-color: #374151;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 99999 !important;
+  pointer-events: none;
+}
+
+.example-table .sap-term:hover::after,
+.example-table .sap-term:hover::before,
+.sap-term:hover::after,
+.sap-term:hover::before {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Special positioning for tooltips in table headers or category headers */
+.category-header .sap-term::after {
+  bottom: calc(100% + 25px);
+  background: #1f2937;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.category-header .sap-term::before {
+  bottom: calc(100% + 17px);
+  border-top-color: #1f2937;
+}
+
+/* Alternative positioning for tooltips that might overlap */
+.example-table tbody tr:first-child .sap-term::after,
+.example-table thead .sap-term::after {
+  bottom: auto;
+  top: calc(100% + 20px);
+  background: #1f2937;
+}
+
+.example-table tbody tr:first-child .sap-term::before,
+.example-table thead .sap-term::before {
+  bottom: auto;
+  top: calc(100% + 12px);
+  border-top-color: transparent;
+  border-bottom-color: #1f2937;
+  transform: translateX(-50%) rotate(180deg);
+}
+
+/* Category Headers in Tables */
+.category-header {
+  background: linear-gradient(
+    135deg,
+    var(--secondary-100),
+    var(--secondary-200)
+  );
+  font-weight: 600;
+  color: var(--secondary-700);
+  border-left: 4px solid var(--secondary-500);
+}
+
+.indent {
+  padding-left: var(--space-6);
+  font-family: var(--font-mono);
+  color: var(--neutral-600);
+}
+
+/* System Visualization */
+.system-visualization {
+  margin-top: var(--space-8);
+}
+
+.visualization-box {
+  background: white;
+  border: 2px solid var(--accent-200);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-md);
+}
+
+.system-analogy {
+  margin: 0;
+  padding: var(--space-4);
+  background: linear-gradient(135deg, var(--accent-50), var(--primary-50));
+  border-left: 6px solid var(--accent-500);
+  border-radius: var(--radius-md);
+  font-style: italic;
+  line-height: 1.7;
+}
+
+.system-analogy p {
+  margin-bottom: var(--space-3);
+  color: var(--neutral-700);
+}
+
+.system-analogy p:last-child {
+  margin-bottom: 0;
+}
+
+.system-analogy strong {
+  color: var(--accent-700);
+  font-weight: 600;
+}
+
+/* Responsive Design for New Example Section */
+@media (max-width: 768px) {
+  .practical-example-section {
+    padding: var(--space-4);
+    margin: var(--space-4) 0;
+  }
+
+  .subsection-title {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .example-table {
+    font-size: 12px;
+  }
+
+  .example-table th,
+  .example-table td {
+    padding: 8px;
+  }
+
+  .sap-term::after {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 280px;
+    white-space: normal;
+    text-align: center;
+    background: rgba(55, 65, 81, 0.95);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .sap-term::before {
+    display: none;
+  }
+
+  .visualization-box {
+    padding: 16px;
+  }
+
+  .system-analogy {
+    padding: 12px;
+    font-size: var(--text-sm);
+  }
+}
