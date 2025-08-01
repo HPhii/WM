@@ -17,10 +17,10 @@
         </h3>
         <div class="comparison-intro">
           <p class="description">
-            <span class="key-term">Quant</span> là đơn vị nhỏ nhất để đo lường hàng hóa, nhưng nó <mark class="highlight-critical"><strong>không đại diện cho không gian</strong></mark>. Nó có thể là <span class="highlight-example">1 cặp, 1 chiếc, 1 pack</span>.
+            <span class="key-term">Quant</span> là đơn vị nhỏ nhất để đo lường hàng hóa, nhưng nó <mark>không đại diện cho không gian</mark>. Nó có thể là 1 cặp, 1 chiếc, 1 pack.
           </p>
           <p class="description">
-            <span class="key-term">Bin</span> cũng là đại lượng nhỏ nhất, nhưng dùng để <mark class="highlight-critical"><strong>đại diện cho không gian lưu trữ</strong></mark>.
+            <span class="key-term">Bin</span> cũng là đại lượng nhỏ nhất, nhưng dùng để <mark>đại diện cho không gian lưu trữ</mark>.
           </p>
         </div>
 
@@ -32,17 +32,51 @@
             </div>
             <div class="comparison-content">
               <div class="definition">
-                <h5>Định nghĩa:</h5>
-                <p><span class="key-term">Đơn vị quản lý stock</span> - Đại diện cho một lượng hàng cụ thể tại một vị trí cụ thể.</p>
+                <h5>Định nghĩa SAP:</h5>
+                <p><span class="key-term">Quant</span> là <mark>tồn kho của một material cụ thể có cùng đặc tính trong một storage bin</mark>. Hệ thống quản lý các batch khác nhau của cùng một material như các quant riêng biệt.</p>
               </div>
-              <div class="characteristics">
-                <h5>Đặc điểm:</h5>
+              
+              <div class="quant-purpose">
+                <h5>Mục đích sử dụng:</h5>
                 <ul>
-                  <li>Đo lường <span class="highlight-feature">số lượng hàng hóa</span></li>
-                  <li>Có thể là: <span class="highlight-example">1 cặp, 1 chiếc, 1 pack</span></li>
-                  <li>Chứa thông tin: <span class="highlight-technical">Material, Quantity, Batch, Stock Type</span></li>
-                  <li>Mỗi <span class="key-term">bin</span> có thể chứa nhiều <span class="key-term">quant</span> khác nhau</li>
+                  <li>Quản lý tồn kho ở cấp độ <span class="highlight-feature">Storage Bin</span></li>
+                  <li>Tự động tạo khi putaway hàng vào bin trống</li>
+                  <li>Tự động xóa khi pick hết số lượng</li>
+                  <li>Theo dõi chi tiết vị trí và đặc tính từng lô hàng</li>
                 </ul>
+              </div>
+
+              <div class="quant-identification">
+                <h5>Thông tin định danh Quant:</h5>
+                <ul>
+                  <li><span class="highlight-technical">Plant</span> - Nhà máy/Chi nhánh</li>
+                  <li><span class="highlight-technical">Material Number</span> - Mã vật tư</li>
+                  <li><span class="highlight-technical">Batch Number</span> - Số lô (nếu có)</li>
+                  <li><span class="highlight-technical">Stock Category</span> - Loại tồn kho</li>
+                  <li>Special Stock Indicator - Chỉ báo tồn kho đặc biệt</li>
+                  <li>Storage Bin Location - Vị trí lưu trữ chính xác</li>
+                </ul>
+              </div>
+
+              <div class="quant-management">
+                <h5>Cách thức hoạt động:</h5>
+                <ul>
+                  <li><strong>Tạo Quant:</strong> Khi putaway hàng vào bin trống → SAP tự động tạo quant mới với số hiệu duy nhất</li>
+                  <li><strong>Tăng Quant:</strong> Putaway thêm cùng material/batch vào bin đã có → tăng quantity của quant hiện tại</li>
+                  <li><strong>Xóa Quant:</strong> Pick hết số lượng → SAP tự động xóa quant</li>
+                  <li><strong>Phân biệt:</strong> <span class="key-term">Batch khác nhau = Quant khác nhau</span> dù cùng material</li>
+                </ul>
+              </div>
+
+              <div class="quant-example">
+                <h5><i class="fas fa-lightbulb text-warning-600"></i> Ví dụ thực tế:</h5>
+                <p>Bin A1-02-05 chứa:</p>
+                <ul>
+                  <li><span class="highlight-example">Quant #1</span>: 30 phanh Honda batch LOT001</li>
+                  <li><span class="highlight-example">Quant #2</span>: 20 phanh Honda batch LOT002</li>
+                  <li><span class="highlight-example">Quant #3</span>: 15 phanh Yamaha batch LOT003</li>
+                </ul>
+                <p><mark>→ Cùng bin nhưng 3 quant khác nhau do khác batch/material</mark></p>
               </div>
             </div>
           </div>
@@ -62,8 +96,8 @@
                 <ul>
                   <li>Đại diện cho <span class="highlight-feature">không gian lưu trữ</span></li>
                   <li>Cấu trúc: <span class="highlight-technical">A1-01-01 (Dãy-Tầng-Vị trí)</span></li>
-                  <li>Thuộc tính: <span class="highlight-technical">Capacity, Weight limit, Bin type</span></li>
-                  <li>Có thể chứa nhiều <span class="key-term">quant</span> của cùng hoặc khác <span class="key-term">material</span></li>
+                  <li>Thuộc tính: Capacity, Weight limit, Bin type</li>
+                  <li>Có thể chứa nhiều <span class="key-term">quant</span> của cùng hoặc khác material</li>
                 </ul>
               </div>
             </div>
@@ -77,7 +111,7 @@
         </h3>
         <div class="transfer-intro">
           <p class="intro-text">
-            Là hai loại nghiệp vụ <mark class="highlight-critical">hoàn toàn khác nhau</mark>, khác cả về <mark class="highlight-feature">mục đích, cách hạch toán</mark>, và <mark class="highlight-feature">cách xử lý trong kho</mark>.
+            Là hai loại nghiệp vụ <mark>hoàn toàn khác nhau</mark>, khác cả về mục đích, cách hạch toán, và cách xử lý trong kho.
           </p>
         </div>
 
@@ -87,7 +121,7 @@
               <i class="fas fa-edit text-warning-600"></i> 1. <span class="key-term">Transfer Posting</span> là gì?
             </h4>
             <p class="transfer-description">
-              Là nghiệp vụ <mark class="highlight-critical">chuyển đổi loại stock</mark> hoặc thuộc tính hàng hóa <mark class="highlight-critical">mà không nhất thiết có sự di chuyển vật lý</mark> của vật tư.
+              Là nghiệp vụ <mark>chuyển đổi loại stock</mark> hoặc thuộc tính hàng hóa <mark>mà không nhất thiết có sự di chuyển vật lý</mark> của vật tư.
             </p>
             
             <div class="transfer-subtypes">
@@ -97,7 +131,7 @@
                   <h6><span class="key-term">Stock Type to Stock Type</span></h6>
                   <ul>
                     <li>Chuyển từ <span class="highlight-technical">Unrestricted → Blocked / Quality Inspection</span></li>
-                    <li><strong>Ví dụ:</strong> <span class="highlight-example">hàng lỗi → chuyển sang Blocked Stock</span></li>
+                    <li><strong>Ví dụ:</strong> hàng lỗi → chuyển sang Blocked Stock</li>
                   </ul>
                 </div>
                 <div class="subtype-card">
@@ -109,13 +143,13 @@
                 <div class="subtype-card">
                   <h6><span class="key-term">Batch to Batch</span></h6>
                   <ul>
-                    <li>Đổi <span class="highlight-technical">batch</span> nếu phát hiện batch sai, nhưng vật tư giống nhau</li>
+                    <li>Đổi batch nếu phát hiện batch sai, nhưng vật tư giống nhau</li>
                   </ul>
                 </div>
                 <div class="subtype-card">
                   <h6><span class="key-term">Valuation Type to Valuation Type</span></h6>
                   <ul>
-                    <li>Chuyển giữa hai loại giá trị (nếu dùng <span class="highlight-technical">split valuation</span>)</li>
+                    <li>Chuyển giữa hai loại giá trị (nếu dùng split valuation)</li>
                   </ul>
                 </div>
               </div>
@@ -124,9 +158,9 @@
             <div class="transfer-characteristics">
               <h5>Đặc điểm:</h5>
               <ul>
-                <li>Không yêu cầu <span class="highlight-feature">physical movement</span></li>
+                <li>Không yêu cầu physical movement</li>
                 <li>Dùng <span class="key-term">movement type</span> như <span class="highlight-technical">309, 321, 343,...</span></li>
-                <li>Hệ thống chỉ update <span class="highlight-technical">bảng tồn kho</span> và <span class="highlight-technical">tài khoản kế toán</span> nếu cần</li>
+                <li>Hệ thống chỉ update bảng tồn kho và tài khoản kế toán nếu cần</li>
               </ul>
             </div>
           </div>
@@ -136,7 +170,7 @@
               <i class="fas fa-truck text-success-600"></i> 2. <span class="key-term">Stock Transfer</span> là gì?
             </h4>
             <p class="transfer-description">
-              Là nghiệp vụ <mark class="highlight-critical">di chuyển vật tư từ địa điểm này sang địa điểm khác</mark> → <mark class="highlight-critical">có sự di chuyển vật lý thực sự</mark> trong kho.
+              Là nghiệp vụ <mark>di chuyển vật tư từ địa điểm này sang địa điểm khác</mark> → <mark>có sự di chuyển vật lý thực sự</mark> trong kho.
             </p>
             
             <div class="transfer-levels">
@@ -254,7 +288,7 @@
         </h3>
         <div class="sto-intro">
           <p class="sto-description">
-            Đây là một dạng đặc biệt của <span class="key-term">Purchase Order</span> nhưng dùng để <mark class="highlight-critical">di chuyển hàng giữa các plant trong cùng một công ty</mark> (hoặc khác công ty nếu liên công ty). Đây là chức năng cực kỳ phổ biến trong các hệ thống phân phối lớn.
+            Đây là một dạng đặc biệt của <span class="key-term">Purchase Order</span> nhưng dùng để <mark>di chuyển hàng giữa các plant trong cùng một công ty</mark> (hoặc khác công ty nếu liên công ty). Đây là chức năng cực kỳ phổ biến trong các hệ thống phân phối lớn.
           </p>
         </div>
 
@@ -816,50 +850,50 @@
           <div class="horizontal-term">
             <h4><span class="key-term">Warehouse</span></h4>
             <p><strong>Kho hàng</strong> - Cơ sở vật chất để lưu trữ, bảo quản và quản lý hàng hóa.</p>
-            <p><strong>Trong SAP:</strong> Được định nghĩa bằng <span class="highlight-technical">Warehouse Number</span> và có thể chứa nhiều <span class="key-term">Storage Type</span> khác nhau.</p>
-            <p><strong>Ví dụ:</strong> <span class="highlight-example">Kho chính Global Bike tại Hà Nội = Warehouse 001, kho phụ tại HCM = Warehouse 002</span></p>
+            <p><strong>Trong SAP:</strong> Được định nghĩa bằng <span class="highlight-technical">Warehouse Number</span> và có thể chứa nhiều Storage Type khác nhau.</p>
+            <p><strong>Ví dụ:</strong> Kho chính Global Bike tại Hà Nội = Warehouse 001, kho phụ tại HCM = Warehouse 002</p>
           </div>
 
           <div class="horizontal-term">
             <h4><span class="key-term">Storage Type</span></h4>
             <p><strong>Loại khu vực lưu trữ</strong> - Phân loại các khu vực trong kho theo đặc điểm và mục đích sử dụng.</p>
             <p><strong>Các loại phổ biến:</strong> <span class="highlight-technical">PALLET, SHELF, FLOOR, BULK, PICK</span></p>
-            <p><strong>Ví dụ:</strong> <span class="highlight-example">Khu PALLET để khung xe lớn, khu SHELF để phụ tùng nhỏ, khu PICK để lấy hàng nhanh</span></p>
+            <p><strong>Ví dụ:</strong> Khu PALLET để khung xe lớn, khu SHELF để phụ tùng nhỏ, khu PICK để lấy hàng nhanh</p>
           </div>
 
           <div class="horizontal-term">
             <h4><span class="key-term">Storage Bin</span></h4>
             <p><strong>Vị trí lưu trữ</strong> - Địa chỉ cụ thể nhất để lưu trữ hàng hóa trong kho.</p>
             <p><strong>Cấu trúc:</strong> Thường có format như <span class="highlight-technical">A1-01-01 (Dãy-Tầng-Vị trí)</span></p>
-            <p><strong>Ví dụ:</strong> <span class="highlight-example">Bin A1-02-05 = Dãy A1, tầng 2, vị trí số 5. Đây là nơi cất 50 cái phanh đĩa Honda</span></p>
+            <p><strong>Ví dụ:</strong> Bin A1-02-05 = Dãy A1, tầng 2, vị trí số 5. Đây là nơi cất 50 cái phanh đĩa Honda</p>
           </div>
 
           <div class="horizontal-term">
             <h4><span class="key-term">Quant</span></h4>
             <p><strong>Đơn vị quản lý stock</strong> - Đại diện cho một lượng hàng cụ thể tại một vị trí cụ thể.</p>
             <p><strong>Thông tin:</strong> <span class="highlight-technical">Material, Quantity, Batch, Stock Type</span></p>
-            <p><strong>Ví dụ:</strong> <span class="highlight-example">Tại bin A1-02-05 có Quant #1: 30 phanh Honda batch LOT001, Quant #2: 20 phanh Yamaha batch LOT002</span></p>
+            <p><strong>Ví dụ:</strong> Tại bin A1-02-05 có Quant #1: 30 phanh Honda batch LOT001, Quant #2: 20 phanh Yamaha batch LOT002</p>
           </div>
 
           <div class="horizontal-term">
             <h4><span class="key-term">Put-away</span></h4>
             <p><strong>Quy trình sắp xếp hàng</strong> - Chuyển hàng từ khu tiếp nhận vào vị trí lưu trữ.</p>
             <p><strong>Các bước:</strong> <span class="highlight-technical">Goods Receipt → Transfer Order → Put-away</span></p>
-            <p><strong>Ví dụ:</strong> <span class="highlight-example">Xe tải đem 100 lốp xe đến → nhận hàng tại cửa → tạo TO → nhân viên đẩy xe nâng cất vào bin B2-01-03</span></p>
+            <p><strong>Ví dụ:</strong> Xe tải đem 100 lốp xe đến → nhận hàng tại cửa → tạo TO → nhân viên đẩy xe nâng cất vào bin B2-01-03</p>
           </div>
 
           <div class="horizontal-term">
             <h4><span class="key-term">Picking</span></h4>
             <p><strong>Quy trình lấy hàng</strong> - Lấy hàng từ vị trí lưu trữ để chuẩn bị xuất kho.</p>
             <p><strong>Loại picking:</strong> <span class="highlight-technical">Single picking, Batch picking, Wave picking</span></p>
-            <p><strong>Ví dụ:</strong> <span class="highlight-example">Khách đặt 5 lốp xe → tạo TO pick → nhân viên đến bin B2-01-03 lấy 5 lốp → đưa ra khu xuất hàng</span></p>
+            <p><strong>Ví dụ:</strong> Khách đặt 5 lốp xe → tạo TO pick → nhân viên đến bin B2-01-03 lấy 5 lốp → đưa ra khu xuất hàng</p>
           </div>
 
           <div class="horizontal-term">
             <h4><span class="key-term">Transfer Order (TO)</span></h4>
             <p><strong>Lệnh chuyển hàng</strong> - Chỉ thị di chuyển hàng từ vị trí này sang vị trí khác.</p>
             <p><strong>Loại TO:</strong> <span class="highlight-technical">Put-away TO, Pick TO, Stock Transfer TO</span></p>
-            <p><strong>Ví dụ:</strong> <span class="highlight-example">TO #1001: Di chuyển 10 gương chiếu hậu từ bin A1-01-01 đến khu đóng gói</span></p>
+            <p><strong>Ví dụ:</strong> TO #1001: Di chuyển 10 gương chiếu hậu từ bin A1-01-01 đến khu đóng gói</p>
           </div>
 
           <div class="horizontal-term">
@@ -931,81 +965,137 @@
 </div>
 
 <style>
-  /* Key Term Highlighting Styles */
+  /* Key Term Highlighting Styles - More subtle */
   .key-term {
-    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-    color: white;
-    padding: 0.15rem 0.4rem;
-    border-radius: 0.25rem;
+    background: linear-gradient(135deg, #e0f2fe, #b3e5fc);
+    color: #0277bd;
+    padding: 0.1rem 0.3rem;
+    border-radius: 0.2rem;
     font-weight: 600;
     font-size: 0.95em;
-    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
-    border: 1px solid rgba(59, 130, 246, 0.4);
+    border: 1px solid #81d4fa;
     display: inline-block;
-    margin: 0 0.1rem;
+    margin: 0 0.05rem;
   }
 
   .highlight-critical {
-    background: linear-gradient(135deg, #ef4444, #dc2626);
-    color: white;
-    padding: 0.2rem 0.5rem;
-    border-radius: 0.3rem;
-    font-weight: 700;
-    box-shadow: 0 2px 6px rgba(239, 68, 68, 0.4);
-    border: 1px solid rgba(239, 68, 68, 0.3);
+    background: linear-gradient(135deg, #ffebee, #ffcdd2);
+    color: #c62828;
+    padding: 0.1rem 0.3rem;
+    border-radius: 0.2rem;
+    font-weight: 600;
+    border: 1px solid #ef9a9a;
   }
 
   .highlight-feature {
-    background: linear-gradient(135deg, #10b981, #059669);
-    color: white;
-    padding: 0.15rem 0.4rem;
-    border-radius: 0.25rem;
+    background: linear-gradient(135deg, #f1f8e9, #dcedc8);
+    color: #2e7d32;
+    padding: 0.1rem 0.3rem;
+    border-radius: 0.2rem;
     font-weight: 600;
-    box-shadow: 0 2px 4px rgba(16, 185, 129, 0.3);
-    border: 1px solid rgba(16, 185, 129, 0.3);
+    border: 1px solid #aed581;
   }
 
   .highlight-technical {
-    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
-    color: white;
-    padding: 0.15rem 0.4rem;
-    border-radius: 0.25rem;
+    background: linear-gradient(135deg, #f3e5f5, #e1bee7);
+    color: #6a1b9a;
+    padding: 0.1rem 0.3rem;
+    border-radius: 0.2rem;
     font-weight: 600;
     font-family: 'Courier New', monospace;
-    box-shadow: 0 2px 4px rgba(139, 92, 246, 0.3);
-    border: 1px solid rgba(139, 92, 246, 0.3);
+    border: 1px solid #ce93d8;
   }
 
   .highlight-example {
-    background: linear-gradient(135deg, #f59e0b, #d97706);
-    color: white;
-    padding: 0.15rem 0.4rem;
-    border-radius: 0.25rem;
-    font-weight: 600;
+    background: linear-gradient(135deg, #fff8e1, #ffecb3);
+    color: #e65100;
+    padding: 0.1rem 0.3rem;
+    border-radius: 0.2rem;
+    font-weight: 500;
     font-style: italic;
-    box-shadow: 0 2px 4px rgba(245, 158, 11, 0.3);
-    border: 1px solid rgba(245, 158, 11, 0.3);
+    border: 1px solid #ffcc02;
   }
 
-  /* Enhanced mark styling */
+  /* Enhanced mark styling - more subtle */
   mark {
-    background: linear-gradient(135deg, #fbbf24, #f59e0b);
-    color: #1f2937;
-    padding: 0.2rem 0.4rem;
-    border-radius: 0.25rem;
-    font-weight: 700;
-    box-shadow: 0 1px 3px rgba(251, 191, 36, 0.4);
+    background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+    color: #bf360c;
+    padding: 0.1rem 0.25rem;
+    border-radius: 0.2rem;
+    font-weight: 600;
   }
 
-  /* Hover effects for highlighted terms */
+  /* Hover effects for highlighted terms - more subtle */
   .key-term:hover,
   .highlight-critical:hover,
   .highlight-feature:hover,
   .highlight-technical:hover,
   .highlight-example:hover {
     transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0.8;
     cursor: help;
+  }
+
+  /* Enhanced Quant Section Styles */
+  .quant-purpose,
+  .quant-identification,
+  .quant-management,
+  .quant-example {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border-left: 4px solid;
+  }
+
+  .quant-purpose {
+    background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+    border-left-color: #0ea5e9;
+  }
+
+  .quant-identification {
+    background: linear-gradient(135deg, #f7fee7, #ecfccb);
+    border-left-color: #65a30d;
+  }
+
+  .quant-management {
+    background: linear-gradient(135deg, #fef3c7, #fef9c3);
+    border-left-color: #d97706;
+  }
+
+  .quant-example {
+    background: linear-gradient(135deg, #fdf2f8, #fce7f3);
+    border-left-color: #ec4899;
+  }
+
+  .quant-purpose h5,
+  .quant-identification h5,
+  .quant-management h5,
+  .quant-example h5 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #1f2937;
+  }
+
+  .quant-purpose ul,
+  .quant-identification ul,
+  .quant-management ul,
+  .quant-example ul {
+    margin: 0;
+    padding-left: 1.5rem;
+  }
+
+  .quant-purpose li,
+  .quant-identification li,
+  .quant-management li,
+  .quant-example li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+  }
+
+  .quant-example p {
+    margin-bottom: 0.75rem;
+    font-weight: 500;
   }
 
   /* Terms Horizontal Layout */
